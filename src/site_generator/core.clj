@@ -4,6 +4,7 @@
             [optimus.optimizations :as op]
             [optimus.prime :as optimus]
             [optimus.strategies :as strategies]
+            [site-generator.templates :as t]
             [stasis.core :as s]))
 
 ;; Config to be moved to DB
@@ -12,7 +13,7 @@
 (defn get-pages []
   ;; merge-page-sources is a convenience to identify conflicts
   (s/merge-page-sources
-   {:pages {"/" "Hello there"}}))
+   {:pages {"/" (fn [context] (t/home-page context))}}))
 
 ;; Here we specify which files should be bundled together and minified
 ;; Since we only have one page it makes sense to put all files in a bundle
