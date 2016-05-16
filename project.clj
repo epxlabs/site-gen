@@ -11,4 +11,5 @@
                  [ring/ring-jetty-adapter "1.4.0"]
                  [stasis "2.3.0"]]
   :plugins [[lein-ring "0.9.7"]]
-  :ring {:handler site-generator.core/app})
+  :ring {:handler site-generator.core/app}
+  :aliases {"export-site" ["run" "-m" "site-generator.core/export"]})
