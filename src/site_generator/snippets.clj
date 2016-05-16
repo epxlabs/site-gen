@@ -14,7 +14,20 @@
                                        :url "https://www.linkedin.com/company/epx-labs/"}
                             :twitter {:title "Twitter"
                                       :url "https://twitter.com/"}}
-             :who-we-are "We are winners."})
+             :who-we-are "We are winners."
+             :what-we-do {:DevOps {:h4.mb-sm "DevOps"
+                                   :p.mb-lg "We Do DevOps"
+                                   :i.icons (html/add-class "icon-settings")}
+                          :Serverless {:h4.mb-sm "Serverless & Event Driven"
+                                       :p.mb-lg "We Do Serverless"
+                                       :i.icons (html/add-class "icon-social-dropbox")}
+                          :Functional {:h4.mb-sm "Functional Development"
+                                       :p.mb-lg "We Do Clojure"
+                                       :i.icons (html/substitute
+                                                 (html/html-snippet
+                                                  "<div class=\"feature-box-icon\">
+                                                   <span class=\"fa fa-alpha-l\"></span>
+                                                   </div>"))}}})
 
 ;; TODO: Add src to header logo img tag once logo decided
 (html/defsnippet header "partials/header.html"
@@ -47,3 +60,14 @@
   [html/root]
   []
   [:div.center :p] (html/content (:who-we-are config)))
+
+;; We should see if it is possible to write a macro to create the selector
+;;  and transformations so we can use maps of the selector to content
+;; This would be helpful if we build this out since we could create a GUI around it
+(html/defsnippet what-we-do "partials/what-we-do.html"
+  [html/root]
+  []
+  [:div.col-md-4] (html/clone-for [[_ data] (:what-we-do config)]
+                                  [:h4.mb-sm] (html/content (:h4.mb-sm data))
+                                  [:p.mb-lg] (html/content (:h4.mb-sm data))
+                                  [:i.icons] (:i.icons data)))

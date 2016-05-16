@@ -1,1 +1,6 @@
 /* Add here all your CSS customizations */
+
+.fa-alpha-l:before {
+    font-weight: 700;
+    content: '\03bb';
+}

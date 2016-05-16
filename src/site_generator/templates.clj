@@ -19,4 +19,7 @@
   [:body [:script html/last-of-type]] (get-bundle-paths request :src ["app.js"])
   ;; Add the different sections to the HTML
   [:body :div.body] (html/prepend (s/header))
-  [:body :div#home] (html/append (s/slider) (s/call-to-action) (s/who-we-are)))
+  [:body :div#home] (html/append (s/slider)
+                                 (s/call-to-action)
+                                 (s/who-we-are)
+                                 (s/what-we-do)))
