@@ -22,4 +22,6 @@
   [:body :div#home] (html/append (s/slider)
                                  (s/call-to-action)
                                  (s/who-we-are)
-                                 (s/what-we-do)))
+                                 (s/what-we-do)
+                                 (s/our-blog)
+                                 (s/contact-us-form)))
