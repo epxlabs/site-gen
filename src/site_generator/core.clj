@@ -13,7 +13,7 @@
 (defn get-pages []
   ;; merge-page-sources is a convenience to identify conflicts
   (s/merge-page-sources
-   {:pages {"/" (fn [context] (t/home-page context))}}))
+   {:pages {"/" (fn [context] (apply str (t/home-page context)))}}))
 
 ;; Here we specify which files should be bundled together and minified
 ;; Since we only have one page it makes sense to put all files in a bundle
@@ -87,4 +87,8 @@
     (export/save-assets assets export-dir)
     ;; Since Optimus will add cache busters to the file names we need to pass the names
     ;; to the templates so they can generate <link> headers correctly
-    (s/export-pages (get-pages) export-dir {:optimus-assets assets})))
+    (s/export-pages
+     ;; Enlive returns a list of strings so we must concatenate them
+     (get-pages)
+     export-dir
+     {:optimus-assets assets})))
