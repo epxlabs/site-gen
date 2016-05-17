@@ -25,9 +25,7 @@
                            :summary "We Do Clojure"
                            :icon (html/substitute
                                   (html/html-snippet
-                                   "<div class=\"feature-box-icon\">
-                                      <span class=\"fa fa-alpha-l\"></span>
-                                    </div>"))}]
+                                   "<span class=\"fa fa-alpha-l\"></span>"))}]
              :months {"01" "Jan"
                       "02" "Feb"
                       "03" "Mar"

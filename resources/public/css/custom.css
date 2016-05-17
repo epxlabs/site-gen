@@ -1,6 +1,8 @@
 /* Add here all your CSS customizations */
 
+/* Lambda icon for Functional in the What We Do section */
 .fa-alpha-l:before {
-    font-weight: 700;
+    font-size: 39px;
     content: '\03bb';
+    color: #42ade2;
 }
