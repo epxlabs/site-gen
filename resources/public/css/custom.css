@@ -6,3 +6,8 @@
     content: '\03bb';
     color: #42ade2;
 }
+
+p.multi-line {
+    color: #e6e6e6;
+    margin: 0 0 10px;
+}
