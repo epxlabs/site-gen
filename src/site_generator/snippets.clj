@@ -14,16 +14,37 @@
                                        :url "https://www.linkedin.com/company/epx-labs/"}
                             :twitter {:title "Twitter"
                                       :url "https://twitter.com/"}}
-             :who-we-are ["We are winners."
-                          "They are losers."]
+             :who-we-are ["System Architects, Managers of Applications, Programmers, and Engineers."
+                          "EPX Labs is in the business of challenging assumptions."
+                          "We are change agents for hire."
+                          "We automate away your IT pains and deliver recurring value propositions to our client-partners."
+                          "Let us show you the power of IT Simplicity."]
              :what-we-do [{:title "DevOps"
-                           :summary "We Do DevOps"
+                           :summary ["We <3 DevOps."
+                                     "The EPX Labs team implements DevOps as a philosophy."
+                                     "We build the best tool-chain for your problem domain."
+                                     "We maintain technology agnosticism until we establish your business needs."
+                                     "Lets end the war between Development and Operations."
+                                     "Our strategy is simple; perpetuate respect between your Dev and Ops team."
+                                     "Deliver the absolute maximum value to your customers. (absolute vs relative maxima)"
+                                     "Sign the Peace Treaty."
+
+                                     ]
                            :icon (html/add-class "icon-settings")}
                           {:title "Serverless & Event Driven"
-                           :summary "We Do Serverless"
+                           :summary ["No, its not Black Magic."
+                                     "Yes its true!"
+                                     "(= (+ Serverless You) Success!) => True!"
+                                     ""
+                                     "No more configuration, provisioning, and patching."
+                                     "Sleep well knowing your PagerDuty notifications are gone!"
+                                     "No more exorbitant bills for Hosting and Support."
+                                     "No more wasted capacity."
+                                     "EPX Labs specializes in implementing Serverless solutions that save time and money."
+                                     "The future is less about servers and more about services."]
                            :icon (html/add-class "icon-social-dropbox")}
                           {:title "Functional Development"
-                           :summary "We Do Clojure"
+                           :summary ["We Do Clojure"]
                            :icon (html/substitute
                                   (html/html-snippet
                                    "<span class=\"fa fa-alpha-l\"></span>"))}]
@@ -51,6 +72,12 @@
                       :date "07232016"
                       :summary "Blog 3 Rocks!"
                       :link "https://blog.epxlabs.com/3"}]})
+
+;; Adding a multi-line function to be called by each snippet to correctly place
+(defn make-multiline [section]
+  (html/clone-for [line section]
+                  [:p] (html/content line)))
+
 
 ;; TODO: Add src to header logo img tag once logo decided
 (html/defsnippet header "partials/header.html"
@@ -82,8 +109,9 @@
 (html/defsnippet who-we-are "partials/who-we-are.html"
   [html/root]
   []
-  [:div.center :p] (html/clone-for [line (:who-we-are config)]
-                                   [:p] (html/content line)))
+  [:div.center :p] (make-multiline (:who-we-are config)))
+
+
 
 ;; We should see if it is possible to write a macro to create the selector
 ;;  and transformations so we can use maps of the selector to content
@@ -93,7 +121,7 @@
   []
   [:div.col-md-4] (html/clone-for [{:keys [title summary icon]} (:what-we-do config)]
                                   [:h4.mb-sm] (html/content title)
-                                  [:p.mb-lg] (html/content summary)
+                                  [:p] (make-multiline summary)
                                   [:i.icons] icon))
 
 ;; n is the nth you would like to get of the partitioned date string
