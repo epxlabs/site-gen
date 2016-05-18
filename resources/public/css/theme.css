@@ -298,7 +298,7 @@ li {
 }
 
 #header.header-narrow .header-body {
-	min-height: 0;
+	min-height: 72px;
 }
 
 #header.header-narrow .header-logo img {
@@ -745,10 +745,6 @@ html:not(.sticky-header-active) #header.header-transparent-sticky-deactive .head
 
 	#header .header-nav.header-nav-stripe .header-social-icons {
 		margin-top: 70px;
-	}
-
-	#header .header-nav.header-nav-top-line {
-		margin-bottom: -9px;
 	}
 
 	#header .header-nav.header-nav-top-line nav > ul > li > a, #header .header-nav.header-nav-top-line nav > ul > li:hover > a {
@@ -2920,7 +2916,6 @@ html.dark .text-muted {
 	background: #0e0e0e;
 	border-top: 4px solid #0e0e0e;
 	font-size: 0.9em;
-	margin-top: 50px;
 	padding: 70px 0 0;
 	position: relative;
 	clear: both;
