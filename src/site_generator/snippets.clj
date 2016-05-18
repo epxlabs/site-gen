@@ -14,7 +14,8 @@
                                        :url "https://www.linkedin.com/company/epx-labs/"}
                             :twitter {:title "Twitter"
                                       :url "https://twitter.com/"}}
-             :who-we-are "We are winners."
+             :who-we-are ["We are winners."
+                          "They are losers."]
              :what-we-do [{:title "DevOps"
                            :summary "We Do DevOps"
                            :icon (html/add-class "icon-settings")}
@@ -81,7 +82,8 @@
 (html/defsnippet who-we-are "partials/who-we-are.html"
   [html/root]
   []
-  [:div.center :p] (html/content (:who-we-are config)))
+  [:div.center :p] (html/clone-for [line (:who-we-are config)]
+                                   [:p] (html/content line)))
 
 ;; We should see if it is possible to write a macro to create the selector
 ;;  and transformations so we can use maps of the selector to content
