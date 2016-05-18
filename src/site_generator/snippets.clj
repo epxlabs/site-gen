@@ -1,35 +1,55 @@
 (ns site-generator.snippets
-  (:require [net.cgrand.enlive-html :as html]))
+  (:require [net.cgrand.enlive-html :as html]
+            [optimus.link :as link])
+  (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:nav-links {"#home" "Home"
+(def config {:blogs [{:title "Blog 1"
+                      :date "01242016"
+                      :summary "Blog 1 Rocks!"
+                      :link "https://blog.epxlabs.com/1"}
+                     {:title "Blog 2"
+                      :date "03182016"
+                      :summary "Blog 2 Rocks!"
+                      :link "https://blog.epxlabs.com/2"}
+                     {:title "Blog 3"
+                      :date "07232016"
+                      :summary "Blog 3 Rocks!"
+                      :link "https://blog.epxlabs.com/3"}]
+             :email "hello@epxlabs.com"
+             :logo-image "/img/logos/epx_logo.svg"
+             :months {"01" "Jan"
+                      "02" "Feb"
+                      "03" "Mar"
+                      "04" "Apr"
+                      "05" "May"
+                      "06" "Jun"
+                      "07" "Jul"
+                      "08" "Aug"
+                      "09" "Sep"
+                      "10" "Oct"
+                      "11" "Nov"
+                      "12" "Dec"}
+             :nav-links {"#home" "Home"
                          "#identity" "Who We Are"
                          "#services" "Our Services"
                          "#blog" "Blog"
                          "#contact" "Contact Us"}
-             :header-logo "img/logos/epx_logo_simplify.svg"
+             :phone "646.768.0123"
              :social-icons {:github {:title "GitHub"
                                      :url "https://github.com/epxlabs/"}
                             :linkedin {:title "LinkedIn"
                                        :url "https://www.linkedin.com/company/epx-labs/"}
                             :twitter {:title "Twitter"
                                       :url "https://twitter.com/"}}
-             :who-we-are ["System Architects, Managers of Applications, Programmers, and Engineers."
-                          "EPX Labs is in the business of challenging assumptions."
-                          "We are change agents for hire."
-                          "We automate away your IT pains and deliver recurring value propositions to our client-partners."
-                          "Let us show you the power of IT Simplicity."]
              :what-we-do [{:title "DevOps"
-                           :summary ["We <3 DevOps."
-                                     "The EPX Labs team implements DevOps as a philosophy."
+                           :summary ["The EPX Labs team implements DevOps as a philosophy."
                                      "We build the best tool-chain for your problem domain."
                                      "We maintain technology agnosticism until we establish your business needs."
                                      "Lets end the war between Development and Operations."
                                      "Our strategy is simple; perpetuate respect between your Dev and Ops team."
                                      "Deliver the absolute maximum value to your customers. (absolute vs relative maxima)"
-                                     "Sign the Peace Treaty."
-
-                                     ]
+                                     "Sign the Peace Treaty."]
                            :icon (html/add-class "icon-settings")}
                           {:title "Serverless & Event Driven"
                            :summary ["No, its not Black Magic."
@@ -48,49 +68,32 @@
                            :icon (html/substitute
                                   (html/html-snippet
                                    "<span class=\"fa fa-alpha-l\"></span>"))}]
-             :months {"01" "Jan"
-                      "02" "Feb"
-                      "03" "Mar"
-                      "04" "Apr"
-                      "05" "May"
-                      "06" "Jun"
-                      "07" "Jul"
-                      "08" "Aug"
-                      "09" "Sep"
-                      "10" "Oct"
-                      "11" "Nov"
-                      "12" "Dec"}
-             :blogs [{:title "Blog 1"
-                      :date "01242016"
-                      :summary "Blog 1 Rocks!"
-                      :link "https://blog.epxlabs.com/1"}
-                     {:title "Blog 2"
-                      :date "03182016"
-                      :summary "Blog 2 Rocks!"
-                      :link "https://blog.epxlabs.com/2"}
-                     {:title "Blog 3"
-                      :date "07232016"
-                      :summary "Blog 3 Rocks!"
-                      :link "https://blog.epxlabs.com/3"}]})
+             :who-we-are ["System Architects, Managers of Applications, Programmers, and Engineers."
+                          "EPX Labs is in the business of challenging assumptions."
+                          "We are change agents for hire."
+                          "We automate away your IT pains and deliver recurring value propositions to our client-partners."
+                          "Let us show you the power of IT Simplicity."]})
+
+(defn build-social-icons []
+  (html/clone-for
+   ;; destructure our social-icons value
+   [[media {:keys [title url]}] (:social-icons config)]
+   [:li] (html/add-class (str "social-icons-" (name media)))
+   [:li :a] (html/set-attr :href url :title title)
+   [:li :a :i] (html/add-class (str "fa-" (name media)))))
 
 ;; Adding a multi-line function to be called by each snippet to correctly place
-(defn make-multiline [section]
-  (html/clone-for [line section]
+;;  vectors of strings into <p> wrapper tags
+(defn make-multiline [lines]
+  (html/clone-for [line lines]
                   [:p] (html/content line)))
 
-
-;; TODO: Add src to header logo img tag once logo decided
 (html/defsnippet header "partials/header.html"
   [html/root]
-  []
+  [request]
+  [:a#header-logo :img] (html/set-attr :src (link/file-path request (:logo-image config)))
   ;; Social icons in header
-  [:ul.social-icons
-   [:li html/first-of-type]] (html/clone-for
-                              ;; destructure our social-icons value
-                              [[media {:keys [title url]}] (:social-icons config)]
-                              [:li] (html/add-class (str "social-icons-" (name media)))
-                              [:li :a] (html/set-attr :href url :title title)
-                              [:li :a :i] (html/add-class (str "fa-" (name media))))
+  [:ul.social-icons [:li html/first-of-type]] (build-social-icons)
   [:ul#mainNav
    [:li html/first-of-type]] (html/clone-for [[href content] (:nav-links config)]
                                              [:li :a] (html/set-attr :href href)
@@ -110,7 +113,6 @@
   [html/root]
   []
   [:div.center :p] (make-multiline (:who-we-are config)))
-
 
 ;; We should see if it is possible to write a macro to create the selector
 ;;  and transformations so we can use maps of the selector to content
@@ -142,3 +144,24 @@
 (html/defsnippet contact-us-form "partials/contact-us-form.html"
   [html/root]
   [])
+
+(html/defsnippet footer "partials/footer.html"
+  [html/root]
+  [request]
+  [:ul.contact
+   [:li html/first-of-type] :p] (html/append "646.768.0123")
+  [:ul.contact
+   [:li html/last-of-type] :p] (html/append
+                                (html/html-snippet
+                                 (str
+                                  "<a href=\"mailto:"
+                                  (:email config) "\">"
+                                  (:email config)
+                                  "</a>")))
+  [:ul.social-icons [:li html/first-of-type]] (build-social-icons)
+  [:a.logo :img] (html/set-attr :src (link/file-path request (:logo-image config)))
+  [:div#copyright :p] (html/content
+                       (str
+                        "© Copyright "
+                        (.. Year now getValue)
+                        " EPX Labs, Inc. All Rights Reserved.")))
