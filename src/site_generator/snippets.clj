@@ -4,8 +4,7 @@
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:background-video "/videos/11845277.mp4"
-             :blogs [{:title "Blog 1"
+(def config {:blogs [{:title "Blog 1"
                       :date "01242016"
                       :summary "Blog 1 Rocks!"
                       :link "https://blog.epxlabs.com/1"}
@@ -17,6 +16,7 @@
                       :date "07232016"
                       :summary "Blog 3 Rocks!"
                       :link "https://blog.epxlabs.com/3"}]
+             :contact-us {:get-in-touch "We are always available to help solve your problems, meet others in the space, and discuss what we're passionate about. Tell us how we can help!"}
              :email "hello@epxlabs.com"
              :logo-image "/img/logos/epx_logo.svg"
              :months {"01" "Jan"
@@ -34,7 +34,7 @@
              :nav-links {"#home" "Home"
                          "#identity" "Who We Are"
                          "#services" "Our Services"
-                         "#blog" "Blog"
+                         ;"#blog" "Blog"
                          "#contact" "Contact Us"}
              :phone "646.768.0123"
              :social-icons {:github {:title "GitHub"
@@ -42,33 +42,38 @@
                             :linkedin {:title "LinkedIn"
                                        :url "https://www.linkedin.com/company/epx-labs/"}
                             :twitter {:title "Twitter"
-                                      :url "https://twitter.com/"}}
-             :slider {:btn-href "#identity"
+                                      :url "https://twitter.com/epxlabs"}}
+             :slider {:background-video "/videos/11845277.mp4"
+                      :background-image "/img/landing.jpg"
+                      :btn-href "#identity"
                       :top-label "ARE YOU READY FOR"
                       :main-label "THE FUTURE?"}
              :what-we-do [{:title "DevOps"
                            :summary ["The EPX Labs team implements DevOps as a philosophy."
-                                     "We build the best tool-chain for your problem domain."
-                                     "We maintain technology agnosticism until we establish your business needs."
+                                     "We work with you to establish business priorities."
+                                     "Then we choose the best technologies to accomplish your goals."
                                      "Lets end the war between Development and Operations."
-                                     "Our strategy is simple; perpetuate respect between your Dev and Ops team."
-                                     "Deliver the maximum value to your customers."
-                                     "Sign the Peace Treaty."]
+                                     "EPX Labs delivers the maximum value to your customers."
+                                     "Sign the DevOps Peace Treaty."]
                            :icon (html/add-class "icon-settings")}
-                          {:title "Serverless & Event Driven"
-                           :summary ["No, its not Black Magic."
-                                     "Yes its true!"
-                                     "(= (+ Serverless You) Success!) => True!"
-                                     ""
-                                     "No more configuration, provisioning, and patching."
-                                     "Sleep well knowing your PagerDuty notifications are gone!"
+                          {:title "Serverless"
+                           :summary ["No more configuration, provisioning, and patching."
                                      "No more exorbitant bills for Hosting and Support."
                                      "No more wasted capacity."
+                                     "Sleep well knowing your services are managed by experts."
+                                     "Now you can focus more on your business."
                                      "EPX Labs specializes in implementing Serverless solutions that save time and money."
                                      "The future is less about servers and more about services."]
                            :icon (html/add-class "icon-social-dropbox")}
-                          {:title "Functional Development"
-                           :summary ["We Do Clojure"]
+                          {:title "Clojure & ClojureScript"
+                           :summary ["We love Clojure."
+                                     "Our language of choice."
+                                     "Rapid development."
+                                     "Fewer defects."
+                                     "Happier developers."
+                                     "We could go on."
+                                     "EPX Labs delivers more value to your customers faster."
+                                     "We specialize in architecting and implementing Clojure and ClojureScript applications on time and on budget."]
                            :icon (html/substitute
                                   (html/html-snippet
                                    "<span class=\"fa fa-alpha-l\"></span>"))}]
@@ -108,10 +113,12 @@
 (html/defsnippet slider "partials/slider.html"
   [html/root]
   [request]
+  [:img.rev-slidebg] (html/set-attr :src (link/file-path request (get-in config [:slider :background-image])))
   [:ul
    [:li html/first-of-type]
    :div.rs-background-video-layer] (html/set-attr
-                                    :data-videomp4 (link/file-path request (:background-video config)))
+                                    :data-videomp4 (link/file-path request
+                                                                   (get-in config [:slider :background-video])))
   [:div.top-label] (html/content (get-in config [:slider :top-label]))
   [:div.main-label] (html/content (get-in config [:slider :main-label]))
   [:a.btn-slider-action] (html/set-attr :href (get-in config [:slider :btn-href])))
@@ -156,20 +163,26 @@
   [html/root]
   [])
 
+(html/defsnippet contact-us "partials/contact-us.html"
+  [html/root]
+  []
+  [:p#get-in-touch] (html/content (get-in config [:contact-us :get-in-touch]))
+  [:ul#contact-info
+   [:li html/first-of-type]] (html/append " 646.768.0123")
+  [:ul#contact-info
+   [:li html/last-of-type]] (html/append
+                             (html/html-snippet
+                              (str
+                               "<a href=\"mailto:"
+                               (:email config) "\">"
+                               " "
+                               (:email config)
+                               "</a>")))
+  [:ul.social-icons [:li html/first-of-type]] (build-social-icons))
+
 (html/defsnippet footer "partials/footer.html"
   [html/root]
   [request]
-  [:ul.contact
-   [:li html/first-of-type] :p] (html/append "646.768.0123")
-  [:ul.contact
-   [:li html/last-of-type] :p] (html/append
-                                (html/html-snippet
-                                 (str
-                                  "<a href=\"mailto:"
-                                  (:email config) "\">"
-                                  (:email config)
-                                  "</a>")))
-  [:ul.social-icons [:li html/first-of-type]] (build-social-icons)
   [:a.logo :img] (html/set-attr :src (link/file-path request (:logo-image config)))
   [:div#copyright :p] (html/content
                        (str

@@ -4,6 +4,7 @@
             [optimus.optimizations :as op]
             [optimus.prime :as optimus]
             [optimus.strategies :as strategies]
+            [ring.middleware.content-type :as ct]
             [site-generator.templates :as t]
             [stasis.core :as s]))
 
@@ -72,14 +73,17 @@
                "/js/theme.init.js"]})
    ;; Loads in images
    (assets/load-assets "public" ["/img/logos/epx_logo.svg"
-                                 "/videos/11845277.mp4"])))
+                                 "/videos/11845277.mp4"
+                                 "/img/landing.jpg"])))
 
 (def app
   ;; Optimus will serve our assets dynamically in development while still optimizing
-  (optimus/wrap (s/serve-pages (get-pages))
-                get-assets
-                op/all
-                strategies/serve-live-assets))
+  (-> (s/serve-pages (get-pages))
+      (optimus/wrap
+       get-assets
+       op/all
+       strategies/serve-live-assets)
+      (ct/wrap-content-type)))
 
 (defn export []
   (let [;; Optimus defaults produce a lot of files to be on the safe side

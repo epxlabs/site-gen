@@ -24,7 +24,8 @@
                                  (s/who-we-are)
                                  (s/call-to-action)
                                  (s/what-we-do)
-                                 (s/our-blog)
-                                 (s/contact-us-form)
+                                 #_(s/our-blog)
+                                 #_(s/contact-us-form)
+                                 (s/contact-us)
                                  ;; Need to pass the request to footer for the logo
                                  (s/footer request)))

@@ -8,7 +8,7 @@
 }
 
 p.multi-line {
-    color: #e6e6e6;
+    color: #777777 !important;
     margin: 0 0 10px;
 }
 
@@ -28,4 +28,8 @@ section#identity {
     .resp-hor-left { text-align: left; }
     /* Responsive Horizontally Stacked Grid Right Align */
     .resp-hor-right { text-align: right; }
+}
+
+section#contact {
+    background: #ffffff;
 }
