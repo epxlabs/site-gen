@@ -69,10 +69,10 @@
                "/js/views/view.home.js"
                "/js/views/view.contact.js"
                "/js/custom.js"
-               "/js/theme.init.js"
-               "/js/contact_us.js"]})
+               "/js/theme.init.js"]})
    ;; Loads in images
-   (assets/load-assets "public" ["/img/logos/epx_logo.svg"])))
+   (assets/load-assets "public" ["/img/logos/epx_logo.svg"
+                                 "/videos/11845277.mp4"])))
 
 (def app
   ;; Optimus will serve our assets dynamically in development while still optimizing

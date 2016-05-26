@@ -4,7 +4,8 @@
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [{:title "Blog 1"
+(def config {:background-video "/videos/11845277.mp4"
+             :blogs [{:title "Blog 1"
                       :date "01242016"
                       :summary "Blog 1 Rocks!"
                       :link "https://blog.epxlabs.com/1"}
@@ -42,13 +43,16 @@
                                        :url "https://www.linkedin.com/company/epx-labs/"}
                             :twitter {:title "Twitter"
                                       :url "https://twitter.com/"}}
+             :slider {:btn-href "#identity"
+                      :top-label "ARE YOU READY FOR"
+                      :main-label "THE FUTURE?"}
              :what-we-do [{:title "DevOps"
                            :summary ["The EPX Labs team implements DevOps as a philosophy."
                                      "We build the best tool-chain for your problem domain."
                                      "We maintain technology agnosticism until we establish your business needs."
                                      "Lets end the war between Development and Operations."
                                      "Our strategy is simple; perpetuate respect between your Dev and Ops team."
-                                     "Deliver the absolute maximum value to your customers. (absolute vs relative maxima)"
+                                     "Deliver the maximum value to your customers."
                                      "Sign the Peace Treaty."]
                            :icon (html/add-class "icon-settings")}
                           {:title "Serverless & Event Driven"
@@ -103,7 +107,14 @@
 
 (html/defsnippet slider "partials/slider.html"
   [html/root]
-  [])
+  [request]
+  [:ul
+   [:li html/first-of-type]
+   :div.rs-background-video-layer] (html/set-attr
+                                    :data-videomp4 (link/file-path request (:background-video config)))
+  [:div.top-label] (html/content (get-in config [:slider :top-label]))
+  [:div.main-label] (html/content (get-in config [:slider :main-label]))
+  [:a.btn-slider-action] (html/set-attr :href (get-in config [:slider :btn-href])))
 
 (html/defsnippet call-to-action "partials/call-to-action.html"
   [html/root]

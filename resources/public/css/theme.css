@@ -1998,7 +1998,7 @@ aside ul.nav-list > li > a {
 }
 
 .slider-container .tp-opacity-overlay {
-	background: rgba(0, 0, 0, 0.75);
+	background: rgba(0, 0, 0, 0.2);
 }
 
 .slider-container.transparent {
@@ -2220,7 +2220,6 @@ section.section-custom-map-2 section.section {
 	margin-top: 15px;
 	margin-bottom: 15px;
 	position: relative;
-	text-align: right;
 }
 
 .home-intro .get-started .btn {

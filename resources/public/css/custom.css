@@ -11,3 +11,21 @@ p.multi-line {
     color: #e6e6e6;
     margin: 0 0 10px;
 }
+
+section#identity {
+    padding: 50px 0 0 0;
+}
+
+@media (max-width: 767px) {
+    /* Responsive Horizontally Stacked Grid Left Align */
+    .resp-hor-left { text-align: center; }
+    /* Responsive Horizontally Stacked Grid Right Align */
+    .resp-hor-right { text-align: center; }
+}
+
+@media (min-width: 768px) {
+    /* Responsive Horizontally Stacked Grid Left Align */
+    .resp-hor-left { text-align: left; }
+    /* Responsive Horizontally Stacked Grid Right Align */
+    .resp-hor-right { text-align: right; }
+}

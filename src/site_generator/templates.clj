@@ -18,11 +18,11 @@
   [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
   [:body [:script html/last-of-type]] (get-bundle-paths request :src ["app.js"])
   ;; Add the different sections to the HTML
-  [:body :div#home] (html/append (s/slider)
+  [:body :div#home] (html/append (s/slider request)
                                  ;; Need to pass the request to header for the logo
                                  (s/header request)
-                                 (s/call-to-action)
                                  (s/who-we-are)
+                                 (s/call-to-action)
                                  (s/what-we-do)
                                  (s/our-blog)
                                  (s/contact-us-form)
