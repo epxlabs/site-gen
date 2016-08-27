@@ -10,11 +10,11 @@ layout: boot
 
     <h4>Latest Articles</h4>
 
-    <h3></h3>
-
-    <p>
-    </p>
-    
+    {% for post in site.posts %}
+      <a href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
+      <p>{{ post.description }}</p>
+    {% endfor %}
+      
   </div>
 
 </div>
