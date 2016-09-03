@@ -17,7 +17,7 @@ div.main-content > p {
 
 
 <div class="jumbotron">
-  <h1>World Class Infrastructure Delivered. </h1>
+  <h1>World Class Infrastructure Delivered</h1>
   <br>
   <p class="lead">We provide our clients with World Class Infrastructure and support. We excel at providing fast, stable, efficient infrastructure with 24/7 support to clients around the globe.</p>
   <br>
