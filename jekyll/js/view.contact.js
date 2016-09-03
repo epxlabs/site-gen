@@ -1,9 +1,3 @@
-/*
- Name: 			View - Contact
- Written by: 	Okler Themes - (http://www.okler.net)
- Version: 		4.5.1
- */
-
 (function($) {
 
 $( "#contactForm" ).submit(function( event ) {
