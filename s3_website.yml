@@ -1,6 +1,6 @@
-s3_id: 
-s3_secret: 
-s3_bucket: 
+s3_id: <%= ENV['EPX_S3_ID'] %>
+s3_secret: <%= ENV['EPX_S3_SECRET'] %>
+s3_bucket: epx-staging
 site: jekyll/_site
 
 # Below are examples of all the available configurations.
