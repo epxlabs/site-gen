@@ -1,7 +1,7 @@
 ---
 title:  Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn
 description: "A guide to setting up a Ruby on Rails development environment on Ubuntu 14.10 Utopic Unicorn"
-layout: boot 
+layout: blog_post 
 categories: ubuntu  
 ---
 
