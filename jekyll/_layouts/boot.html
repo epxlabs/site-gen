@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="{{ page.description }}">
     
@@ -43,27 +44,30 @@
 
         <div class="row">
 
-        <div class="col-sm-3 col-md-2" style="margin-bottom: 20px;">
-          <a href="/"><img style="margin-top: 2px; margin-right: 30px;" alt="EPX Labs" width="205" height="45" src="/img/epx_logo.svg"></a>
-        </div>
-        
-        <div class="col-sm-9 col-md-10">
-          <nav style="width: 94%; float: right;">
-            <ul class="nav nav-justified">
-              <li><a href="/devops.html" class="toplink">DevOps</a></li>
-              <li><a href="/serverless.html" class="toplink">Serverless</a></li>
-              <li><a href="/clojure.html" class="toplink">Clojure</a></li>
-              <li><a href="/blog.html" class="toplink">Blog</a></li>
-            </ul>
-          </nav>
+          <div class="col-sm-3 col-md-2" style="margin-bottom: 20px;">
+            <a href="/"><img style="margin-top: 2px; margin-right: 30px;" alt="EPX Labs" width="205" height="45" src="/img/epx_logo.svg"></a>
+          </div>
+          
+          <div class="col-sm-9 col-md-10">
+            <nav style="width: 94%; float: right;">
+              <ul class="nav nav-justified">
+                <li><a href="/devops.html" class="toplink">DevOps</a></li>
+                <li><a href="/serverless.html" class="toplink">Serverless</a></li>
+                <li><a href="/clojure.html" class="toplink">Clojure</a></li>
+                <li><a href="/blog.html" class="toplink">Blog</a></li>
+              </ul>
+            </nav>
+          </div>
+
         </div>
 
-        <br>
-        <br>
-        <br>
+      </div> <!-- /masthead -->
+
+      <div class="content">
+
+        {{ content }}
+
       </div>
-
-      {{ content }}
  
       <!-- Site footer -->
       <footer class="footer">
