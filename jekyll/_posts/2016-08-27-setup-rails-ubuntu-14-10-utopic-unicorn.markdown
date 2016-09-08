@@ -5,7 +5,6 @@ layout: blog_post
 categories: ubuntu  
 ---
 
-
 # Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn
 
 This will take about 30 minutes.

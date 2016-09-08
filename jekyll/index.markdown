@@ -53,11 +53,4 @@ Using the latest cloud technologies like serverless computing, devops, and funct
 
 <p class="text-center"><a class="btn btn-lg btn-warning" href="/contact-us.html" role="button">Tell Us About Your Needs</a></p>
 
-
 </div>
-
-
-
-
-
-
