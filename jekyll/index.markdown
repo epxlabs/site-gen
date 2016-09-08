@@ -1,0 +1,56 @@
+---
+title: EPX Labs
+description:
+layout: boot 
+---
+
+<style>
+
+div.main-content > p {
+  font-size: 18px; 
+  font-weight: 100;
+  line-height: 1.75;
+  margin-bottom: 30px;
+}
+
+</style>
+
+
+<div class="jumbotron">
+  <h1>World Class Infrastructure Delivered</h1>
+  <br>
+  <p class="lead">We provide our clients with World Class Infrastructure and support. We excel at providing fast, stable, efficient infrastructure with 24/7 support to clients around the globe.</p>
+  <br>
+  <p><a class="btn btn-lg btn-warning" href="/contact-us.html" role="button">Learn More...</a></p>
+</div>
+
+
+<div class="row">
+
+
+<div class="col-sm-8 col-sm-offset-2 main-content" >
+
+
+<h2 class="text-center">We believe World Class Infrastructure is fast, stable, and efficient.</h2>
+<br>
+<br>
+
+<p>
+At EPX Labs, we show you how to cut through cloud complexity and deliver software at the speed of innovation. No more security hassles, complicated deploys, or server management.
+</p>
+
+
+<p>
+We are your infrastructure and development advisors all the way from idea to live production support and everything in between. 
+</p>
+
+<p>
+Using the latest cloud technologies like serverless computing, devops, and functional programming with clojure, we are able to deliver rock solid, World Class Infrastructure without the added expense of buying hardware, building a datacenter, hiring IT staff, or ongoing infrastructure management such as security updates, deployment automation, and scaling.
+</p>
+
+<h3 class="text-center">Not sure where to start?</h3>
+<br>
+
+<p class="text-center"><a class="btn btn-lg btn-warning" href="/contact-us.html" role="button">Tell Us About Your Needs</a></p>
+
+</div>

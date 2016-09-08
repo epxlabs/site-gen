@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="{{ page.description }}">
+    
+    <meta name="author" content="EPX Labs, Inc.">
+    <link rel="icon" href="/favicon.ico">
+
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    
+
+    <!-- Bootstrap core CSS -->
+    
+    <!-- Custom styles for this template -->
+
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="http://bootswatch.com/yeti/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/justified-nav.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+      <div class="masthead">
+        <style>
+          li > a.toplink {
+            font-weight: normal;
+          }
+        </style>
+
+        <div class="row">
+
+        <div class="col-sm-3 col-md-2" style="margin-bottom: 20px;">
+          <a href="/"><img style="margin-top: 2px; margin-right: 30px;" alt="EPX Labs" width="205" height="45" src="/img/epx_logo.svg"></a>
+        </div>
+        
+        <div class="col-sm-9 col-md-10">
+          <nav style="width: 94%; float: right;">
+            <ul class="nav nav-justified">
+              <li><a href="/devops.html" class="toplink">DevOps</a></li>
+              <li><a href="/serverless.html" class="toplink">Serverless</a></li>
+              <li><a href="/clojure.html" class="toplink">Clojure</a></li>
+              <li><a href="/blog.html" class="toplink">Blog</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <br>
+        <br>
+        <br>
+      </div>
+
+      {{ content }}
+ 
+      <!-- Site footer -->
+      <footer class="footer">
+        <div class="row">
+
+
+          <div class="col-md-2">
+            <strong>About EPX Labs</strong>
+            <ul class="list-unstyled" style="padding-left: 10px;">
+              <li><a href="/contact-us.html">Contact Us</a></li>
+              <li><a href="/about-us.html">About Us</a></li>
+              <li><a href="/services.html">Services</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-2 ">
+            <strong>Social</strong>
+            <ul class="list-unstyled" style="padding-left: 10px;">
+              <li><a href="https://github.com/epxlabs/">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/company/epx-labs/">LinkedIn</a></li>
+              <li><a href="https://twitter.com/epxlabs">Twitter</a></li>
+            </ul>
+          </div>
+
+          
+          <div class="col-md-4 col-md-offset-4 text-left">
+            <p>
+            <b>phone:</b> 646.768.0123<br>
+            <b>email:</b> hello@epxlabs.com<br>
+            &copy; 2016 EPX Labs inc.</p>
+          </div>
+
+        </div>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
