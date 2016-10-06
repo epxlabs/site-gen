@@ -22,9 +22,9 @@
                                  ;; Need to pass the request to header for the logo
                                  (s/header request)
                                  (s/index)
-                                 (s/who-we-are)
-                                 (s/call-to-action)
-                                 (s/what-we-do)
+                                 #_(s/who-we-are)
+                                 #_(s/call-to-action)
+                                 #_(s/what-we-do)
                                  #_(s/our-blog)
                                  #_(s/contact-us-form)
                                  (s/contact-us)

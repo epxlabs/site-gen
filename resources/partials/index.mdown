@@ -1,9 +1,3 @@
----
-title: EPX Labs
-description:
-layout: boot 
----
-
 <style>
 
 div.main-content > p {
