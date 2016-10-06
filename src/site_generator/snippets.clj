@@ -32,9 +32,12 @@
                       "11" "Nov"
                       "12" "Dec"}
              :nav-links {"#home" "Home"
+                         "#devops" "Devops"
+                         "#serverless" "Serverless"
+                         "#nodejs" "Node.js"
+                         "#clojure" "Clojure"
                          "#identity" "Who We Are"
-                         "#services" "Our Services"
-                         ;"#blog" "Blog"
+                         "#blog" "Blog"
                          "#contact" "Contact Us"}
              :phone "646.768.0123"
              :social-icons {:github {:title "GitHub"
