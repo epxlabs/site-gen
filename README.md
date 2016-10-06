@@ -25,7 +25,17 @@ So [:p (attr? :lang)] is going to match any elements with a lang attribute insid
 
 On the other hand sets are a logical OR. So [#{:div.class1 :div.class2}] match every div which has either class1 or class2. This can alternatively be written as [[:div #{:.class1 .class2}]]. Indeed you can have nested "ors" and "ands" which means nested sets and vectors.
 
+## Deployment
 
+To deploy to the staging site, use the following steps: 
+1) In emacs, navigate to src/site-generator/core.clj
+2) Use C-c M-j to boot a repl
+3) Use C-c M-n to switch to the namespace of the core file
+4) Use C-c C-k to compile
+5) Run the export function in your repl
+6) In your terminal, run "./deploy.sh staging"
+
+This will deploy to staging.epxlabs.com
 
 ## License
 
