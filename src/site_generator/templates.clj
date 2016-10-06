@@ -21,7 +21,7 @@
   [:body :div#home] (html/append (s/slider request)
                                  ;; Need to pass the request to header for the logo
                                  (s/header request)
-                                 (s/index)
+                                 (s/main)
                                  #_(s/who-we-are)
                                  #_(s/call-to-action)
                                  #_(s/what-we-do)
@@ -29,4 +29,15 @@
                                  #_(s/contact-us-form)
                                  (s/contact-us)
                                  ;; Need to pass the request to footer for the logo
+                                 (s/footer request)))
+
+(html/deftemplate devops "templates/application.html"
+  [request]
+  [:head :title] (html/content (:title config))
+  ;; Add the bundled assets to the HTML file so they are pulled in
+  [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
+  [:body [:script html/last-of-type]] (get-bundle-paths request :src ["app.js"])
+  [:body :div#home] (html/append (s/header request)
+                                 (s/devops)
+                                 (s/contact-us)
                                  (s/footer request)))

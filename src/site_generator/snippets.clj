@@ -193,6 +193,10 @@
                         (.. Year now getValue)
                         " EPX Labs, Inc. All Rights Reserved.")))
 
-(html/defsnippet index "partials/index.mdown"
+(html/defsnippet main "partials/index.mdown"
+  [html/root]
+  [])
+
+(html/defsnippet devops "partials/devops.html"
   [html/root]
   [])

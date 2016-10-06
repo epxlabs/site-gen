@@ -11,10 +11,15 @@
 ;; Config to be moved to DB
 (def config {:export-dir "resources/exported_site"})
 
+
+(defn stringify-page [page context]
+  (apply str (page context)))
+
 (defn get-pages []
   ;; merge-page-sources is a convenience to identify conflicts
   (s/merge-page-sources
-   {:pages {"/" (fn [context] (apply str (t/home-page context)))}}))
+   {:pages {"/" (fn [context] (apply str (t/home-page context)))
+            "/devops/" (fn [context] (apply str (t/devops context)))}}))
 
 ;; Here we specify which files should be bundled together and minified
 ;; Since we only have one page it makes sense to put all files in a bundle
