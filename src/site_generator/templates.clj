@@ -21,6 +21,7 @@
   [:body :div#home] (html/append (s/slider request)
                                  ;; Need to pass the request to header for the logo
                                  (s/header request)
+                                 (s/index)
                                  (s/who-we-are)
                                  (s/call-to-action)
                                  (s/what-we-do)

@@ -192,3 +192,7 @@
                         "© Copyright "
                         (.. Year now getValue)
                         " EPX Labs, Inc. All Rights Reserved.")))
+
+(html/defsnippet index "partials/index.mdown"
+  [html/root]
+  [])
