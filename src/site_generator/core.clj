@@ -19,7 +19,8 @@
   ;; merge-page-sources is a convenience to identify conflicts
   (s/merge-page-sources
    {:pages {"/" (fn [context] (apply str (t/home-page context)))
-            "/devops/" (fn [context] (apply str (t/devops context)))}}))
+            "/devops/" (fn [context] (apply str (t/devops context)))
+            "/serverless/" (fn [context] (apply str (t/serverless context)))}}))
 
 ;; Here we specify which files should be bundled together and minified
 ;; Since we only have one page it makes sense to put all files in a bundle

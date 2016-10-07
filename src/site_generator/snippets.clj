@@ -32,8 +32,8 @@
                       "11" "Nov"
                       "12" "Dec"}
              :nav-links {"#home" "Home"
-                         "#devops" "Devops"
-                         "#serverless" "Serverless"
+                         "/devops" "Devops"
+                         "/serverless" "Serverless"
                          "#nodejs" "Node.js"
                          "#clojure" "Clojure"
                          "#identity" "Who We Are"
@@ -198,5 +198,9 @@
   [])
 
 (html/defsnippet devops "partials/devops.html"
+  [html/root]
+  [])
+
+(html/defsnippet serverless "partials/serverless.html"
   [html/root]
   [])
