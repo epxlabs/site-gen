@@ -36,8 +36,8 @@
                          "/serverless" "Serverless"
                          "#" "Node.js"
                          "/clojure" "Clojure"
-                         "/identity" "Who We Are"
-                         "/blog" "Blog"
+                         "/who-we-are" "Who We Are"
+                         "##" "Blog"
                          "#contact" "Contact Us"}
              :phone "646.768.0123"
              :social-icons {:github {:title "GitHub"
@@ -206,5 +206,9 @@
   [])
 
 (html/defsnippet clojure "partials/clojure.html"
+  [html/root]
+  [])
+
+(html/defsnippet about-us "partials/about-us.html"
   [html/root]
   [])

@@ -65,3 +65,14 @@
                                  (s/clojure)
                                  (s/contact-us)
                                  (s/footer request)))
+
+(html/deftemplate about-us "templates/application.html"
+  [request]
+  [:head :title] (html/content (:title config))
+  ;; Add the bundled assets to the HTML file so they are pulled in
+  [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
+  [:body [:script html/last-of-type]] (get-bundle-paths request :src ["app.js"])
+  [:body :div#home] (html/append (s/header request)
+                                 (s/about-us)
+                                 (s/contact-us)
+                                 (s/footer request)))
