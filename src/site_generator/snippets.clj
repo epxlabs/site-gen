@@ -204,3 +204,7 @@
 (html/defsnippet serverless "partials/serverless.html"
   [html/root]
   [])
+
+(html/defsnippet clojure "partials/clojure.html"
+  [html/root]
+  [])
