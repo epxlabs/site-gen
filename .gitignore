@@ -9,8 +9,5 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
-.env
-
-jekyll/_site
-
+.DS_Store
 resources/exported_site
