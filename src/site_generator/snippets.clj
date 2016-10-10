@@ -48,7 +48,7 @@
                                       :url "https://twitter.com/epxlabs"}}
              :slider {:background-video "/videos/11845277.mp4"
                       :background-image "/img/landing.jpg"
-                      :btn-href "#identity"
+                      :btn-href "/who-we-are"
                       :top-label "ARE YOU READY FOR"
                       :main-label "THE FUTURE?"}
              :what-we-do [{:title "DevOps"
