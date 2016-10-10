@@ -2,9 +2,11 @@
 
 A Clojure library designed to ... well, that part is up to you.
 
-## Usage
+## Run Locally
 
-FIXME
+`lein ring server-headless`
+
+The site can be reached in your browser at http://localhost:3000/
 
 ## Notes on Enlive
 
@@ -27,13 +29,39 @@ On the other hand sets are a logical OR. So [#{:div.class1 :div.class2}] match e
 
 ## Deployment
 
-To deploy to the staging site, use the following steps: 
-1) In emacs, navigate to src/site-generator/core.clj
-2) Use C-c M-j to boot a repl
-3) Use C-c M-n to switch to the namespace of the core file
-4) Use C-c C-k to compile
-5) Run the export function in your repl
-6) In your terminal, run "./deploy.sh staging"
+Deployment is very simple. We use the `bin/deploy.sh` script:
+
+```
+bin/deploy.sh {STAGE}
+```
+
+e.g. `bin/deploy.sh staging`
+
+where STAGE is one of production or staging.
+
+`staging` deploys to `staging.epxlabs.com`
+`production` deploys to `www.epxlabs.com`
+
+What happens when we run `bin/deploy.sh`?
+
+1. Verify the stage is one of `staging` or `production`
+2. Switch the correct stage config to `src/site_generator/active_config.clj`
+3. Build the site and export to `resources/exported_site` with `lein export-site`
+4. Upload the exported site and related assets to the corresponding website S3 bucket
+
+What happens when we run `lein export-site`?
+
+1. Leiningen runs `lein run -m site-generator.core/export`
+2. `export` hydrates templates and exports the site and bundled assets to `resources/exported_site`
+
+Super manual deploy (not recommended):
+
+1. In emacs, navigate to `src/site-generator/core.clj`
+2. Use `C-c M-j` to boot a repl
+3. Use `C-c M-n` to switch to the namespace of the core file
+4. Use `C-c C-k` to compile
+5. Run the `(export)` in your repl
+6. In your terminal, run `./deploy.sh {STAGE}` (note this will basically repeat the above 5 steps)
 
 This will deploy to staging.epxlabs.com
 
