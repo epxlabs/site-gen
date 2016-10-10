@@ -9,5 +9,12 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
+
+# Mac local-specific files
 .DS_Store
+
+# environment configuration
+src/site_generator/active_config.clj
+
+# fully built static site
 resources/exported_site
