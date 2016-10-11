@@ -27,8 +27,8 @@
   [request]
   [:head :title] (html/content (:title config))
   ;; Add the bundled assets to the HTML file so they are pulled in
+  [:head [:link html/first-of-type]] (link/file-path request "/img/epx-favicon.ico")
   [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
-  [:head [:favicon html/first-of-type]] (link/file-path request :href ["/img/epx-favicon.ico"])
   [:body [:script html/first-of-type]] (get-bundle-paths request :src ["app.js"])
   [:body [:script html/last-of-type]] (html/content google-analytics-script)
   ;; Add the different sections to the HTML
