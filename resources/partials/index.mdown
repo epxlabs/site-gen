@@ -45,6 +45,6 @@ Using the latest cloud technologies like serverless computing, devops, and funct
 <h3 class="text-center">Not sure where to start?</h3>
 <br>
 
-<p class="text-center"><a class="btn btn-lg btn-warning" href="/contact-us.html" role="button">Tell Us About Your Needs</a></p>
+<p class="text-center"><a class="btn btn-lg btn-primary btn-slider-action" href="/contact-us.html" role="button">Tell Us About Your Needs</a></p>
 
 </div>
