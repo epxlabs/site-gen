@@ -34,10 +34,8 @@
              :nav-links {"#home" "Home"
                          "/devops" "Devops"
                          "/serverless" "Serverless"
-                         "#" "Node.js"
                          "/clojure" "Clojure"
                          "/who-we-are" "Who We Are"
-                         "##" "Blog"
                          "#contact" "Contact Us"}
              :phone "646.768.0123"
              :social-icons {:github {:title "GitHub"
