@@ -15,7 +15,7 @@ div.main-content > p {
   <br>
   <p class="lead">We provide our clients with World Class Infrastructure and support. We excel at providing fast, stable, efficient infrastructure with 24/7 support to clients around the globe.</p>
   <br>
-  <p><a class="btn btn-lg btn-warning" style="border-color:#42ade2;background-color:#42ade2;" href="/contact-us.html" role="button">Learn More...</a></p>
+  <p><a class="btn btn-lg btn-primary btn-slider-action" href="/contact-us.html" role="button">Learn More...</a></p>
 </div>
 
 
