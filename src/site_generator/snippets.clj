@@ -31,7 +31,7 @@
                       "10" "Oct"
                       "11" "Nov"
                       "12" "Dec"}
-             :nav-links {"#home" "Home"
+             :nav-links {"/" "Home"
                          "/devops" "Devops"
                          "/serverless" "Serverless"
                          "/clojure" "Clojure"
