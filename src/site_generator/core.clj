@@ -82,7 +82,8 @@
    ;; Loads in images
    (assets/load-assets "public" ["/img/logos/epx_logo.svg"
                                  "/videos/11845277.mp4"
-                                 "/img/landing.jpg"])))
+                                 "/img/landing.jpg"
+                                 "/img/epx-favicon.ico"])))
 
 (def app
   ;; Optimus will serve our assets dynamically in development while still optimizing
