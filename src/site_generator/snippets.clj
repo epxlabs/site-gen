@@ -17,7 +17,7 @@
                       :summary "Blog 3 Rocks!"
                       :link "https://blog.epxlabs.com/3"}]
              :contact-us {:get-in-touch "We are always available to help solve your problems, meet others in the space, and discuss what we're passionate about. Tell us how we can help!"}
-             :favicon "/img/epx-favicon.ico"
+             :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
              :logo-image "/img/logos/epx_logo.svg"
              :months {"01" "Jan"
