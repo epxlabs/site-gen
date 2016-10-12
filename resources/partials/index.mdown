@@ -15,7 +15,7 @@ div.main-content > p {
   <br>
   <p class="lead">We provide our clients with World Class Infrastructure and support. We excel at providing fast, stable, efficient infrastructure with 24/7 support to clients around the globe.</p>
   <br>
-  <p><a class="btn btn-lg btn-primary btn-slider-action" href="/contact-us.html" role="button">Learn More...</a></p>
+  <p><a class="btn btn-lg btn-primary btn-slider-action" href="/who-we-are" role="button">Learn More...</a></p>
 </div>
 
 
@@ -45,6 +45,6 @@ Using the latest cloud technologies like serverless computing, devops, and funct
 <h3 class="text-center">Not sure where to start?</h3>
 <br>
 
-<p class="text-center"><a class="btn btn-lg btn-primary btn-slider-action" href="/contact-us.html" role="button">Tell Us About Your Needs</a></p>
+<p class="text-center"><a class="btn btn-lg btn-primary btn-slider-action" href="#contact" role="button">Tell Us About Your Needs</a></p>
 
 </div>
