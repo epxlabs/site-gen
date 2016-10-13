@@ -101,16 +101,18 @@
 
 (html/defsnippet header "partials/header.html"
   [html/root]
-  [request]
+  [request page-id]
   [:a#header-logo :img] (html/set-attr :src (link/file-path request (:logo-image config)))
   ;; Social icons in header
   [:ul.social-icons [:li html/first-of-type]] (build-social-icons)
   [:ul#mainNav
    [:li html/first-of-type]] (html/clone-for [[href content] (:nav-links config)]
+                                             [:li] (html/set-attr :id (clojure.string/replace (clojure.string/lower-case content) #" " "-"))
                                              [:li :a] (html/set-attr :href href)
+
                                              [:li :a] (html/content content))
   [:ul#mainNav
-   [:li html/first-of-type]] (html/add-class "dropdown" "active"))
+   [(keyword (str "li#" page-id))]] (html/add-class "dropdown" "active"))
 
 (html/defsnippet slider "partials/slider.html"
   [html/root]
