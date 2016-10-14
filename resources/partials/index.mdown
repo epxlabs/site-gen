@@ -41,10 +41,4 @@ We are your infrastructure and development advisors all the way from idea to liv
 <p>
 Using the latest cloud technologies like serverless computing, devops, and functional programming with clojure, we are able to deliver rock solid, World Class Infrastructure without the added expense of buying hardware, building a datacenter, hiring IT staff, or ongoing infrastructure management such as security updates, deployment automation, and scaling.
 </p>
-
-<h3 class="text-center">Not sure where to start?</h3>
-<br>
-
-<p class="text-center"><a class="btn btn-lg btn-primary btn-slider-action" href="#contact" role="button">Tell Us About Your Needs</a></p>
-
 </div>
