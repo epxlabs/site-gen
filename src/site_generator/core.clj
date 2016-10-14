@@ -90,7 +90,7 @@
   (-> (s/serve-pages (get-pages))
       (optimus/wrap
        get-assets
-       op/all
+       op/none
        strategies/serve-live-assets)
       (ct/wrap-content-type)))
 

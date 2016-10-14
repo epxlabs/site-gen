@@ -1802,7 +1802,7 @@ window.theme = {};
 						return;
 					}
 				}
-
+				debugger
 				parentSection.toggleClass('active');
 
 				// Preview Paragraph
