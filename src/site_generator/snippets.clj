@@ -17,7 +17,7 @@
                       :summary "Blog 3 Rocks!"
                       :link "https://blog.epxlabs.com/3"}]
              :contact-us {:get-in-touch "We are always available to help solve your problems, meet others in the space, and discuss what we're passionate about. Tell us how we can help!"}
-             :favicon "/img/epx-favicon.ico"
+             :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
              :logo-image "/img/logos/epx_logo.svg"
              :months {"01" "Jan"
@@ -101,16 +101,18 @@
 
 (html/defsnippet header "partials/header.html"
   [html/root]
-  [request]
+  [request page-id]
   [:a#header-logo :img] (html/set-attr :src (link/file-path request (:logo-image config)))
   ;; Social icons in header
   [:ul.social-icons [:li html/first-of-type]] (build-social-icons)
   [:ul#mainNav
    [:li html/first-of-type]] (html/clone-for [[href content] (:nav-links config)]
+                                             [:li] (html/set-attr :id (clojure.string/replace (clojure.string/lower-case content) #" " "-"))
                                              [:li :a] (html/set-attr :href href)
+
                                              [:li :a] (html/content content))
   [:ul#mainNav
-   [:li html/first-of-type]] (html/add-class "dropdown" "active"))
+   [(keyword (str "li#" page-id))]] (html/add-class "dropdown" "active"))
 
 (html/defsnippet slider "partials/slider.html"
   [html/root]

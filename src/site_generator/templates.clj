@@ -27,14 +27,14 @@
   [request]
   [:head :title] (html/content (:title config))
   ;; Add the bundled assets to the HTML file so they are pulled in
-  [:head [:link html/first-of-type]] (html/set-attr :href (link/file-path request "/img/epx-favicon.ico"))
+  [:head [:link html/first-of-type]] (html/set-attr :href (link/file-path request "/img/epx-favicon.png"))
   [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
   [:body [:script html/first-of-type]] (get-bundle-paths request :src ["app.js"])
   [:body [:script html/last-of-type]] (html/content google-analytics-script)
   ;; Add the different sections to the HTML
   [:body :div#home] (html/append (s/slider request)
                                  ;; Need to pass the request to header for the logo
-                                 (s/header request)
+                                 (s/header request "home")
                                  (s/main)
                                  #_(s/who-we-are)
                                  #_(s/call-to-action)
@@ -49,10 +49,11 @@
   [request]
   [:head :title] (html/content (:title config))
   ;; Add the bundled assets to the HTML file so they are pulled in
+  [:head [:link html/first-of-type]] (html/set-attr :href (link/file-path request "/img/epx-favicon.png"))
   [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
   [:body [:script html/first-of-type]] (get-bundle-paths request :src ["app.js"])
   [:body [:script html/last-of-type]] (html/content google-analytics-script)
-  [:body :div#home] (html/append (s/header request)
+  [:body :div#home] (html/append (s/header request "devops")
                                  (s/devops)
                                  (s/contact-us)
                                  (s/footer request)))
@@ -62,10 +63,11 @@
   [request]
   [:head :title] (html/content (:title config))
   ;; Add the bundled assets to the HTML file so they are pulled in
+  [:head [:link html/first-of-type]] (html/set-attr :href (link/file-path request "/img/epx-favicon.png"))
   [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
   [:body [:script html/first-of-type]] (get-bundle-paths request :src ["app.js"])
   [:body [:script html/last-of-type]] (html/content google-analytics-script)
-  [:body :div#home] (html/append (s/header request)
+  [:body :div#home] (html/append (s/header request "serverless")
                                  (s/serverless)
                                  (s/contact-us)
                                  (s/footer request)))
@@ -75,10 +77,11 @@
   [request]
   [:head :title] (html/content (:title config))
   ;; Add the bundled assets to the HTML file so they are pulled in
+  [:head [:link html/first-of-type]] (html/set-attr :href (link/file-path request "/img/epx-favicon.png"))
   [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
   [:body [:script html/first-of-type]] (get-bundle-paths request :src ["app.js"])
   [:body [:script html/last-of-type]] (html/content google-analytics-script)
-  [:body :div#home] (html/append (s/header request)
+  [:body :div#home] (html/append (s/header request "clojure")
                                  (s/clojure)
                                  (s/contact-us)
                                  (s/footer request)))
@@ -87,10 +90,11 @@
   [request]
   [:head :title] (html/content (:title config))
   ;; Add the bundled assets to the HTML file so they are pulled in
+  [:head [:link html/first-of-type]] (html/set-attr :href (link/file-path request "/img/epx-favicon.png"))
   [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
   [:body [:script html/first-of-type]] (get-bundle-paths request :src ["app.js"])
   [:body [:script html/last-of-type]] (html/content google-analytics-script)
-  [:body :div#home] (html/append (s/header request)
+  [:body :div#home] (html/append (s/header request "who-we-are")
                                  (s/about-us)
                                  (s/contact-us)
                                  (s/footer request)))
