@@ -1802,7 +1802,6 @@ window.theme = {};
 						return;
 					}
 				}
-
 				parentSection.toggleClass('active');
 
 				// Preview Paragraph
