@@ -23,7 +23,8 @@
             "/serverless/" (fn [context] (apply str (t/serverless context)))
             "/nodejs/" (fn [context] (apply str (t/nodejs context)))
             "/clojure/" (fn [context] (apply str (t/clojure context)))
-            "/who-we-are/" (fn [context] (apply str (t/about-us context)))}}))
+            "/who-we-are/" (fn [context] (apply str (t/about-us context)))
+            "/blog/" (fn [context] (apply str (t/blog context)))}}))
 
 ;; Here we specify which files should be bundled together and minified
 ;; Since we only have one page it makes sense to put all files in a bundle
@@ -40,6 +41,7 @@
                 "/vendor/owl.carousel/assets/owl.carousel.min.css"
                 "/vendor/owl.carousel/assets/owl.theme.default.min.css"
                 "/vendor/magnific-popup/magnific-popup.min.css"
+                "/css/monokai.css"
                 "/css/theme.css"
                 "/css/theme-elements.css"
                 "/css/theme-blog.css"
