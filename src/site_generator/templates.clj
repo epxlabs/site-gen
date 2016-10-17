@@ -98,3 +98,17 @@
                                  (s/about-us)
                                  (s/contact-us)
                                  (s/footer request)))
+
+
+(html/deftemplate blog "templates/application.html"
+  [request]
+  [:head :title] (html/content (:title config))
+  ;; Add the bundled assets to the HTML file so they are pulled in
+  [:head [:link html/first-of-type]] (html/set-attr :href (link/file-path request "/img/epx-favicon.png"))
+  [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
+  [:body [:script html/first-of-type]] (get-bundle-paths request :src ["app.js"])
+  [:body [:script html/last-of-type]] (html/content google-analytics-script)
+  [:body :div#home] (html/append (s/header request "blog")
+                                 (s/blog-post "Blog Title")
+                                 (s/contact-us)
+                                 (s/footer request)))
