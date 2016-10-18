@@ -85,9 +85,7 @@
    (assets/load-assets "public" ["/img/logos/epx_logo.svg"
                                  "/videos/11845277.mp4"
                                  "/img/landing.jpg"
-                                 "/img/epx-favicon.png"
-                                 "/img/serverless-cost-savings-1.jpg"
-                                 "/img/serverless-cost-savings-2.jpg"])))
+                                 "/img/epx-favicon.png"])))
 
 (def app
   ;; Optimus will serve our assets dynamically in development while still optimizing
