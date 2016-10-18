@@ -38,11 +38,6 @@
                                  ;; Need to pass the request to header for the logo
                                  (s/header request "home")
                                  (s/main)
-                                 #_(s/who-we-are)
-                                 #_(s/call-to-action)
-                                 #_(s/what-we-do)
-                                 #_(s/our-blog)
-                                 #_(s/contact-us-form)
                                  (s/contact-us)
                                  ;; Need to pass the request to footer for the logo
                                  (s/footer request)))
