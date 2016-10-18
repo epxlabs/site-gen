@@ -4,11 +4,11 @@
             [site-generator.active-config :as ac]
             [site-generator.snippets :as s]))
 
-;; Config to be moved to DB              
+;; Config to be moved to DB
 (def config {:title "EPX Labs, Inc."
              :blogs [{:title "Welcome to Jekyll"
                       :file-path "resources/partials/blog-posts/2016-08-20-welcome-to-jekyll.markdown"}
-                     {:title "Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn" 
+                     {:title "Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn"
                       :file-path "resources/partials/blog-posts/2016-08-27-setup-rails-ubuntu-14-10-utopic-unicorn.markdown"}
                      {:title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
                       :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"}
@@ -120,7 +120,7 @@
 (html/deftemplate blog "templates/application.html"
   [request]
   [:head :title] (html/content (:title config))
-  ;; Add the bundled assets to the HTML file so they are pulled in
+  ;; Add The Bundled Assets To The HTML file so they are pulled in
   [:head [:link html/first-of-type]] (html/set-attr :href (link/file-path request "/img/epx-favicon.png"))
   [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
   [:body [:script html/first-of-type]] (get-bundle-paths request :src ["app.js"])

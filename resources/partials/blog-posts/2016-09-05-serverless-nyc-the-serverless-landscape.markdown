@@ -1,9 +1,9 @@
----
+<!---
 title: Serverless NYC - "The Serverless Landscape"
 description: EPX Labs is now co-organizing Serverless NYC!
 layout: blog_post 
 categories: serverless 
----
+-->
 
 # Serverless NYC - "The Serverless Landscape" 
 

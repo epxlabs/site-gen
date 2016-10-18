@@ -40,6 +40,7 @@
 						 "/nodejs" "nodejs"
                          "/clojure" "Clojure"
                          "/who-we-are" "Who We Are"
+                         "/blog" "Blog"
                          "#contact" "Contact Us"}
              :phone "646.768.0123"
              :social-icons {:github {:title "GitHub"
@@ -232,7 +233,7 @@
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
   [post]
-  [:h2] (html/content (:title post))
+  
   [:div.post-body] (html/html-content (md/to-html (slurp (:file-path post)) pegdown-options))
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
