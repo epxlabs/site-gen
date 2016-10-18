@@ -233,7 +233,7 @@
   [html/root]
   [post]
   [:h2] (html/content (:title post))
-  [:div.post-body] (html/html-content (md/to-html (slurp (:file-path  post)) pegdown-options))
+  [:div.post-body] (html/html-content (md/to-html (slurp (:file-path post)) pegdown-options))
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
   [:div.post-body :pre :div.highlight] (html/set-attr :class "hll"))
