@@ -4,10 +4,18 @@
             [site-generator.active-config :as ac]
             [site-generator.snippets :as s]))
 
-;; Config to be moved to DB
+;; Config to be moved to DB              
 (def config {:title "EPX Labs, Inc."
              :blogs [{:title "Welcome to Jekyll"
-                      :file-path "resources/partials/blog-posts/2016-08-20-welcome-to-jekyll.markdown"}]})
+                      :file-path "resources/partials/blog-posts/2016-08-20-welcome-to-jekyll.markdown"}
+                     {:title "Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn" 
+                      :file-path "resources/partials/blog-posts/2016-08-27-setup-rails-ubuntu-14-10-utopic-unicorn.markdown"}
+                     {:title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
+                      :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"}
+                     {:title "Serverless - Where do I start?"
+                      :file-path "resources/partials/blog-posts/2016-09-04-serverless-where-do-i-start.markdown"}
+                     {:title "Serverless NYC - The Serverless Landscape"
+                      :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}]})
 
 (defn get-bundle-paths [request attr paths]
   (html/clone-for
