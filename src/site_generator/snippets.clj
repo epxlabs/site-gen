@@ -231,9 +231,9 @@
 
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
-  [title]
-  [:h2] (html/content title)
-  [:div.post-body] (html/html-content (md/to-html (slurp "resources/partials/blog_posts/2016-08-20-welcome-to-jekyll.markdown") pegdown-options))
+  [post]
+  [:h2] (html/content (:title post))
+  [:div.post-body] (html/html-content (md/to-html (slurp (:file-path  post)) pegdown-options))
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
   [:div.post-body :pre :div.highlight] (html/set-attr :class "hll"))

@@ -5,7 +5,9 @@
             [site-generator.snippets :as s]))
 
 ;; Config to be moved to DB
-(def config {:title "EPX Labs, Inc."})
+(def config {:title "EPX Labs, Inc."
+             :blogs [{:title "Welcome to Jekyll"
+                      :file-path "resources/partials/blog-posts/2016-08-20-welcome-to-jekyll.markdown"}]})
 
 (defn get-bundle-paths [request attr paths]
   (html/clone-for
@@ -121,6 +123,7 @@
   [:body [:script html/first-of-type]] (get-bundle-paths request :src ["app.js"])
   [:body [:script html/last-of-type]] (html/content google-analytics-script)
   [:body :div#home] (html/append (s/header request "blog")
-                                 (s/blog-post "Blog Title")
+                                 (for [post (:blogs config)]
+                                   (s/blog-post post))
                                  (s/contact-us)
                                  (s/footer request)))
