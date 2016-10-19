@@ -1,5 +1,6 @@
 (ns site-generator.core
-  (:require [optimus.assets :as assets]
+  (:require [clojure.string :as str]
+            [optimus.assets :as assets]
             [optimus.export :as export]
             [optimus.optimizations :as op]
             [optimus.prime :as optimus]
@@ -11,20 +12,26 @@
 ;; Config to be moved to DB
 (def config {:export-dir "resources/exported_site"})
 
-
 (defn stringify-page [page context]
   (apply str (page context)))
 
+(defn linkize [title]
+  (str "/blog/" (str/lower-case (str/replace title " " "-"))))
+
 (defn get-pages []
-  ;; merge-page-sources is a convenience to identify conflicts
-  (s/merge-page-sources
-   {:pages {"/" (fn [context] (apply str (t/home-page context)))
-            "/devops/" (fn [context] (apply str (t/devops context)))
-            "/serverless/" (fn [context] (apply str (t/serverless context)))
-            "/nodejs/" (fn [context] (apply str (t/nodejs context)))
-            "/clojure/" (fn [context] (apply str (t/clojure context)))
-            "/who-we-are/" (fn [context] (apply str (t/about-us context)))
-            "/blog/" (fn [context] (apply str (t/blog context)))}}))
+  (let [blogposts
+        (for [blogpost (:blogs t/config)]
+          (hash-map (linkize (:title blogpost)) (fn [context] (apply str (t/blog context)))))]
+    ;; merge-page-sources is a convenience to identify conflicts
+    (s/merge-page-sources
+     {:pages (merge {"/" (fn [context] (apply str (t/home-page context)))
+                     "/devops/" (fn [context] (apply str (t/devops context)))
+                     "/serverless/" (fn [context] (apply str (t/serverless context)))
+                     "/nodejs/" (fn [context] (apply str (t/nodejs context)))
+                     "/clojure/" (fn [context] (apply str (t/clojure context)))
+                     "/who-we-are/" (fn [context] (apply str (t/about-us context)))
+                     "/blog/" (fn [context] (apply str (t/blog context)))
+                     } (into {} blogposts))})))
 
 ;; Here we specify which files should be bundled together and minified
 ;; Since we only have one page it makes sense to put all files in a bundle

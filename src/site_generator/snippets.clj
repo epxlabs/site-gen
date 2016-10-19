@@ -1,8 +1,10 @@
 (ns site-generator.snippets
-  (:require [clygments.core :as clyg]
+  (:require [clojure.string :as str]
+            [clygments.core :as clyg]
             [me.raynes.cegdown :as md]
             [net.cgrand.enlive-html :as html]
-            [optimus.link :as link])
+            [optimus.link :as link]
+            [site-generator.templates :as t])
   (:import java.time.Year))
 
 ;; Config to be moved to DB
@@ -230,10 +232,26 @@
         lang (->> node :attrs :class keyword)]
     (html/html-snippet (clyg/highlight code lang :html))))
 
+(defn linkize [title]
+  (str "/blog/" (str/lower-case (str/replace title " " "-"))))
+
+(html/defsnippet blog "partials/blog.html"
+  [html/root]
+  []
+  [:div.articles] (html/html-content
+                   (clojure.string/join
+                    (for [blog (:blogs t/config)]
+                      (str "<a href=\""
+                           (core/linkize (:title blog))
+                           "\"><h3>"
+                           (:title blog)
+                           "</h3></a>"))))
+  )
+
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
   [post]
-  
+
   [:div.post-body] (html/html-content (md/to-html (slurp (:file-path post)) pegdown-options))
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
