@@ -4,6 +4,10 @@ A Clojure library designed to ... well, that part is up to you.
 
 ## Run Locally
 
+
+bin/set_env.sh [STAGE] (Either dev, staging, or production)
+
+
 `lein ring server-headless`
 
 The site can be reached in your browser at http://localhost:3000/
