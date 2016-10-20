@@ -19,7 +19,7 @@
 (defn get-pages []
   (let [blogposts
         (for [blogpost (:blogs sn/config)]
-          (hash-map (sn/linkize (:title blogpost)) (fn [context] (apply str (t/blog context)))))]
+          (hash-map (sn/linkize (:file-path blogpost)) (fn [context] (apply str (t/blog-post context)))))]
     ;; merge-page-sources is a convenience to identify conflicts
     (s/merge-page-sources
      {:pages (merge {"/" (fn [context] (apply str (t/home-page context)))
