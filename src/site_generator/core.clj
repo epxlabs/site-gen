@@ -1,6 +1,5 @@
 (ns site-generator.core
-  (:require [clojure.string :as str]
-            [optimus.assets :as assets]
+  (:require [optimus.assets :as assets]
             [optimus.export :as export]
             [optimus.optimizations :as op]
             [optimus.prime :as optimus]
