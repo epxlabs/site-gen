@@ -8,14 +8,24 @@
 
 ;; Config to be moved to DB
 (def config {:blogs [{:title "Welcome to Jekyll"
+                      :date "August 20, 2016"
+                      :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-08-20-welcome-to-jekyll.markdown"}
                      {:title "Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn"
+                      :date "August 27, 2016"
+                      :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-08-27-setup-rails-ubuntu-14-10-utopic-unicorn.markdown"}
                      {:title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
+                      :date "September 3, 2016"
+                      :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"}
                      {:title "Serverless - Where do I start?"
+                      :date "September 4, 2016"
+                      :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-04-serverless-where-do-i-start.markdown"}
                      {:title "Serverless NYC - The Serverless Landscape"
+                      :date "September 5, 2016"
+                      :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}]
              :contact-us {:get-in-touch "We are always available to help solve your problems, meet others in the space, and discuss what we're passionate about. Tell us how we can help!"}
              :favicon "/img/epx-favicon.png"
@@ -235,15 +245,23 @@
 (html/defsnippet blog "partials/blog.html"
   [html/root]
   []
-  [:div.articles] (html/html-content
+  [:div.article] (html/clone-for [{:keys [file-path author title date]} (:blogs config)]
+                                 [:a] (html/content title)
+                                 [:a] (html/set-attr :href (linkize file-path))
+                                 [:i] (html/content (str author " - " date)))
+    #_(html/html-content
                    (str/join
                     (for [blog (:blogs config)]
                       (str "<h3>"
                            "<a href=\""
                            (linkize (:file-path blog))
                            "\">"
-                           (:file-path blog)
-                           "</a></h3>"))))
+                           (:title blog)
+                           "</a></h3><h5>"
+                           (:author blog)
+                           " - <i>"
+                           (:date blog)
+                           "</i></h5>"))))
   )
 
 (html/defsnippet blog-post "partials/blog_post.html"
