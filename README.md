@@ -4,10 +4,7 @@ A Clojure library designed to ... well, that part is up to you.
 
 ## Run Locally
 
-
-bin/set_env.sh [STAGE] (Either dev, staging, or production)
-
-
+` bin/set_env.sh [STAGE]` (Either dev, staging, or production)
 `lein ring server-headless`
 
 The site can be reached in your browser at http://localhost:3000/
@@ -68,6 +65,10 @@ Super manual deploy (not recommended):
 6. In your terminal, run `./deploy.sh {STAGE}` (note this will basically repeat the above 5 steps)
 
 This will deploy to staging.epxlabs.com
+
+## Editing HTML
+
+To edit HTML files and see the changes immediately without rebooting your local server, navigate to `src/site-generator/snippets.clj` and use `M-x touch`
 
 ## License
 
