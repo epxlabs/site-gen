@@ -110,7 +110,7 @@
   [:ul.social-icons [:li html/first-of-type]] (build-social-icons)
   [:ul#mainNav
    [:li html/first-of-type]] (html/clone-for [[href content] (:nav-links config)]
-                                             [:li] (html/set-attr :id (clojure.string/replace (clojure.string/lower-case content) #" " "-"))
+                                             [:li] (html/set-attr :id (str/replace (str/lower-case content) #" " "-"))
                                              [:li :a] (html/set-attr :href href)
 
                                              [:li :a] (html/content content))
@@ -229,27 +229,32 @@
         lang (->> node :attrs :class keyword)]
     (html/html-snippet (clyg/highlight code lang :html))))
 
-(defn linkize [title]
-  (str "/blog/" (str/lower-case (str/replace title " " "-"))) "/")
+
+(defn linkize [filepath]
+  (str/replace (str/replace filepath "resources/partials/blog-posts/" "/blog/") ".markdown" "/"))
+
+
+(defn get-filepath [link]
+  (str/replace (str/replace link "/blog/" "resources/partials/blog-posts/") "/index.html" ".markdown"))
 
 (html/defsnippet blog "partials/blog.html"
   [html/root]
   []
   [:div.articles] (html/html-content
-                   (clojure.string/join
+                   (str/join
                     (for [blog (:blogs config)]
-                      (str "<a href=\""
-                           (linkize (:title blog))
-                           "\"><h3>"
-                           (:title blog)
-                           "</h3></a>"))))
+                      (str "<h3>"
+                           "<a href=\""
+                           (linkize (:file-path blog))
+                           "\">"
+                           (:file-path blog)
+                           "</a></h3>"))))
   )
 
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
-  [post]
-
-  [:div.post-body] (html/html-content (md/to-html (slurp (:file-path post)) pegdown-options))
+  [uri]
+  [:div.post-body] (html/html-content (md/to-html (slurp (get-filepath uri)) pegdown-options))
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
   [:div.post-body :pre :div.highlight] (html/set-attr :class "hll"))
