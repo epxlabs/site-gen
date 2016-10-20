@@ -1,5 +1,5 @@
 (ns site-generator.snippets
-  (:require [clojure.string :as str]
+  (:require [clojure.string :as string]
             [clygments.core :as clyg]
             [me.raynes.cegdown :as md]
             [net.cgrand.enlive-html :as html]
@@ -120,7 +120,7 @@
   [:ul.social-icons [:li html/first-of-type]] (build-social-icons)
   [:ul#mainNav
    [:li html/first-of-type]] (html/clone-for [[href content] (:nav-links config)]
-                                             [:li] (html/set-attr :id (str/replace (str/lower-case content) #" " "-"))
+                                             [:li] (html/set-attr :id (string/replace (string/lower-case content) #" " "-"))
                                              [:li :a] (html/set-attr :href href)
 
                                              [:li :a] (html/content content))
@@ -241,11 +241,11 @@
 
 
 (defn linkize [filepath]
-  (str/replace (str/replace filepath "resources/partials/blog-posts/" "/blog/") ".markdown" "/"))
+  (string/replace (string/replace filepath "resources/partials/blog-posts/" "/blog/") ".markdown" "/"))
 
 
 (defn get-filepath [link]
-  (str/replace (str/replace link "/blog/" "resources/partials/blog-posts/") "/index.html" ".markdown"))
+  (string/replace (string/replace link "/blog/" "resources/partials/blog-posts/") "/index.html" ".markdown"))
 
 (html/defsnippet blog "partials/blog.html"
   [html/root]
@@ -254,8 +254,8 @@
                                  [:a] (html/content title)
                                  [:a] (html/set-attr :href (linkize file-path))
                                  [:i] (html/content (str author " - " date)))
-    #_(html/html-content
-                   (str/join
+      (html/html-content
+                   (string/join
                     (for [blog (:blogs config)]
                       (str "<h3>"
                            "<a href=\""
