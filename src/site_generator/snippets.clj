@@ -253,21 +253,7 @@
   [:div.article] (html/clone-for [{:keys [file-path author title date]} (:blogs config)]
                                  [:a] (html/content title)
                                  [:a] (html/set-attr :href (linkize file-path))
-                                 [:i] (html/content (str author " - " date)))
-      (html/html-content
-                   (string/join
-                    (for [blog (:blogs config)]
-                      (str "<h3>"
-                           "<a href=\""
-                           (linkize (:file-path blog))
-                           "\">"
-                           (:title blog)
-                           "</a></h3><h5>"
-                           (:author blog)
-                           " - <i>"
-                           (:date blog)
-                           "</i></h5>"))))
-  )
+                                 [:i] (html/content (str author " - " date))))
 
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
