@@ -3,23 +3,20 @@
             [clygments.core :as clyg]
             [me.raynes.cegdown :as md]
             [net.cgrand.enlive-html :as html]
-            [optimus.link :as link]
-            [site-generator.templates :as t])
+            [optimus.link :as link])
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [{:title "Blog 1"
-                      :date "01242016"
-                      :summary "Blog 1 Rocks!"
-                      :link "https://blog.epxlabs.com/1"}
-                     {:title "Blog 2"
-                      :date "03182016"
-                      :summary "Blog 2 Rocks!"
-                      :link "https://blog.epxlabs.com/2"}
-                     {:title "Blog 3"
-                      :date "07232016"
-                      :summary "Blog 3 Rocks!"
-                      :link "https://blog.epxlabs.com/3"}]
+(def config {:blogs [{:title "Welcome to Jekyll"
+                      :file-path "resources/partials/blog-posts/2016-08-20-welcome-to-jekyll.markdown"}
+                     {:title "Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn"
+                      :file-path "resources/partials/blog-posts/2016-08-27-setup-rails-ubuntu-14-10-utopic-unicorn.markdown"}
+                     {:title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
+                      :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"}
+                     {:title "Serverless - Where do I start?"
+                      :file-path "resources/partials/blog-posts/2016-09-04-serverless-where-do-i-start.markdown"}
+                     {:title "Serverless NYC - The Serverless Landscape"
+                      :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}]
              :contact-us {:get-in-touch "We are always available to help solve your problems, meet others in the space, and discuss what we're passionate about. Tell us how we can help!"}
              :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
@@ -233,16 +230,16 @@
     (html/html-snippet (clyg/highlight code lang :html))))
 
 (defn linkize [title]
-  (str "/blog/" (str/lower-case (str/replace title " " "-"))))
+  (str "/blog/" (str/lower-case (str/replace title " " "-"))) "/")
 
 (html/defsnippet blog "partials/blog.html"
   [html/root]
   []
   [:div.articles] (html/html-content
                    (clojure.string/join
-                    (for [blog (:blogs t/config)]
+                    (for [blog (:blogs config)]
                       (str "<a href=\""
-                           (core/linkize (:title blog))
+                           (linkize (:title blog))
                            "\"><h3>"
                            (:title blog)
                            "</h3></a>"))))

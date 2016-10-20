@@ -6,6 +6,7 @@
             [optimus.prime :as optimus]
             [optimus.strategies :as strategies]
             [ring.middleware.content-type :as ct]
+            [site-generator.snippets :as sn]
             [site-generator.templates :as t]
             [stasis.core :as s]))
 
@@ -15,13 +16,10 @@
 (defn stringify-page [page context]
   (apply str (page context)))
 
-(defn linkize [title]
-  (str "/blog/" (str/lower-case (str/replace title " " "-"))))
-
 (defn get-pages []
   (let [blogposts
-        (for [blogpost (:blogs t/config)]
-          (hash-map (linkize (:title blogpost)) (fn [context] (apply str (t/blog context)))))]
+        (for [blogpost (:blogs sn/config)]
+          (hash-map (sn/linkize (:title blogpost)) (fn [context] (apply str (t/blog context)))))]
     ;; merge-page-sources is a convenience to identify conflicts
     (s/merge-page-sources
      {:pages (merge {"/" (fn [context] (apply str (t/home-page context)))
