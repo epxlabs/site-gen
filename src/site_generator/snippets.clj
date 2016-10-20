@@ -7,23 +7,28 @@
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [{:title "Welcome to Jekyll"
+(def config {:blogs [{:id "1"
+                      :title "Welcome to Jekyll"
                       :date "August 20, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-08-20-welcome-to-jekyll.markdown"}
-                     {:title "Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn"
+                     {:id "2"
+                      :title "Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn"
                       :date "August 27, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-08-27-setup-rails-ubuntu-14-10-utopic-unicorn.markdown"}
-                     {:title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
+                     {:id "3"
+                      :title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
                       :date "September 3, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"}
-                     {:title "Serverless - Where do I start?"
+                     {:id "4"
+                      :title "Serverless - Where do I start?"
                       :date "September 4, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-04-serverless-where-do-i-start.markdown"}
-                     {:title "Serverless NYC - The Serverless Landscape"
+                     {:id "5"
+                      :title "Serverless NYC - The Serverless Landscape"
                       :date "September 5, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}]
