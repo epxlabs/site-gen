@@ -36,11 +36,6 @@
                                  ;; Need to pass the request to header for the logo
                                  (s/header request "home")
                                  (s/main)
-                                 #_(s/who-we-are)
-                                 #_(s/call-to-action)
-                                 #_(s/what-we-do)
-                                 #_(s/our-blog)
-                                 #_(s/contact-us-form)
                                  (s/contact-us)
                                  ;; Need to pass the request to footer for the logo
                                  (s/footer request)))
@@ -96,5 +91,32 @@
   [:body [:script html/last-of-type]] (html/content google-analytics-script)
   [:body :div#home] (html/append (s/header request "who-we-are")
                                  (s/about-us)
+                                 (s/contact-us)
+                                 (s/footer request)))
+
+
+(html/deftemplate blog "templates/application.html"
+  [request]
+  [:head :title] (html/content (:title config))
+  ;; Add The Bundled Assets To The HTML file so they are pulled in
+  [:head [:link html/first-of-type]] (html/set-attr :href (link/file-path request "/img/epx-favicon.png"))
+  [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
+  [:body [:script html/first-of-type]] (get-bundle-paths request :src ["app.js"])
+  [:body [:script html/last-of-type]] (html/content google-analytics-script)
+  [:body :div#home] (html/append (s/header request "blog")
+                                 (s/blog)
+                                 (s/contact-us)
+                                 (s/footer request)))
+
+(html/deftemplate blog-post "templates/application.html"
+  [request]
+  [:head :title] (html/content (:title config))
+  ;; Add The Bundled Assets To The HTML file so they are pulled in
+  [:head [:link html/first-of-type]] (html/set-attr :href (link/file-path request "/img/epx-favicon.png"))
+  [:head [:link html/last-of-type]] (get-bundle-paths request :href ["app.css"])
+  [:body [:script html/first-of-type]] (get-bundle-paths request :src ["app.js"])
+  [:body [:script html/last-of-type]] (html/content google-analytics-script)
+  [:body :div#home] (html/append (s/header request "blog")
+                                 (s/blog-post (:uri request))
                                  (s/contact-us)
                                  (s/footer request)))

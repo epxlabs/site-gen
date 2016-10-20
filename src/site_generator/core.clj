@@ -5,24 +5,29 @@
             [optimus.prime :as optimus]
             [optimus.strategies :as strategies]
             [ring.middleware.content-type :as ct]
+            [site-generator.snippets :as sn]
             [site-generator.templates :as t]
             [stasis.core :as s]))
 
 ;; Config to be moved to DB
 (def config {:export-dir "resources/exported_site"})
 
-
 (defn stringify-page [page context]
   (apply str (page context)))
 
 (defn get-pages []
-  ;; merge-page-sources is a convenience to identify conflicts
-  (s/merge-page-sources
-   {:pages {"/" (fn [context] (apply str (t/home-page context)))
-            "/devops/" (fn [context] (apply str (t/devops context)))
-            "/serverless/" (fn [context] (apply str (t/serverless context)))
-            "/clojure/" (fn [context] (apply str (t/clojure context)))
-            "/who-we-are/" (fn [context] (apply str (t/about-us context)))}}))
+  (let [blogposts
+        (for [blogpost (:blogs sn/config)]
+          (hash-map (sn/linkize (:file-path blogpost)) (fn [context] (apply str (t/blog-post context)))))]
+    ;; merge-page-sources is a convenience to identify conflicts
+    (s/merge-page-sources
+     {:pages (merge {"/" (fn [context] (apply str (t/home-page context)))
+                     "/devops/" (fn [context] (apply str (t/devops context)))
+                     "/serverless/" (fn [context] (apply str (t/serverless context)))
+                     "/clojure/" (fn [context] (apply str (t/clojure context)))
+                     "/who-we-are/" (fn [context] (apply str (t/about-us context)))
+                     "/blog/" (fn [context] (apply str (t/blog context)))
+                     } (into {} blogposts))})))
 
 ;; Here we specify which files should be bundled together and minified
 ;; Since we only have one page it makes sense to put all files in a bundle
@@ -39,6 +44,7 @@
                 "/vendor/owl.carousel/assets/owl.carousel.min.css"
                 "/vendor/owl.carousel/assets/owl.theme.default.min.css"
                 "/vendor/magnific-popup/magnific-popup.min.css"
+                "/css/monokai.css"
                 "/css/theme.css"
                 "/css/theme-elements.css"
                 "/css/theme-blog.css"

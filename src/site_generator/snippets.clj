@@ -1,21 +1,32 @@
 (ns site-generator.snippets
-  (:require [net.cgrand.enlive-html :as html]
+  (:require [clojure.string :as string]
+            [clygments.core :as clyg]
+            [me.raynes.cegdown :as md]
+            [net.cgrand.enlive-html :as html]
             [optimus.link :as link])
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [{:title "Blog 1"
-                      :date "01242016"
-                      :summary "Blog 1 Rocks!"
-                      :link "https://blog.epxlabs.com/1"}
-                     {:title "Blog 2"
-                      :date "03182016"
-                      :summary "Blog 2 Rocks!"
-                      :link "https://blog.epxlabs.com/2"}
-                     {:title "Blog 3"
-                      :date "07232016"
-                      :summary "Blog 3 Rocks!"
-                      :link "https://blog.epxlabs.com/3"}]
+(def config {:blogs [{:title "Welcome to Jekyll"
+                      :date "August 20, 2016"
+                      :author "Prachetas Prabhu"
+                      :file-path "resources/partials/blog-posts/2016-08-20-welcome-to-jekyll.markdown"}
+                     {:title "Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn"
+                      :date "August 27, 2016"
+                      :author "Prachetas Prabhu"
+                      :file-path "resources/partials/blog-posts/2016-08-27-setup-rails-ubuntu-14-10-utopic-unicorn.markdown"}
+                     {:title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
+                      :date "September 3, 2016"
+                      :author "Prachetas Prabhu"
+                      :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"}
+                     {:title "Serverless - Where do I start?"
+                      :date "September 4, 2016"
+                      :author "Prachetas Prabhu"
+                      :file-path "resources/partials/blog-posts/2016-09-04-serverless-where-do-i-start.markdown"}
+                     {:title "Serverless NYC - The Serverless Landscape"
+                      :date "September 5, 2016"
+                      :author "Prachetas Prabhu"
+                      :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}]
              :contact-us {:get-in-touch "We are always available to help solve your problems, meet others in the space, and discuss what we're passionate about. Tell us how we can help!"}
              :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
@@ -37,6 +48,7 @@
                          "/serverless" "Serverless"
                          "/clojure" "Clojure"
                          "/who-we-are" "Who We Are"
+                         "/blog" "Blog"
                          "#contact" "Contact Us"}
              :phone "646.768.0123"
              :social-icons {:github {:title "GitHub"
@@ -107,7 +119,7 @@
   [:ul.social-icons [:li html/first-of-type]] (build-social-icons)
   [:ul#mainNav
    [:li html/first-of-type]] (html/clone-for [[href content] (:nav-links config)]
-                                             [:li] (html/set-attr :id (clojure.string/replace (clojure.string/lower-case content) #" " "-"))
+                                             [:li] (html/set-attr :id (string/replace (string/lower-case content) #" " "-"))
                                              [:li :a] (html/set-attr :href href)
 
                                              [:li :a] (html/content content))
@@ -213,3 +225,35 @@
 (html/defsnippet about-us "partials/about-us.html"
   [html/root]
   [])
+
+
+(def pegdown-options [:autolinks :fenced-code-blocks :strikethrough])
+
+(defn- highlight [node]
+  (let [code (->> node :content (apply str))
+        lang (->> node :attrs :class keyword)]
+    (html/html-snippet (clyg/highlight code lang :html))))
+
+
+(defn linkize [filepath]
+  (string/replace (string/replace filepath "resources/partials/blog-posts/" "/blog/") ".markdown" "/"))
+
+
+(defn get-filepath [link]
+  (string/replace (string/replace link "/blog/" "resources/partials/blog-posts/") "/index.html" ".markdown"))
+
+(html/defsnippet blog "partials/blog.html"
+  [html/root]
+  []
+  [:div.article] (html/clone-for [{:keys [file-path author title date]} (:blogs config)]
+                                 [:a] (html/content title)
+                                 [:a] (html/set-attr :href (linkize file-path))
+                                 [:i] (html/content (str author " - " date))))
+
+(html/defsnippet blog-post "partials/blog_post.html"
+  [html/root]
+  [uri]
+  [:div.post-body] (html/html-content (md/to-html (slurp (get-filepath uri)) pegdown-options))
+  [:div.post-body :pre :code] highlight
+  [:div.post-body :pre] (html/add-class "codehilite")
+  [:div.post-body :pre :div.highlight] (html/set-attr :class "hll"))
