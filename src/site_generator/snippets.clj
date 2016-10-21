@@ -7,23 +7,28 @@
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [{:title "Welcome to Jekyll"
+(def config {:blogs [{:id "1"
+                      :title "Welcome to Jekyll"
                       :date "August 20, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-08-20-welcome-to-jekyll.markdown"}
-                     {:title "Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn"
+                     {:id "2"
+                      :title "Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn"
                       :date "August 27, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-08-27-setup-rails-ubuntu-14-10-utopic-unicorn.markdown"}
-                     {:title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
+                     {:id "3"
+                      :title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
                       :date "September 3, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"}
-                     {:title "Serverless - Where do I start?"
+                     {:id "4"
+                      :title "Serverless - Where do I start?"
                       :date "September 4, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-04-serverless-where-do-i-start.markdown"}
-                     {:title "Serverless NYC - The Serverless Landscape"
+                     {:id "5"
+                      :title "Serverless NYC - The Serverless Landscape"
                       :date "September 5, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}]
@@ -250,10 +255,40 @@
                                  [:a] (html/set-attr :href (linkize file-path))
                                  [:i] (html/content (str author " - " date))))
 
+(def image-regex #"~\*.+\*~")
+
+
+(defn find-image-links
+  "Finds all image links in the markdown file."
+  [md]
+  (into #{} (re-seq image-regex md)))
+
+(def image-path "/blog_images/")
+
+(defn clean-image-link
+  "Removes special characters from a link and adds
+   the image path."
+  [link]
+  (-> link
+      (string/replace "*~" ")")
+      (string/replace "~*" (str "(" image-path))))
+
+(defn replace-image-link
+  "Replaces a link in the regex with the cleaned
+   version of the link."
+  [md link]
+  (string/replace md link (clean-image-link link)))
+
+(defn change-image-links
+  "Converts all special image links in a markdown file
+   and gives them correct link."
+  [md]
+  (reduce replace-image-link md (find-image-links md)))
+
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
   [uri]
-  [:div.post-body] (html/html-content (md/to-html (slurp (get-filepath uri)) pegdown-options))
+  [:div.post-body] (html/html-content (md/to-html (change-image-links (slurp (get-filepath uri))) pegdown-options))
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
   [:div.post-body :pre :div.highlight] (html/set-attr :class "hll"))
