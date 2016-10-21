@@ -260,10 +260,40 @@
                                  [:a] (html/set-attr :href (linkize file-path))
                                  [:i] (html/content (str author " - " date))))
 
+(def image-regex #"~\*.+\*~")
+
+
+(defn find-image-links
+  "Finds all image links in the markdown file."
+  [md]
+  (into #{} (re-seq image-regex md)))
+
+(def image-path "/blog_images/")
+
+(defn clean-image-link
+  "Removes special characters from a link and adds
+   the image path."
+  [link]
+  (-> link
+      (string/replace "*~" ")")
+      (string/replace "~*" (str "(" image-path))))
+
+(defn replace-image-link
+  "Replaces a link in the regex with the cleaned
+   version of the link."
+  [md link]
+  (string/replace md link (clean-image-link link)))
+
+(defn change-image-links
+  "Converts all special image links in a markdown file
+   and gives them correct link."
+  [md]
+  (reduce replace-image-link md (find-image-links md)))
+
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
   [uri]
-  [:div.post-body] (html/html-content (md/to-html (slurp (get-filepath uri)) pegdown-options))
+  [:div.post-body] (html/html-content (md/to-html (change-image-links (slurp (get-filepath uri))) pegdown-options))
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
   [:div.post-body :pre :div.highlight] (html/set-attr :class "hll"))

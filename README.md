@@ -70,6 +70,13 @@ This will deploy to staging.epxlabs.com
 
 To edit HTML files and see the changes immediately without rebooting your local server, navigate to `src/site-generator/snippets.clj` and use `M-x touch`
 
+## Adding a Blog Post
+
+To add images to your blog post, use the following markdown syntax:
+`![ALT-TEXT]~*FILE NAME*~`
+
+Alt text should be whatever you want the name of the image to be when it is hovered over, and file name should be the exact name of the image file.
+
 ## License
 
 Copyright © 2016 EPX Labs, Inc.
