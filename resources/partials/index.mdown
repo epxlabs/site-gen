@@ -25,8 +25,7 @@ div.main-content > p {
 <div class="col-sm-8 col-sm-offset-2 main-content" >
 
 
-<h2 class="text-center">"You never change things by fighting the existing reality.
-To change something, build a new model that makes the existing model obsolete."</h2>
+<h2 class="text-center">EPX Labs, the go-to serverless consultancy for implementing fast, simple, and reliable DevOps strategies.</h2>
 <br>
 <br>
 
