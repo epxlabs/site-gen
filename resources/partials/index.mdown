@@ -11,9 +11,9 @@ div.main-content > p {
 
 <br>
 <div class="jumbotron" id="learn-more">
-  <h1>World Class Infrastructure Delivered</h1>
+  <h1>World Class Cloud, Delivered.</h1>
   <br>
-  <p class="lead">We provide our clients with World Class Infrastructure and support. We excel at providing fast, stable, efficient infrastructure with 24/7 support to clients around the globe.</p>
+  <p class="lead">We architect best in class Cloud IT Infrastructure.<br>We excel at fast, stable, and efficient IT operations.<br>We maintain 24/7/365 IT Operations Support for clients around the globe.</p>
   <br>
   <p><a class="btn btn-lg btn-primary btn-slider-action" href="/who-we-are" role="button">Learn More...</a></p>
 </div>
@@ -25,20 +25,25 @@ div.main-content > p {
 <div class="col-sm-8 col-sm-offset-2 main-content" >
 
 
-<h2 class="text-center">We believe World Class Infrastructure is fast, stable, and efficient.</h2>
+<h2 class="text-center">"You never change things by fighting the existing reality.
+To change something, build a new model that makes the existing model obsolete."</h2>
 <br>
 <br>
 
 <p>
-At EPX Labs, we show you how to cut through cloud complexity and deliver software at the speed of innovation. No more security hassles, complicated deploys, or server management.
+At EPX Labs, we show you how to cut through cloud complexity and deliver software at the speed of innovation.<br>No more security hassles, complicated deployments, or costly server management.
 </p>
 
 
 <p>
-We are your infrastructure and development advisors all the way from idea to live production support and everything in between. 
+We are your infrastructure and development advisors from ideation to live production support.
 </p>
 
 <p>
-Using the latest cloud technologies like serverless computing, devops, and functional programming with clojure, we are able to deliver rock solid, World Class Infrastructure without the added expense of buying hardware, building a datacenter, hiring IT staff, or ongoing infrastructure management such as security updates, deployment automation, and scaling.
+EPX Labs leverages the latest cloud technology patterns like serverless computing, DevOps, and functional programming to deliver rock solid world class infrastructure without the added expense of hardware, datacenter costs, or costly single track IT staff.
+</p>
+
+<p>
+You can say goodbye to ongoing infrastructure management concerns: security updates, deployment automation, and production scaling - we handle that for you.
 </p>
 </div>
