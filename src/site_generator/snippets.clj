@@ -35,6 +35,7 @@
              :nav-links {"/" "Home"
                          "/devops" "Devops"
                          "/serverless" "Serverless"
+						 "/nodejs" "nodejs"
                          "/clojure" "Clojure"
                          "/who-we-are" "Who We Are"
                          "#contact" "Contact Us"}
@@ -203,6 +204,10 @@
   [])
 
 (html/defsnippet serverless "partials/serverless.html"
+  [html/root]
+  [])
+  
+(html/defsnippet nodejs "partials/nodejs.html"
   [html/root]
   [])
 
