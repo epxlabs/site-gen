@@ -255,6 +255,12 @@
                                  [:a] (html/set-attr :href (linkize file-path))
                                  [:i] (html/content (str author " - " date))))
 
+(defn gen-db-id
+  "Generates a UUID and the db id which is the first part of the UUID before the dash"
+  []
+  (let [uuid (str (java.util.UUID/randomUUID))]
+    [uuid (first (clojure.string/split uuid #"-"))]))
+
 (def image-regex #"~\*.+\*~")
 
 
