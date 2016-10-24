@@ -77,6 +77,8 @@ To add images to your blog post, use the following markdown syntax:
 
 Alt text should be whatever you want the name of the image to be when it is hovered over, and file name should be the exact name of the image file.
 
+You can use the gen-db-id function in snippets.clj to generate a unique ID for your blog. Once you've done that, you should add the blog with that ID to the config map in the same file.
+
 ## License
 
 Copyright © 2016 EPX Labs, Inc.
