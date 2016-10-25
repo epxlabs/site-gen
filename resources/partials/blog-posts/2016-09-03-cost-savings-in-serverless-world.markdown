@@ -35,11 +35,11 @@ Imagine what you could do if you cloud bill was less than half of your current m
 Here is a snap of EPX Labs curtailing cloud infrastructure spend by more than half on AWS (amazon web services):
 
 
-![alt]~*file1*~ 
+![image-1]~*3/serverless-cost-savings-1.jpg*~ 
 
 And the same bar chart in linear fashion.
 
-![alt]~*file2*~
+![image-2]~*3/serverless-cost-savings-2.jpg*~
 
 For AWS costs you can refer to AWS pricing: [https://aws.amazon.com/pricing/](https://aws.amazon.com/pricing/)
 
