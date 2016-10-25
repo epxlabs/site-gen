@@ -21,6 +21,7 @@
    {:pages {"/" (fn [context] (apply str (t/home-page context)))
             "/devops/" (fn [context] (apply str (t/devops context)))
             "/serverless/" (fn [context] (apply str (t/serverless context)))
+            "/nodejs/" (fn [context] (apply str (t/nodejs context)))
             "/clojure/" (fn [context] (apply str (t/clojure context)))
             "/who-we-are/" (fn [context] (apply str (t/about-us context)))}}))
 
