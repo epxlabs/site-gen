@@ -36,7 +36,12 @@
                       :title "Getting started with Stripe-Clojure"
                       :date "October 25, 2016"
                       :author "Chris McGillicuddy"
-                      :file-path "resources/partials/blog-posts/2016-10-25-stripe-clojure-blog-post.markdown"}]
+                      :file-path "resources/partials/blog-posts/2016-10-25-stripe-clojure-blog-post.markdown"}
+                     {:id "6"
+                      :title "Node 7 async/await and promises from scratch"
+                      :date "October 25, 2016"
+                      :author "Brian Rosamilia"
+                      :file-path "resources/partials/blog-posts/2016-10-27-node-7-async-await-and-promises-from-scratch.markdown"}]
 
 
 
