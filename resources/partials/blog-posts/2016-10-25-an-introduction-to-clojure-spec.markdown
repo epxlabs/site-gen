@@ -5,7 +5,7 @@
 
 To begin, you obviously require clojure.spec in one of your clj files.
 
-``` clojure
+```clojure
 (ns your-file.core
     (:require [clojure.spec :as s])
 ```
@@ -13,8 +13,9 @@ To begin, you obviously require clojure.spec in one of your clj files.
 You now have access to all the methods that this library provides to you.
 To begin with, you need to defining specs by associating them with a keyword and a validation, like so:
 
-```clojure 
+```clojure
 (s/def ::first-name string?)
+
 ```
 
 Many times, you will want a more specific validation, such as one that requires regex. You'd do this by first defining the regex separately, and then calling it using an anonymous function as the second argument in a spec definition.
