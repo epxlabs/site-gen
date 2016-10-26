@@ -42,3 +42,7 @@ section#contact {
   padding: 14px 24px;
   font-size: 21px;
 }
+
+.blog-post .codehilite { background-color: #49483e }
+
+.blog-post .hll { background-color: #49483e }
