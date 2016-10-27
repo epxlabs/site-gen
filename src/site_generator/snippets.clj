@@ -299,7 +299,10 @@
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
   [uri]
+  [:div.blog-post] (html/wrap :div {:class "row"})
+  [:div.post-body] (html/wrap :div {:class "col-md-8 col-md-offset-2"})
   [:div.post-body] (html/html-content (md/to-html (change-image-links (slurp (get-filepath uri))) pegdown-options))
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
-  [:div.post-body :pre :div.highlight] (html/set-attr :class "hll"))
+  [:div.post-body :pre :div.highlight] (html/set-attr :class "hll")
+  )
