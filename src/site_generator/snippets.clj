@@ -31,7 +31,13 @@
                       :title "Serverless NYC - The Serverless Landscape"
                       :date "September 5, 2016"
                       :author "Prachetas Prabhu"
-                      :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}]
+                      :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}
+                     {:id "7"
+                      :title "Zsh: in the pursuit of efficiency"
+                      :date "October 27, 2016"
+                      :author "Alex Shlyonov"
+                      :file-path "resources/partials/blog-posts/2016-08-27-zsh-in-the-pursuit-of-efficiency.markdown"
+                     }]
              :contact-us {:get-in-touch "We are always available to help solve your problems, meet others in the space, and discuss what we're passionate about. Tell us how we can help!"}
              :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
@@ -294,7 +300,10 @@
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
   [uri]
+  [:div.blog-post] (html/wrap :div {:class "row"})
+  [:div.post-body] (html/wrap :div {:class "col-md-8 col-md-offset-2"})
   [:div.post-body] (html/html-content (md/to-html (change-image-links (slurp (get-filepath uri))) pegdown-options))
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
-  [:div.post-body :pre :div.highlight] (html/set-attr :class "hll"))
+  [:div.post-body :pre :div.highlight] (html/set-attr :class "hll")
+  )
