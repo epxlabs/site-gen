@@ -31,7 +31,13 @@
                       :title "Serverless NYC - The Serverless Landscape"
                       :date "September 5, 2016"
                       :author "Prachetas Prabhu"
-                      :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}]
+                      :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}
+                     {:id "7"
+                      :title "Zsh: in the pursuit of efficiency"
+                      :date "October 27, 2016"
+                      :author "Alex Shlyonov"
+                      :file-path "resources/partials/blog-posts/2016-08-27-zsh-in-the-pursuit-of-efficiency.markdown"
+                     }]
              :contact-us {:get-in-touch "We are always available to help solve your problems, meet others in the space, and discuss what we're passionate about. Tell us how we can help!"}
              :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
