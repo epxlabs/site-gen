@@ -46,7 +46,12 @@
                       :title "An Introduction to Clojure.spec"
                       :date "October 25, 2016"
                       :author "Alex Martin"
-                      :file-path "resources/partials/blog-posts/2016-10-25-an-introduction-to-clojure-spec.markdown"}]
+                      :file-path "resources/partials/blog-posts/2016-10-25-an-introduction-to-clojure-spec.markdown"}
+                     {:id "9"
+                      :title "Node 7 async/await and promises from scratch"
+                      :date "October 25, 2016"
+                      :author "Brian Rosamilia"
+                      :file-path "resources/partials/blog-posts/2016-10-27-node-7-async-await-and-promises-from-scratch.markdown"}]
              :contact-us {:get-in-touch "We are always available to help solve your problems, meet others in the space, and discuss what we're passionate about. Tell us how we can help!"}
              :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
