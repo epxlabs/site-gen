@@ -1,54 +1,39 @@
 (ns site-generator.snippets
-  (:require [clojure.string :as string]
+  (:require [aws.sdk.s3 :as s3]
+            [clojure.string :as string]
             [clygments.core :as clyg]
             [me.raynes.cegdown :as md]
             [net.cgrand.enlive-html :as html]
-            [optimus.link :as link])
+            [optimus.link :as link]
+            [site-generator.env :as env])
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [{:id "1"
-                      :title "Welcome to Jekyll"
-                      :date "August 20, 2016"
-                      :author "Prachetas Prabhu"
-                      :file-path "resources/partials/blog-posts/2016-08-20-welcome-to-jekyll.markdown"}
-                     {:id "2"
-                      :title "Setup Ruby On Rails on Ubuntu 14.10 Utopic Unicorn"
-                      :date "August 27, 2016"
-                      :author "Prachetas Prabhu"
-                      :file-path "resources/partials/blog-posts/2016-08-27-setup-rails-ubuntu-14-10-utopic-unicorn.markdown"}
-                     {:id "3"
-                      :title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
+(def config {:blogs [{:title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
                       :date "September 3, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"}
-                     {:id "4"
-                      :title "Serverless - Where do I start?"
+                     {:title "Serverless - Where do I start?"
                       :date "September 4, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-04-serverless-where-do-i-start.markdown"}
-                     {:id "5"
-                      :title "Serverless NYC - The Serverless Landscape"
+                     {:title "Serverless NYC - The Serverless Landscape"
                       :date "September 5, 2016"
                       :author "Prachetas Prabhu"
                       :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}
-                     {:id "6"
-                      :title "Getting started with Stripe-Clojure"
+                     {:title "Getting started with Stripe-Clojure"
                       :date "October 25, 2016"
                       :author "Chris McGillicuddy"
                       :file-path "resources/partials/blog-posts/2016-10-25-stripe-clojure-blog-post.markdown"}
-                     {:id "7"
-                      :title "Zsh: in the pursuit of efficiency"
+                     {:title "Zsh: in the pursuit of efficiency"
                       :date "October 27, 2016"
                       :author "Alex Shlyonov"
                       :file-path "resources/partials/blog-posts/2016-08-27-zsh-in-the-pursuit-of-efficiency.markdown"}
-                     {:id "8"
-                      :title "An Introduction to Clojure.spec"
+                     {:title "An Introduction to Clojure.spec"
                       :date "October 25, 2016"
                       :author "Alex Martin"
                       :file-path "resources/partials/blog-posts/2016-10-25-an-introduction-to-clojure-spec.markdown"}
-                     {:id "9"
-                      :title "Node 7 async/await and promises from scratch"
+                     {:title "Node 7 async/await and promises from scratch"
                       :date "October 25, 2016"
                       :author "Brian Rosamilia"
                       :file-path "resources/partials/blog-posts/2016-10-27-node-7-async-await-and-promises-from-scratch.markdown"}]
@@ -289,7 +274,7 @@
   [md]
   (into #{} (re-seq image-regex md)))
 
-(def image-path "/blog_images/")
+(def image-path "https://s3.amazonaws.com/blog-image-bucket/")
 
 (defn clean-image-link
   "Removes special characters from a link and adds
@@ -299,11 +284,29 @@
       (string/replace "*~" ")")
       (string/replace "~*" (str "(" image-path))))
 
+(defn upload-image
+  "Uploads an image to the S3 blog-image-bucket if not already
+   uploaded."
+  [link]
+  (as-> link l
+      (clean-image-link l)
+      (string/replace l (str "(" image-path) "")
+      (string/replace l ")" "")
+      (if-not (s3/object-exists? env/cred "blog-image-bucket" l)
+        (s3/put-object env/cred "blog-image-bucket" l (clojure.java.io/file (str "resources/public/blog_images/" l))))))
+
+(defn prepare-image-link
+  "Cleans image link and uploads image to S3 if not
+   already uploaded."
+  [link]
+  (upload-image link)
+  (clean-image-link link))
+
 (defn replace-image-link
   "Replaces a link in the regex with the cleaned
    version of the link."
   [md link]
-  (string/replace md link (clean-image-link link)))
+  (string/replace md link (prepare-image-link link)))
 
 (defn change-image-links
   "Converts all special image links in a markdown file
