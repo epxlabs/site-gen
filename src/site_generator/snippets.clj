@@ -276,6 +276,14 @@
 
 (def image-path "https://s3.amazonaws.com/blog-image-bucket/")
 
+(defn clean-image-link
+  "Removes special characters from a link and adds
+   the image path."
+  [link]
+  (-> link
+      (string/replace "*~" ")")
+      (string/replace "~*" (str "(" image-path))))
+
 (defn upload-image
   "Uploads an image to the S3 blog-image-bucket if not already
    uploaded."
@@ -293,14 +301,6 @@
   [link]
   (upload-image link)
   (clean-image-link link))
-
-(defn clean-image-link
-  "Removes special characters from a link and adds
-   the image path."
-  [link]
-  (-> link
-      (string/replace "*~" ")")
-      (string/replace "~*" (str "(" image-path))))
 
 (defn replace-image-link
   "Replaces a link in the regex with the cleaned
