@@ -11,15 +11,15 @@
 ;; Config to be moved to DB
 (def config {:blogs [{:title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
                       :date "September 3, 2016"
-                      :author "Prachetas Prabhu"
+                      :author "Evan Sinicin"
                       :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"}
                      {:title "Serverless - Where do I start?"
                       :date "September 4, 2016"
-                      :author "Prachetas Prabhu"
+                      :author "Brian Knapp and Evan Sinicin"
                       :file-path "resources/partials/blog-posts/2016-09-04-serverless-where-do-i-start.markdown"}
                      {:title "Serverless NYC - The Serverless Landscape"
                       :date "September 5, 2016"
-                      :author "Prachetas Prabhu"
+                      :author "Evan Sinicin"
                       :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}
                      {:title "Getting started with Stripe-Clojure"
                       :date "October 25, 2016"
@@ -29,7 +29,7 @@
                       :date "October 27, 2016"
                       :author "Alex Shlyonov"
                       :file-path "resources/partials/blog-posts/2016-08-27-zsh-in-the-pursuit-of-efficiency.markdown"}
-                     {:title "An Introduction to Clojure.spec"
+                     {:title "An Introduction to clojure.spec"
                       :date "October 25, 2016"
                       :author "Alex Martin"
                       :file-path "resources/partials/blog-posts/2016-10-25-an-introduction-to-clojure-spec.markdown"}
@@ -37,7 +37,7 @@
                       :date "October 25, 2016"
                       :author "Brian Rosamilia"
                       :file-path "resources/partials/blog-posts/2016-10-27-node-7-async-await-and-promises-from-scratch.markdown"}]
-             :contact-us {:get-in-touch "We are always available to help solve your problems, meet others in the space, and discuss what we're passionate about. Tell us how we can help!"}
+             :contact-us {:get-in-touch "We are always available to help solve your business problems, meet others in the serverless apce, and discuss what we're passionate about. You can get in touch with us here, here, or here. :-)"}
              :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
              :logo-image "/img/logos/epx_logo.svg"
