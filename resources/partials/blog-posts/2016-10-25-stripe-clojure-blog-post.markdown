@@ -395,7 +395,7 @@ This returns a success response with the updated customer object to show that th
 
 ### Taking it a step further
 
-The [stripe-clojure](https://github.com/prachetasp/stripe-clojure) library lays the foundation fora Stripe disruption in a functional environment. It contains all of the tools needed to build complex payment and customer management systems and is a great fit for building a serverless solution to payment processing. If you would like to know more about going Serverless contact EPX Labs to find out how you could improve application reliability while cutting costs. #webscale!
+The [stripe-clojure](https://github.com/prachetasp/stripe-clojure) library lays the foundation for a Stripe disruption in a functional environment. It contains all of the tools needed to build complex payment and customer management systems and is a great fit for building a serverless solution to payment processing. If you would like to know more about going Serverless contact EPX Labs to find out how you could improve application reliability while cutting costs. #webscale!
 
 *********************
 
