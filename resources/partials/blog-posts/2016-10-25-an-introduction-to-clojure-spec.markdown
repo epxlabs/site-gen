@@ -3,7 +3,7 @@
 
 [Clojure.spec](http://clojure.org/about/spec) is a great tool for adding some tests and validation to your clojure project. I recently used it in a project that required validating data as it came into the database. 
 
-To begin, you obviously require clojure.spec in one of your clj files.
+To begin, you require clojure.spec in one of your clj files.
 
 ```clojure
 (ns your-file.core
