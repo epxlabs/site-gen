@@ -20,5 +20,5 @@ A general format for this type of engagement:
  - Roll-out cost savings or Serverless enhancements in Agile sprints: [https://en.wikipedia.org/wiki/Scrum_(software_development)](https://en.wikipedia.org/wiki/Scrum_(software_development)) or following the Kanban method: [https://en.wikipedia.org/wiki/Kanban](https://en.wikipedia.org/wiki/Kanban)
  - Accrue cost savings, plan further enhancements, rinse and repeat
 
-Also see our Blog post [Cost Savings in a Serverless World](/serverless/2016/09/03/cost-savings-in-serverless-world.html).
+Also see our Blog post [Cost Savings: Vol. 1 - Cost Savings in a Serverless World](http://staging.epxlabs.com/blog/2016-09-03-cost-savings-in-serverless-world/).
 
