@@ -41,8 +41,12 @@
                       :title "Zsh: in the pursuit of efficiency"
                       :date "October 27, 2016"
                       :author "Alex Shlyonov"
-                      :file-path "resources/partials/blog-posts/2016-08-27-zsh-in-the-pursuit-of-efficiency.markdown"
-                      }]
+                      :file-path "resources/partials/blog-posts/2016-08-27-zsh-in-the-pursuit-of-efficiency.markdown"}
+                     {:id "8"
+                      :title "An Introduction to Clojure.spec"
+                      :date "October 25, 2016"
+                      :author "Alex Martin"
+                      :file-path "resources/partials/blog-posts/2016-10-25-an-introduction-to-clojure-spec.markdown"}]
              :contact-us {:get-in-touch "We are always available to help solve your problems, meet others in the space, and discuss what we're passionate about. Tell us how we can help!"}
              :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
