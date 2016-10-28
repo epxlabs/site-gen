@@ -72,12 +72,31 @@ To edit HTML files and see the changes immediately without rebooting your local 
 
 ## Adding a Blog Post
 
-To add images to your blog post, use the following markdown syntax:
+Blog posts should be in markdown format and should be located in `resources/partials/blog-posts`. They should use the format `YEAR-MONTH-DATE-blog-title.markdown`.
+
+You must generate a `src/site_generator/env.clj` file and insert your AWS credentials into it (this allows for S3 image upload to work). The file should look like the following:
+
+```clojure
+(ns site-generator.env)
+
+(def cred {:access-key "YOUR AWS ACCESS KEY", :secret-key "YOUR AWS SECRET KEY"})
+```
+
+Additionally, you must add your blog_post to the blogs vector in `src/site_generator/snippets.clj` using the following format:
+
+```clojure
+{:title "Your title"
+ :date "Today's date"
+ :author "Your name"
+ :file-path "resources/partials/blog-posts/your-blog.markdown"}
+```
+
+To add images to your blog post, place them in `resources/public/blog_images` and use the following markdown syntax:
 `![ALT-TEXT]~*FILE NAME*~`
 
 Alt text should be whatever you want the name of the image to be when it is hovered over, and file name should be the exact name of the image file.
 
-You can use the gen-db-id function in snippets.clj to generate a unique ID for your blog. Once you've done that, you should add the blog with that ID to the config map in the same file.
+NOTE: the file name should just be the name of the file itself without the path. So, "your-image.jpg" instead of "resources/public/blog_images/your_image.jpg".
 
 ## License
 
