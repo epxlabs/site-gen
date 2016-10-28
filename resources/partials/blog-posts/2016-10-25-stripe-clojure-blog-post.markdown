@@ -285,22 +285,23 @@ Let's make some plans (id's need to be unique across all plans):
 
 *Pink Plan*
 
-```
+```clojure
 (create {:plans {:id "pink" :amount 15999 :currency "usd" :interval "month" :name "Pink Plan"}})
 ```
 
 *stripe-clojure*
 
+```clojure
+(create {:plans {:id "stripe-clojure" :amount 999 :currency "usd" :interval "month" :name "Stripe Clojure"}})
 ```
-(create {:plans {:id "stripe-clojure" :amount 15999 :currency "usd" :interval "month" :name "Stripe Clojure"}})
-
-
 
 *********************
 
 ### Starting a Subscription
-The previous two steps are necessary to begin charging a customer on a monthly basis. This step requires a plan to exist on the linked stripe account. The key points of stripe plans are the price and the billing frequency. For our purposes we are trying to subscribe a customer to a plan named "stripe-clojure" that charges $9.99 and bills monthly. 
-In the repl we can run a similar command to what we have been using to edit customer data. 
+
+The previous three steps are necessary to begin charging a customer on a monthly basis. 
+For our purposes we are trying to subscribe a customer to a plan named "stripe-clojure" that charges $9.99 and bills monthly. 
+Let's create a customer and assign them to the stripe-clojure plan:
 
 ```clojure
 (create {:customers {:customer_id "cus_9RQwyEK0fHnSkO" :plan "stripe-clojure"}})
@@ -389,6 +390,13 @@ This returns a success response with the updated customer object to show that th
  :metadata {},
  :object "customer"}
 ```
+
+*********************
+
 ### Taking it a step further
 
-The [stripe-clojure](https://github.com/prachetasp/stripe-clojure) library provides the basis for a functional environment with stripe capability. It contains all of the tools needed to build complex payment and customer management systems and can be used in conjunction with AWS to provide a serverless solution to payment processing. If you would like to know more about going serverless, contact EPXlabs to find out how you could improve server reliability while cutting costs. 
+The [stripe-clojure](https://github.com/prachetasp/stripe-clojure) library lays the foundation fora Stripe disruption in a functional environment. It contains all of the tools needed to build complex payment and customer management systems and is a great fit for building a serverless solution to payment processing. If you would like to know more about going Serverless contact EPX Labs to find out how you could improve application reliability while cutting costs. #webscale!
+
+*********************
+
+*note: EPX Labs endorses Spring Break*
