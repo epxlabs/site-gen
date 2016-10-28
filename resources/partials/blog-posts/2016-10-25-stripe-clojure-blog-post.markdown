@@ -399,4 +399,4 @@ The [stripe-clojure](https://github.com/prachetasp/stripe-clojure) library lays 
 
 *********************
 
-*note: EPX Labs endorses Spring Break*
+
