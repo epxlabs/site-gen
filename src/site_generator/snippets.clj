@@ -1,9 +1,11 @@
 (ns site-generator.snippets
-  (:require [clojure.string :as string]
+  (:require [aws.sdk.s3 :as s3]
+            [clojure.string :as string]
             [clygments.core :as clyg]
             [me.raynes.cegdown :as md]
             [net.cgrand.enlive-html :as html]
-            [optimus.link :as link])
+            [optimus.link :as link]
+            [site-generator.env :as env])
   (:import java.time.Year))
 
 ;; Config to be moved to DB

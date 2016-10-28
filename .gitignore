@@ -9,6 +9,7 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
+env.clj
 
 # Mac local-specific files
 .DS_Store
