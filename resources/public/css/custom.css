@@ -46,3 +46,10 @@ section#contact {
 .blog-post .codehilite { background-color: #49483e }
 
 .blog-post .hll { background-color: #49483e }
+
+div.article {
+    padding: 10px;
+}
+div.articles > div:nth-of-type(odd) {
+    background: #ececec;
+}
