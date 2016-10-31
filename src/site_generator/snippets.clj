@@ -29,6 +29,14 @@
                       :date "October 27, 2016"
                       :author "Alex Shlyonov"
                       :file-path "resources/partials/blog-posts/2016-08-27-zsh-in-the-pursuit-of-efficiency.markdown"}
+                     {:title "Zsh: colorize man pages"
+                      :date "October 31, 2016"
+                      :author "Alex Shlyonov"
+                      :file-path "resources/partials/blog-posts/2016-10-31-zsh-colorize-man-pages.markdown"}
+                     {:title "Zsh: useful shortcuts"
+                      :date "October 31, 2016"
+                      :author "Alex Shlyonov"
+                      :file-path "resources/partials/blog-posts/2016-10-31-zsh-useful-shortcuts.markdown"}
                      {:title "An Introduction to clojure.spec"
                       :date "October 25, 2016"
                       :author "Alex Martin"
