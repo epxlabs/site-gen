@@ -53,3 +53,13 @@ div.article {
 div.articles > div:nth-of-type(odd) {
     background: #ececec;
 }
+
+.resize{
+    width:540px; /* you can use % */
+    height: auto;
+}
+
+.author{
+    position:relative;
+    bottom:25px;
+}

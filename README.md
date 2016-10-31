@@ -4,6 +4,14 @@ A Clojure library designed to ... well, that part is up to you.
 
 ## Run Locally
 
+You must generate a `src/site_generator/env.clj` file and insert your AWS credentials into it (this allows for S3 image upload to work). The file should look like the following:
+
+```clojure
+(ns site-generator.env)
+
+(def cred {:access-key "YOUR AWS ACCESS KEY", :secret-key "YOUR AWS SECRET KEY"})
+```
+Then in your terminal, run:
 ` bin/set_env.sh [STAGE]` (Either dev, staging, or production)
 `lein ring server-headless`
 
@@ -74,13 +82,6 @@ To edit HTML files and see the changes immediately without rebooting your local 
 
 Blog posts should be in markdown format and should be located in `resources/partials/blog-posts`. They should use the format `YEAR-MONTH-DATE-blog-title.markdown`.
 
-You must generate a `src/site_generator/env.clj` file and insert your AWS credentials into it (this allows for S3 image upload to work). The file should look like the following:
-
-```clojure
-(ns site-generator.env)
-
-(def cred {:access-key "YOUR AWS ACCESS KEY", :secret-key "YOUR AWS SECRET KEY"})
-```
 
 Additionally, you must add your blog_post to the blogs vector in `src/site_generator/snippets.clj` using the following format:
 
@@ -88,7 +89,8 @@ Additionally, you must add your blog_post to the blogs vector in `src/site_gener
 {:title "Your title"
  :date "Today's date"
  :author "Your name"
- :file-path "resources/partials/blog-posts/your-blog.markdown"}
+ :file-path "resources/partials/blog-posts/your-blog.markdown"
+ :display-image "your-image.jpg"}
 ```
 
 To add images to your blog post, place them in `resources/public/blog_images` and use the following markdown syntax:
@@ -96,7 +98,7 @@ To add images to your blog post, place them in `resources/public/blog_images` an
 
 Alt text should be whatever you want the name of the image to be when it is hovered over, and file name should be the exact name of the image file.
 
-NOTE: the file name should just be the name of the file itself without the path. So, "your-image.jpg" instead of "resources/public/blog_images/your_image.jpg".
+NOTE: Both file names in the blog and in the display-image key in the map should just be the name of the file itself without the path. So, "your-image.jpg" instead of "resources/public/blog_images/your_image.jpg".
 
 ## License
 

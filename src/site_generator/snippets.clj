@@ -9,34 +9,41 @@
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [{:title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
-                      :date "September 3, 2016"
-                      :author "Evan Sinicin"
-                      :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"}
-                     {:title "Serverless - Where do I start?"
-                      :date "September 4, 2016"
-                      :author "Brian Knapp and Evan Sinicin"
-                      :file-path "resources/partials/blog-posts/2016-09-04-serverless-where-do-i-start.markdown"}
-                     {:title "Serverless NYC - The Serverless Landscape"
-                      :date "September 5, 2016"
-                      :author "Evan Sinicin"
-                      :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"}
-                     {:title "Getting started with Stripe-Clojure"
-                      :date "October 25, 2016"
-                      :author "Chris McGillicuddy"
-                      :file-path "resources/partials/blog-posts/2016-10-25-stripe-clojure-blog-post.markdown"}
-                     {:title "Zsh: in the pursuit of efficiency"
+(def config {:blogs [{:title "Zsh: in the pursuit of efficiency"
                       :date "October 27, 2016"
                       :author "Alex Shlyonov"
-                      :file-path "resources/partials/blog-posts/2016-08-27-zsh-in-the-pursuit-of-efficiency.markdown"}
+                      :file-path "resources/partials/blog-posts/2016-08-27-zsh-in-the-pursuit-of-efficiency.markdown"
+                      :display-image "iterm_zsh_agnoster.png"}
                      {:title "An Introduction to clojure.spec"
                       :date "October 25, 2016"
                       :author "Alex Martin"
-                      :file-path "resources/partials/blog-posts/2016-10-25-an-introduction-to-clojure-spec.markdown"}
+                      :file-path "resources/partials/blog-posts/2016-10-25-an-introduction-to-clojure-spec.markdown"
+                      :display-image "clojure-spec.jpg"}
                      {:title "Node 7 async/await and promises from scratch"
                       :date "October 25, 2016"
                       :author "Brian Rosamilia"
-                      :file-path "resources/partials/blog-posts/2016-10-27-node-7-async-await-and-promises-from-scratch.markdown"}]
+                      :file-path "resources/partials/blog-posts/2016-10-27-node-7-async-await-and-promises-from-scratch.markdown"
+                      :display-image "nodejs.png"}
+                     {:title "Getting started with Stripe-Clojure"
+                      :date "October 25, 2016"
+                      :author "Chris McGillicuddy"
+                      :file-path "resources/partials/blog-posts/2016-10-25-stripe-clojure-blog-post.markdown"
+                      :display-image "stripe.png"}
+                     {:title "Serverless NYC - The Serverless Landscape"
+                      :date "September 5, 2016"
+                      :author "Evan Sinicin"
+                      :file-path "resources/partials/blog-posts/2016-09-05-serverless-nyc-the-serverless-landscape.markdown"
+                      :display-image "serverless-landscape.jpg"}
+                     {:title "Serverless - Where do I start?"
+                      :date "September 4, 2016"
+                      :author "Brian Knapp and Evan Sinicin"
+                      :file-path "resources/partials/blog-posts/2016-09-04-serverless-where-do-i-start.markdown"
+                      :display-image "where-do-i-start.png"}
+                     {:title "Cost Savings: Vol. 1 - Cost Savings in a Serverless World"
+                      :date "September 3, 2016"
+                      :author "Evan Sinicin"
+                      :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"
+                      :display-image "serverless-cost-savings-1.jpg"}]
              :contact-us {:get-in-touch "We are always available to help solve your business problems, meet others in the serverless apce, and discuss what we're passionate about. You can get in touch with us here, here, or here. :-)"}
              :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
@@ -228,7 +235,7 @@
 (html/defsnippet serverless "partials/serverless.html"
   [html/root]
   [])
-  
+
 (html/defsnippet nodejs "partials/nodejs.html"
   [html/root]
   [])
@@ -257,13 +264,6 @@
 (defn get-filepath [link]
   (string/replace (string/replace link "/blog/" "resources/partials/blog-posts/") "/index.html" ".markdown"))
 
-(html/defsnippet blog "partials/blog.html"
-  [html/root]
-  []
-  [:div.article] (html/clone-for [{:keys [file-path author title date]} (:blogs config)]
-                                 [:a] (html/content title)
-                                 [:a] (html/set-attr :href (linkize file-path))
-                                 [:i] (html/content (str author " - " date))))
 
 (defn gen-db-id
   "Generates a UUID and the db id which is the first part of the UUID before the dash"
@@ -279,7 +279,7 @@
   [md]
   (into #{} (re-seq image-regex md)))
 
-(def image-path "https://s3.amazonaws.com/blog-image-bucket/")
+(def display-image "https://s3.amazonaws.com/blog-image-bucket/")
 
 (defn clean-image-link
   "Removes special characters from a link and adds
@@ -287,7 +287,7 @@
   [link]
   (-> link
       (string/replace "*~" ")")
-      (string/replace "~*" (str "(" image-path))))
+      (string/replace "~*" (str "(" display-image))))
 
 (defn upload-image
   "Uploads an image to the S3 blog-image-bucket if not already
@@ -295,10 +295,18 @@
   [link]
   (as-> link l
       (clean-image-link l)
-      (string/replace l (str "(" image-path) "")
+      (string/replace l (str "(" display-image) "")
       (string/replace l ")" "")
       (if-not (s3/object-exists? env/cred "blog-image-bucket" l)
         (s3/put-object env/cred "blog-image-bucket" l (clojure.java.io/file (str "resources/public/blog_images/" l))))))
+
+(defn upload-blog-image
+  [link]
+  (println link)
+  (let [s3-link (str display-image link)]
+    (if-not (s3/object-exists? env/cred "blog-image-bucket" link)
+      (s3/put-object env/cred "blog-image-bucket" link (clojure.java.io/file (str "resources/public/blog_images/" link))))
+    s3-link))
 
 (defn prepare-image-link
   "Cleans image link and uploads image to S3 if not
@@ -318,6 +326,15 @@
    and gives them correct link."
   [md]
   (reduce replace-image-link md (find-image-links md)))
+
+(html/defsnippet blog "partials/blog.html"
+  [html/root]
+  []
+  [:div.article] (html/clone-for [{:keys [file-path author title date display-image]} (:blogs config)]
+                                 [:a] (html/content title)
+                                 [:a] (html/set-attr :href (linkize file-path))
+                                 [:i] (html/content (str author " - " date))
+                                 [:img] (html/set-attr :src (upload-blog-image display-image))))
 
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
