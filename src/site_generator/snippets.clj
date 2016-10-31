@@ -9,7 +9,18 @@
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [{:title "Zsh: in the pursuit of efficiency"
+(def config {:blogs [
+                     {:title "Zsh: colorize man pages"
+                      :date "October 31, 2016"
+                      :author "Alex Shlyonov"
+                      :file-path "resources/partials/blog-posts/2016-10-31-zsh-colorize-man-pages.markdown"
+                      :display-image "colorize.png"}
+                     {:title "Zsh: useful shortcuts"
+                      :date "October 31, 2016"
+                      :author "Alex Shlyonov"
+                      :file-path "resources/partials/blog-posts/2016-10-31-zsh-useful-shortcuts.markdown"
+                      :display-image "shortcut.jpg"}
+                     {:title "Zsh: in the pursuit of efficiency"
                       :date "October 27, 2016"
                       :author "Alex Shlyonov"
                       :file-path "resources/partials/blog-posts/2016-08-27-zsh-in-the-pursuit-of-efficiency.markdown"
