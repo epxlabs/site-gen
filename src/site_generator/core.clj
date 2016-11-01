@@ -28,6 +28,7 @@
                      "/clojure/" (fn [context] (apply str (t/clojure context)))
                      "/who-we-are/" (fn [context] (apply str (t/about-us context)))
                      "/blog/" (fn [context] (apply str (t/blog context)))
+                     "/careers/" (fn [context] (apply str (t/careers context)))
                      } (into {} blogposts))})))
 
 ;; Here we specify which files should be bundled together and minified
