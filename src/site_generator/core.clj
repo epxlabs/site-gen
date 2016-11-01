@@ -86,7 +86,8 @@
                "/js/views/view.home.js"
                "/js/views/view.contact.js"
                "/js/custom.js"
-               "/js/theme.init.js"]})
+               "/js/theme.init.js"
+               "/js/facebook.js"]})
    ;; Loads in images
    (assets/load-assets "public" ["/img/logos/epx_logo.svg"
                                  "/videos/11845277.mp4"
@@ -98,7 +99,7 @@
   (-> (s/serve-pages (get-pages))
       (optimus/wrap
        get-assets
-       op/all
+       op/none
        strategies/serve-live-assets)
       (ct/wrap-content-type)))
 
