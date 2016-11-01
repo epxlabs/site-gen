@@ -171,5 +171,5 @@
 </table>
 <br>
 
-If You want to find other bindings just do:
+If uou want to find other useful bindings just run `bindkey|pr -tw132 -4` in your terminal:
 <img style="display:block;" width="100%" src="https://s3.amazonaws.com/blog-images.epxlabs.com/9/zsh_bindkey.jpg" alt=bindings>
