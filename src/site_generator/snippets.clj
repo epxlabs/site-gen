@@ -352,7 +352,7 @@
                                  [:a.blog-link] (html/set-attr :href (linkize file-path))
                                  [:i] (html/content (str author " - " date))
                                  [:img] (html/set-attr :src (upload-blog-image display-image))
-                                 [:a.twitter-share-button] (html/set-attr :data-text (str "Check out this blog post from @EPXLabs! https://www.epxlabs.com" (linkize file-path)))))
+                                 [:a.twitter-share-button] (html/set-attr :data-text (str "Check out this blog post from @EPXLabs! http://www.epxlabs.com" (linkize file-path)))))
 
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
