@@ -71,13 +71,14 @@
                       "10" "Oct"
                       "11" "Nov"
                       "12" "Dec"}
-             :nav-links {"/" "Home"
+             :nav-links {
                          "/devops" "Devops"
                          "/serverless" "Serverless"
-						 "/nodejs" "nodejs"
+                         "/nodejs" "nodejs"
                          "/clojure" "Clojure"
                          "/who-we-are" "Who We Are"
                          "/blog" "Blog"
+                         "/careers" "Join Us!"
                          "#contact" "Contact Us"}
              :phone "646.768.0123"
              :social-icons {:github {:title "GitHub"
@@ -258,6 +259,11 @@
 (html/defsnippet about-us "partials/about-us.html"
   [html/root]
   [])
+
+(html/defsnippet careers "partials/careers.html"
+  [html/root]
+  [])
+
 
 
 (def pegdown-options [:autolinks :fenced-code-blocks :strikethrough])
