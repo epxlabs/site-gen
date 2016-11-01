@@ -55,7 +55,7 @@
                       :author "Evan Sinicin"
                       :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"
                       :display-image "serverless-cost-savings-1.jpg"}]
-             :contact-us {:get-in-touch "We are always available to help solve your business problems, meet others in the serverless apce, and discuss what we're passionate about. You can get in touch with us here, here, or here. :-)"}
+             :contact-us {:get-in-touch "We are always available to help solve your business problems, meet others in the serverless space, and discuss what we're passionate about. You can get in touch with us here, here, or here. :-)"}
              :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
              :logo-image "/img/logos/epx_logo.svg"

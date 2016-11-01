@@ -1,8 +1,8 @@
 # Zsh: colorize man pages
 
-After we got so many bright colors in zsh let's check our man pages.
+Recently we explored how to introduce many beautiful bright colors to your zsh install, let's check our man pages.
 
-If You didn't add "colored-man-pages" to list of plugins in ~/.zshrc You will see first variant, if added than second. But how this works and is there a way to get third?
+If you didn't add "colored-man-pages" to the list of plugins in ~/.zshrc you will see the the following first image, if you have added than you will see the second. But how do we get third?
 
 <table>
   <tr>
@@ -18,21 +18,21 @@ If You didn't add "colored-man-pages" to list of plugins in ~/.zshrc You will se
   </tr>
 </table>
 
-Let's talk a little about how plugins work located inside oh-my-zsh.
+Let's talk a little about how plugins work inside oh-my-zsh.
 
-There is 2 directories in $ZSH:
+There are 2 directories in $ZSH:
 
-* plugins - for all things which came while You install oh-my-zsh
-* custom/plugins - you should use this when want override anything from default setup
+* plugins - for all things which came with your vanilla oh-my-zsh install
+* custom/plugins - you should use this directory when want to override anything from the default setup
 
-So to setup our own color scheme we can start by copy default plugin to our directory:
+So, to set up our own color scheme we can start by copying default plugins to our directory:
 
 ```clojure
 cd ~/.oh-my-zsh/custom/plugins/
 cp -r ../../plugins/colored-man-pages .
 ```
 
-And update it a little:
+And update it a little, as follows:
 
 ```clojure
 if [[ "$OSTYPE" = solaris* ]]
@@ -102,7 +102,7 @@ The most common codes are:
 </table>
 <br>
 
-__Run this in terminal:__
+__Run this in your terminal:__
 
 ```clojure
 #!/bin/sh
