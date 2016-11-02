@@ -363,4 +363,5 @@
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
   [:div.post-body :pre :div.highlight] (html/set-attr :class "hll")
+  [:div.post-body] (html/append (html/html-snippet "<div id=\"disqus_thread\"></div>")) 
   )
