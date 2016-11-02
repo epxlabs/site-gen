@@ -30,6 +30,11 @@ $('#footer').mouseleave(function(){
 })}
 
 $(document).ready(function(){
+  /* This function changes the title to match the blog post on a blog post page*/
+  if($('.blog-post').length == 1){
+    var title = "EPX Labs, Inc. | " + $('h1').text()
+    $(document).prop('title', title)
+  }
   clickEvents()
   setInterval(function(){
   if ($('li.active').length > 1){
