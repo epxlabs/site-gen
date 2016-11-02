@@ -50,9 +50,6 @@ section#contact {
 div.article {
     padding: 10px;
 }
-div.articles > div:nth-of-type(odd) {
-    background: #ececec;
-}
 
 .resize{
     width:540px; /* you can use % */
