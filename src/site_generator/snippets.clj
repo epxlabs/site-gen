@@ -279,6 +279,7 @@
 
 
 (defn get-filepath [link]
+  (println link)
   (string/replace (string/replace link "/blog/" "resources/partials/blog-posts/") "/index.html" ".markdown"))
 
 
@@ -319,7 +320,6 @@
 
 (defn upload-blog-image
   [link]
-  (println link)
   (let [s3-link (str display-image link)]
     (if-not (s3/object-exists? env/cred "blog-image-bucket" link)
       (s3/put-object env/cred "blog-image-bucket" link (clojure.java.io/file (str "resources/public/blog_images/" link))))
@@ -354,6 +354,17 @@
                                  [:img] (html/set-attr :src (upload-blog-image display-image))
                                  [:a.twitter-share-button] (html/set-attr :data-text (str "Check out this blog post from @EPXLabs! http://www.epxlabs.com" (linkize file-path)))))
 
+
+(def twitter-html "<a class=\"twitter-share-button\" href=\"https://twitter.com/share\" data-size=\"large\" data-text=\"FILLER\" data-url=\"google.com\" data-hashtags=\"serverless,nodejs,clojure,devops\" data-via=\"epxlabs\" data-show-count=\"false\"> Tweet</a><script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>")
+
+
+(defn create-twitter-html
+  [link]
+  (as-> link l
+      (string/replace l "index.html" "")
+      (str "Check out this blog from @EPXLabs! http://www.epxlabs.com" l)
+      (string/replace twitter-html "FILLER" l)))
+
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
   [uri]
@@ -363,5 +374,6 @@
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
   [:div.post-body :pre :div.highlight] (html/set-attr :class "hll")
-  [:div.post-body] (html/append (html/html-snippet "<div id=\"disqus_thread\"></div>")) 
+  [:div.post-body] (html/append (html/html-snippet (create-twitter-html uri)))
+  [:div.post-body] (html/append (html/html-snippet "<div id=\"disqus_thread\"></div>"))
   )
