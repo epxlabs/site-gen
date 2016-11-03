@@ -10,6 +10,11 @@
 
 ;; Config to be moved to DB
 (def config {:blogs [
+                     {:title "ECK"
+                      :date "November 03, 2016"
+                      :author "Alex Shlyonov"
+                      :file-path "resources/partials/blog-posts/2016-11-03-eck.markdown"
+                      :display-image "kibana.png"}
                      {:title "Zsh: colorize man pages"
                       :date "October 31, 2016"
                       :author "Alex Shlyonov"
