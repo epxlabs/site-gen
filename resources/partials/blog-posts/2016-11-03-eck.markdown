@@ -1,37 +1,63 @@
-# ECK
+# ECK stack - simplify your ELK stack with AWS services
 
-Today we will build log collector based on AWS ElasticSearch, CloudWatch and Kibana 4.
-<br>
+In line with a central tenant of the #serverless movement we have decided to simplify a common AWS EC2 based log analysis solution with [AWS services](https://aws.amazon.com/) that require less management and configuration overhead.
 
-## Our goals
+This solution is ideal for well structured log formats. The system, however, is easily extensible for out-of-scope log formats.
 
-1. collect Nginx logs
-2. be able to analyze them within 7 days
-3. see the current activity on the following parameters:
-	- top 10 active clients ip
-	- top 10 active domains on the server
-	- the total number of connections
-	- number of mistakes
-4. the system should allow to add more logs later
-5. users must be authenticated without any permanent ip-addresses or access aws console.
-<br>
+The traditional [ELK stack](https://www.elastic.co/webinars/introduction-elk-stack) is a great log aggregation and log search tool and  has gained wide-spread credibility and usage.
 
-## Architecture
+The ECK stack minimizes our requirements around server management and configuration by replacing components of the ELK stack with the following AWS services:
+
+* [Elastic's Elasticseach](https://www.elastic.co/products/elasticsearch) is replaced by [AWS Elasticsearch Service](https://aws.amazon.com/elasticsearch-service/).
+* [Elastic's Logstash](https://www.elastic.co/products/logstash) is simplified and replaced in part by [AWS CloudWatch](https://aws.amazon.com/cloudwatch/).
+* [Elastic's Kibana](https://www.elastic.co/products/kibana) is nice. We kept this.
+
+So, let's build our log collector:
+
+********
+
+## The goals of our ECK stack are:
+
+1. Collect Nginx logs from a large number of EC2 instances.
+2. Maintain the logs for 7 days, then dispose of them.
+3. Be able to monitor real-time activity for the following parameters:
+    - top 10 active client IP's (in this case end-users of the system)
+    - top 10 active domains for the multi-tenant application running on the EC2 instances
+    - the total number of active application connections
+    - the number of errors in Nginx logs
+4. The system should be extensible to accept other log formats at a later date.
+5. ECK users must be able to gain authenticated access without a permanent ip-address or access to the AWS console. 
+    - provided elasticsearch service policies require a static IP or AWS console access. Not all of our end-users for this project meet these requirements. Therefore, we created a work-around with an HTTP Proxy using basic authentication to grant these required users access.
+
+********
+
+## System Architecture
+********
 
 <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/cek_transparent.png">
 
-So we have "standart" application with few frontend servers and databases located in different availability zones; elb hides frontend servers.
+So, above we have a very "standard" application with a few frontend servers and databases located in different availability zones; the elb hides the frontend servers.
+
+********
 
 ## Collect Data
+********
 
-We will use *awslogs* utility to collect data from hosts. It is necessary to set it up and create a configuration file. Since in our design we actively used puppet finished writing this part as an extension of one of the modules. Unfortunately it's splitted from our setup so I could not show it now, but the process is quite simple.
-<br>
+We will use the *[awslogs](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/QuickStartEC2Instance.html)* utility to collect data from hosts. You must install and create a configuration file for *awslogs*. 
 
 #### Policy for CloudWath Log Groups
 
-Utility needs permission to write in CloudWatch Logs Groups, so we will create policy and add it to IAM role from which our hosts run. If your hosts don't use roles just create user for awslogs, apply policy to this user, and add his data to /var/awslogs/etc/aws.conf after setup utility.
+The *awslogs* utility requires permission to write to CloudWatch Logs Groups. Here we will create that policy and add it to an IAM role assigned to the hosts. 
 
-```clojure
+If your infrastructure (for whatever reasons) **does not use roles**: 
+
+- create a user for *awslogs*
+- apply this policy to that user, 
+- add the user data to `/var/awslogs/etc/aws.conf` after you have set-up the *awslogs* utility.
+
+Else, here is the role policy:
+
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -50,7 +76,6 @@ Utility needs permission to write in CloudWatch Logs Groups, so we will create p
  ]
 }
 ```
-<br>
 
 #### Setup awslogs
 
@@ -59,7 +84,7 @@ curl https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setu
 sudo python ./awslogs-agent-setup.py --region us-west-2
 ```
 
-We need to add the data about the files that we want to send to CloudWatch. That's roughly looks like this:
+You need to add data about the format that you plan to send to CloudWatch into the *awslogs* configuration. Our data roughly appeared like so:
 
 ```clojure
 [Nginx-<virtual_host>-Access-Log]
@@ -78,11 +103,11 @@ log_stream_name = {instance_id}
 initial_position = start_of_file
 log_group_name = nginx_<virtual_host>_error
 ```
-<br>
+
 
 #### Change Nginx log format
 
-Since we use ELB as entry point we changed nginx log format to see real client's ip addresses in /etc/nginx/nginx.conf
+Since we use the ELB as entry point we changed nginx log format to see real client's ip addresses in /etc/nginx/nginx.conf
 
 ```clojure
 ...
