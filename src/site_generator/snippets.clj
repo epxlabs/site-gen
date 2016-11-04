@@ -10,9 +10,9 @@
 
 ;; Config to be moved to DB
 (def config {:blogs [
-                     {:title "ECK"
+                     {:title "ECK stack: Simplify the ELK stack with AWS services"
                       :date "November 03, 2016"
-                      :author "Alex Shlyonov"
+                      :author "Alex Shlyonov & Evan Sinicin"
                       :file-path "resources/partials/blog-posts/2016-11-03-eck.markdown"
                       :display-image "kibana.png"}
                      {:title "Zsh: colorize man pages"
@@ -368,5 +368,5 @@
   [:div.post-body :pre :code] highlight
   [:div.post-body :pre] (html/add-class "codehilite")
   [:div.post-body :pre :div.highlight] (html/set-attr :class "hll")
-  [:div.post-body] (html/append (html/html-snippet "<div id=\"disqus_thread\"></div>")) 
+  [:div.post-body] (html/append (html/html-snippet "<div id=\"disqus_thread\"></div>"))
   )
