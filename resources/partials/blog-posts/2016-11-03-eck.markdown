@@ -1,37 +1,63 @@
-# ECK
+# ECK stack - simplify your ELK stack with AWS services
 
-Today we will build log collector based on AWS ElasticSearch, CloudWatch and Kibana 4.
-<br>
+In line with a central tenant of the #serverless movement we have decided to simplify a common AWS EC2 based log analysis solution with [AWS services](https://aws.amazon.com/) that require less management and configuration overhead.
 
-## Our goals
+This solution is ideal for well structured log formats. The system, however, is easily extensible for out-of-scope log formats.
 
-1. collect Nginx logs
-2. be able to analyze them within 7 days
-3. see the current activity on the following parameters:
-	- top 10 active clients ip
-	- top 10 active domains on the server
-	- the total number of connections
-	- number of mistakes
-4. the system should allow to add more logs later
-5. users must be authenticated without any permanent ip-addresses or access aws console.
-<br>
+The traditional [ELK stack](https://www.elastic.co/webinars/introduction-elk-stack) is a great log aggregation and log search tool and  has gained wide-spread credibility and usage.
 
-## Architecture
+The ECK stack minimizes our requirements around server management and configuration by replacing components of the ELK stack with the following AWS services:
+
+* [Elastic's Elasticseach](https://www.elastic.co/products/elasticsearch) is replaced by [AWS Elasticsearch Service](https://aws.amazon.com/elasticsearch-service/).
+* [Elastic's Logstash](https://www.elastic.co/products/logstash) is simplified and replaced in part by [AWS CloudWatch](https://aws.amazon.com/cloudwatch/).
+* [Elastic's Kibana](https://www.elastic.co/products/kibana) is nice. We kept this.
+
+So, let's build our log collector:
+
+********
+
+## The goals of our ECK stack are:
+
+1. Collect Nginx logs from a large number of EC2 instances.
+2. Maintain the logs for 7 days, then dispose of them.
+3. Be able to monitor real-time activity for the following parameters:
+    - top 10 active client IP's (in this case end-users of the system)
+    - top 10 active domains for the multi-tenant application running on the EC2 instances
+    - the total number of active application connections
+    - the number of errors in Nginx logs
+4. The system should be extensible to accept other log formats at a later date.
+5. ECK users must be able to gain authenticated access without a permanent ip-address or access to the AWS console. 
+    - provided ElasticSearch service policies require a static IP or AWS console access. Not all of our end-users for this project meet these requirements. Therefore, we created a work-around with an HTTP Proxy using basic authentication to grant these required users access.
+
+********
+
+## System Architecture
+********
 
 <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/cek_transparent.png">
 
-So we have "standart" application with few frontend servers and databases located in different availability zones; elb hides frontend servers.
+So, above we have a very "standard" application with a few frontend servers and databases located in different availability zones; the elb hides the frontend servers.
+
+********
 
 ## Collect Data
+********
 
-We will use *awslogs* utility to collect data from hosts. It is necessary to set it up and create a configuration file. Since in our design we actively used puppet finished writing this part as an extension of one of the modules. Unfortunately it's splitted from our setup so I could not show it now, but the process is quite simple.
-<br>
+We will use the *[awslogs](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/QuickStartEC2Instance.html)* utility to collect data from hosts. You must install and create a configuration file for *awslogs*. 
 
 #### Policy for CloudWath Log Groups
 
-Utility needs permission to write in CloudWatch Logs Groups, so we will create policy and add it to IAM role from which our hosts run. If your hosts don't use roles just create user for awslogs, apply policy to this user, and add his data to /var/awslogs/etc/aws.conf after setup utility.
+The *awslogs* utility requires permission to write to CloudWatch Logs Groups. Here we will create that policy and add it to an IAM role assigned to the hosts. 
 
-```clojure
+If your infrastructure (for whatever reasons) **does not use roles**: 
+
+- create a user for *awslogs*
+- apply this policy to that user, 
+- add the user data to `/var/awslogs/etc/aws.conf` after you have set-up the *awslogs* utility.
+
+Else, here is the role policy:
+
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -50,7 +76,6 @@ Utility needs permission to write in CloudWatch Logs Groups, so we will create p
  ]
 }
 ```
-<br>
 
 #### Setup awslogs
 
@@ -59,7 +84,7 @@ curl https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setu
 sudo python ./awslogs-agent-setup.py --region us-west-2
 ```
 
-We need to add the data about the files that we want to send to CloudWatch. That's roughly looks like this:
+You need to add data about the format that you plan to send to CloudWatch into the *awslogs* configuration. Our data roughly appeared like so:
 
 ```clojure
 [Nginx-<virtual_host>-Access-Log]
@@ -78,11 +103,11 @@ log_stream_name = {instance_id}
 initial_position = start_of_file
 log_group_name = nginx_<virtual_host>_error
 ```
-<br>
+
 
 #### Change Nginx log format
 
-Since we use ELB as entry point we changed nginx log format to see real client's ip addresses in /etc/nginx/nginx.conf
+Since we use the ELB as the entry point for our infrastructure we will change the nginx log format to be able to see the actual client ip address in `/etc/nginx/nginx.conf`
 
 ```clojure
 ...
@@ -93,7 +118,7 @@ http {
 }
 ```
 
-To use it in your virtual host just set:
+To use this log format you need to set in your virtual host as follows:
 
 ```clojure
 ...
@@ -102,26 +127,31 @@ access_log            /var/log/nginx/<virtual_host>.log specialLog;
 ```
 
 You can read more about HTTP Headers and ELB [here](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/x-forwarded-headers.html)
-<br>
+
 
 #### Result
 
-In our case  <virtual_host> was named *combined*, so we got:
+In our case `<virtual_host>` was named *combined*, so we have:
 
 <img style="display:block;" width="400px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/combined.png">
 
-We can check inside what we have:
+We may check which Nginx logs we have inside this CloudWatch Logs group:
 
 <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/cloudwatch_loggroup.png">
-<br>
 
-## Load data to Elasticsearch
+********
+
+## Load data to ElasticSearch
+
+********
 
 #### Authentication in Kibana
 
-We will move a little ahead and create a proxy with authentication for Kibana, to not return back and change policy for access to elasticsearch later.
+We are going to skip ahead a bit to prevent re-work later. ElasticSearch service has policy restrictions. For our requirements and goals listed above the simple and quick solution is to set up a little HTTP proxy with authentication to access Kibana.
 
-You need to create an instance. In my case I chose to Ubuntu. Next, set the nginx with basic authentication.
+You may provision an EC2 instance in your AWS environment for the proxy set-up. In our case we selected Ubuntu.
+
+Next, `apt-get` nginx and set the nginx config for basic authentication.
 
 ```clojure
 aptitude update
@@ -146,36 +176,52 @@ htpasswd -c /etc/nginx/conf.d/kibana.htpasswd <user_name>
  
 service nginx restart
 ```
-<br>
+
 
 #### Setup ElasticSearch
 
-We will not go deep on ElasticSearch options now, just setup with default settings:
+For simplicity we will setup ElasticSearch service with default settings.
+
+Using the [AWS CLI](https://aws.amazon.com/cli/) in your terminal (check out our post on [ZSH](http://www.epxlabs.com/blog/2016-08-27-zsh-in-the-pursuit-of-efficiency/) for a better terminal experience):
 
 ```clojure
 aws es create-elasticsearch-domain --domain-name logcollector
 ```
+Now that we've provisioned Elasticsearch we need to set a policy to access it. We will allow access exclusively from our HTTP proxy (setup in previous steps).
 
-Also we need to set policy for access to it. We will allow access only from our proxy. Thats why we setup it first.
+Again, using CLI commands:
 
 ```clojure
 aws es update-elasticsearch-domain-config --endpoint https://es.us-west-2.amazonaws.com --domain-name logcollector --access-policies '{"Version": "2012-10-17", "Statement": [ { "Sid": "", "Effect": "Allow", "Principal": { "AWS": "*" }, "Action": "es:*", "Resource": "arn:aws:es:us-west-2:<your_account>:domain/logcollector/*", "Condition": { "IpAddress": { "aws:SourceIp": "<proxy_ip_address>" }}}]}'
 ```
-<br>
+
+********
 
 #### Role to upload data from CloudWatch to ElasticSearch
 
-We need to create role since it used by wizard for creating subscription for CloudWatch Log Group.
+Next we need to create a role to grant permission for CloudWatch to push logs to Elasticsearch (there is a wizard to create this subscription, it's not the best, but it works for simplicity):
 
-* Choose some awesome name, ex "CloudWatchLogsToElasticSearch"
-  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/es_role_1.png"> 
-* Select Role type *AWS Lambda*
+* Choose some awesome name, eg. **CloudWatchLogsToElasticSearch**:
+  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/es_role_1.png">
+  
+********
+
+* Select Role type **AWS Lambda**:
   <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/es_role_2.png">
-* We can grant full access for now I think since we do not plan to create multiple domains
+  
+********
+
+* For now we can grant full access because we do not plan to create multiple domains:
   <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/es_role_3.png">
-* Review
+  
+********
+
+* Review your work:
   <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/es_role_4.png">
-* Attach next policy to this role:
+  
+********
+
+* Attach this policy to the Role:
 
 ```clojure
 {  "Version": "2012-10-17",
@@ -191,31 +237,56 @@ We need to create role since it used by wizard for creating subscription for Clo
 ```
 <br>
 
-#### Subscribe a CloudWatch Log Group to ElasticSearch
+#### Subscribe your CloudWatch Logs Group to ElasticSearch
 
-* Create stream from CloudWatch to ElasticSearch
+* Create your stream from CloudWatch to ElasticSearch
   <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/subscription_1.png">
-* Choose ElasticSearch cluster (also here You need to choose lambda role from previous step. I don't have it since already have few streams to this ElasticSearch cluster)
+  
+********
+
+* Choose ElasticSearch cluster (also here you need to choose the Lambda role from the previous step):
   <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/subscription_2.png">
-* Configure Log Format and Filters
+  
+********
+
+* Configure your Log Format and Filters:
   <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/subscription_3.png">
-* Review
+ 
+********
+
+* Review your work:
   <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/subscription_4.png">
-* You should see subscription now
+  
+********
+
+* You should now be able to see your subscription:
   <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/subscription_5.png">
-* If You see new indices inside ElasticSearch then all works and it's time to play with Kibana
+
+********
+
+* If you see new indices inside ElasticSearch then you've succeeded and it's time to play with Kibana:
   <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/indeces.png">
+
+********
 <br>
 
 ## Kibana
 
-Our dashboard:
+An example dashboard:
 <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/kibana.png">
 <br>
 
-## Bonus
+## A little Bonus feature!
 
-Storage size depends from instance types that You choose for your ElasticSearch Cluster, and since we created small setup we have to clean data time to time. In our direct case we collect ~3 to 3.5 Gb per day, so decide to clean all older than 10 days. I wrote small script and placed it on our proxy since it's only host which has access to ElasticSearch in /usr/local/bin/clean_es.py
+In our setup we elected to use a small ElasticSearch cluster to save money month over month. 
+
+Therefore, we'll need to clean the Log storage on a recurring basis.
+
+In the example below  we collect ~3 to 3.5 Gb per day, therefore, we decide to clean Logs older than 10 days. 
+
+The small script below can be placed on our HTTP proxy instance. After all, it's the only host which has access to ElasticSearch.
+
+Therefore in `/usr/local/bin/clean_es.py`:
 
 ```python
 !/usr/bin/python
@@ -230,7 +301,7 @@ indices_to_remove = "http://<elasticsearch_endpoint>/cwl-" \
 subprocess.call(['curl', '-XDELETE', indices_to_remove])
 ```
 
-Than I added it to cron:
+Add this to your cron:
 
 ```clojure
 0 0 * * * /usr/local/bin/clean_es.py
