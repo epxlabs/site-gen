@@ -235,7 +235,8 @@ Next we need to create a role to grant permission for CloudWatch to push logs to
   }]
 }
 ```
-<br>
+
+********
 
 #### Subscribe your CloudWatch Logs Group to ElasticSearch
 
@@ -268,13 +269,13 @@ Next we need to create a role to grant permission for CloudWatch to push logs to
   <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/indeces.png">
 
 ********
-<br>
 
 ## Kibana
 
 An example dashboard:
 <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/kibana.png">
-<br>
+
+********
 
 ## A little Bonus feature!
 
