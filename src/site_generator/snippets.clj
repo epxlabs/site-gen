@@ -14,7 +14,7 @@
                       :date "October 31, 2016"
                       :author "Alex Shlyonov"
                       :file-path "resources/partials/blog-posts/2016-10-31-zsh-colorize-man-pages.markdown"
-                      :display-image "colorize.png"}
+                      :display-image "oh-my-zsh.png"}
                      {:title "Zsh: useful shortcuts"
                       :date "October 31, 2016"
                       :author "Alex Shlyonov"
