@@ -19,7 +19,7 @@
                       :date "October 31, 2016"
                       :author "Alex Shlyonov"
                       :file-path "resources/partials/blog-posts/2016-10-31-zsh-colorize-man-pages.markdown"
-                      :display-image "colorize.png"}
+                      :display-image "oh-my-zsh.png"}
                      {:title "Zsh: useful shortcuts"
                       :date "October 31, 2016"
                       :author "Alex Shlyonov"
@@ -284,6 +284,7 @@
 
 
 (defn get-filepath [link]
+  (println link)
   (string/replace (string/replace link "/blog/" "resources/partials/blog-posts/") "/index.html" ".markdown"))
 
 
@@ -324,7 +325,6 @@
 
 (defn upload-blog-image
   [link]
-  (println link)
   (let [s3-link (str display-image link)]
     (if-not (s3/object-exists? env/cred "blog-image-bucket" link)
       (s3/put-object env/cred "blog-image-bucket" link (clojure.java.io/file (str "resources/public/blog_images/" link))))
@@ -358,6 +358,17 @@
                                  [:i] (html/content (str author " - " date))
                                  [:img] (html/set-attr :src (upload-blog-image display-image))
                                  [:a.twitter-share-button] (html/set-attr :data-text (str "Check out this blog post from @EPXLabs! http://www.epxlabs.com" (linkize file-path)))))
+
+
+(def twitter-html "<a class=\"twitter-share-button\" href=\"https://twitter.com/share\" data-size=\"large\" data-text=\"FILLER\" data-url=\"google.com\" data-hashtags=\"serverless,nodejs,clojure,devops\" data-via=\"epxlabs\" data-show-count=\"false\"> Tweet</a><script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>")
+
+
+(defn create-twitter-html
+  [link]
+  (as-> link l
+      (string/replace l "index.html" "")
+      (str "Check out this blog from @EPXLabs! http://www.epxlabs.com" l)
+      (string/replace twitter-html "FILLER" l)))
 
 (html/defsnippet blog-post "partials/blog_post.html"
   [html/root]
