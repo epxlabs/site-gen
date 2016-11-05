@@ -4,7 +4,7 @@ In line with a central tenant of the #serverless movement we have decided to sim
 
 This solution is ideal for well structured log formats. The system, however, is easily extensible for out-of-scope log formats.
 
-The traditional [ELK stack](https://www.elastic.co/webinars/introduction-elk-stack) is a great log aggregation and log search tool and  has gained wide-spread credibility and usage.
+The traditional [ELK stack](https://www.elastic.co/webinars/introduction-elk-stack) is a great log aggregation and log search tool which has gained wide-spread credibility and usage.
 
 The ECK stack minimizes our requirements around server management and configuration by replacing components of the ELK stack with the following AWS services:
 
