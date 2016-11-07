@@ -33,7 +33,7 @@ Let's try calling this function.  By awaiting it, we'll unwrap the value of the 
 
 ```javascript
 (async function() {
-    let response = await requestFn("http://epxlabs.com");
+    let response = await requestAsync("http://epxlabs.com");
     console.log("Page length of EPX Labs", response.length);
 }());
 ```
