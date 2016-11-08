@@ -9,7 +9,11 @@
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [
+(def config {:blogs [{:title "The Serverless Framework: A Demo"
+                      :date "November 08, 2016"
+                      :author "Alex Martin"
+                      :file-path "resources/partials/blog-posts/2016-11-08-serverless-demo.markdown"
+                      :display-image "serverless.gif"}
                      {:title "ECK stack: Simplify the ELK stack with AWS services"
                       :date "November 03, 2016"
                       :author "Alex Shlyonov & Evan Sinicin"
