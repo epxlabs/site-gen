@@ -25,7 +25,7 @@ div.main-content > p {
 <div class="col-sm-8 col-sm-offset-2 main-content" >
 
 
-<h2 class="text-center">EPX Labs, the go-to serverless consultancy for implementing fast, simple, and reliable DevOps strategies.</h2>
+<h2 class="text-center">EPX Labs, the go-to serverless consultancy for implementing fast, simple, and reliable microservice (see: "serverless") strategies.</h2>
 <br>
 <br>
 
