@@ -1,9 +1,9 @@
 # The Serverless Framework: A Demo
 ##### By Alex Martin
 
-Today, I'm going to walk you through a great demo to help you understand the basis of the serverless framework. Special thanks to [this repo](https://github.com/serverless/serverless)  for being such a great resource.
+Today, I'm going to walk you through a great demo to help you understand the basic setup of a serverless project using the serverless framework. Special thanks to [this repo](https://github.com/serverless/serverless)  for being such a great resource.
 
-First, a brief introduction to the four basic parts of the serverless framework:
+First, a brief introduction to the four foundational parts of the serverless framework as of 1.0:
 
 **Functions** are independent units of employment, code used to perform individual tasks like saving a user to the database or processing a file.
 
