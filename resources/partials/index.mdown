@@ -13,7 +13,7 @@ div.main-content > p {
 <div class="jumbotron" id="learn-more">
   <h1>World Class Cloud, Delivered.</h1>
   <br>
-  <p class="lead">We architect best in class Cloud IT Infrastructure.<br>We excel at fast, stable, and efficient IT operations.<br>We maintain 24/7/365 IT Operations Support for clients around the globe.</p>
+  <p class="lead">We build cost effective Serverless Web Applications.<br>We architect best-in-class Cloud IT Infrastructures.<br>We excel at fast, reliable, and efficient IT operations.<br>We maintain 24/7/365 IT Operations Support for clients around the globe.</p>
   <br>
   <p><a class="btn btn-lg btn-primary btn-slider-action" href="/who-we-are" role="button">Learn More...</a></p>
 </div>
@@ -25,7 +25,7 @@ div.main-content > p {
 <div class="col-sm-8 col-sm-offset-2 main-content" >
 
 
-<h2 class="text-center">EPX Labs, the go-to serverless consultancy for implementing fast, simple, and reliable DevOps strategies.</h2>
+<h2 class="text-center">EPX Labs, the go-to digital consultancy for implementing fast, simple, and reliable microservice (see: "serverless") strategies.</h2>
 <br>
 <br>
 

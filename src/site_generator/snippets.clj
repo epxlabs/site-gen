@@ -9,7 +9,11 @@
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [
+(def config {:blogs [{:title "The Serverless Framework: A Demo"
+                      :date "November 08, 2016"
+                      :author "Alex Martin"
+                      :file-path "resources/partials/blog-posts/2016-11-08-serverless-demo.markdown"
+                      :display-image "serverless.gif"}
                      {:title "ECK stack: Simplify the ELK stack with AWS services"
                       :date "November 03, 2016"
                       :author "Alex Shlyonov & Evan Sinicin"
@@ -60,7 +64,7 @@
                       :author "Evan Sinicin"
                       :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"
                       :display-image "serverless-cost-savings-1.jpg"}]
-             :contact-us {:get-in-touch "We are always available to help solve your business problems, meet others in the serverless space, and discuss what we're passionate about. You can get in touch with us here, here, or here. :-)"}
+             :contact-us {:get-in-touch "We are always available to help solve your business problems, meet others in the serverless space, and discuss what we're passionate about. You can get in touch with us here :-)"}
              :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
              :logo-image "/img/logos/epx_logo.svg"
@@ -95,8 +99,8 @@
              :slider {:background-video "/videos/11845277.mp4"
                       :background-image "/img/landing.jpg"
                       :btn-href "#learn-more"
-                      :top-label "ARE YOU READY FOR"
-                      :main-label "THE FUTURE?"}
+                      :top-label "Are you ready for"
+                      :main-label "What's Next?"}
              :what-we-do [{:title "DevOps"
                            :summary ["The EPX Labs team implements DevOps as a philosophy."
                                      "We work with you to establish business priorities."
