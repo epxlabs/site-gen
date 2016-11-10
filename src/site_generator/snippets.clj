@@ -64,7 +64,7 @@
                       :author "Evan Sinicin"
                       :file-path "resources/partials/blog-posts/2016-09-03-cost-savings-in-serverless-world.markdown"
                       :display-image "serverless-cost-savings-1.jpg"}]
-             :contact-us {:get-in-touch "We are always available to help solve your business problems, meet others in the serverless space, and discuss what we're passionate about. You can get in touch with us here, here, or here. :-)"}
+             :contact-us {:get-in-touch "We are always available to help solve your business problems, meet others in the serverless space, and discuss what we're passionate about. You can get in touch with us here :-)"}
              :favicon "/img/epx-favicon.png"
              :email "hello@epxlabs.com"
              :logo-image "/img/logos/epx_logo.svg"
@@ -99,8 +99,8 @@
              :slider {:background-video "/videos/11845277.mp4"
                       :background-image "/img/landing.jpg"
                       :btn-href "#learn-more"
-                      :top-label "ARE YOU READY FOR"
-                      :main-label "THE FUTURE?"}
+                      :top-label "Are you ready for"
+                      :main-label "What's Next?"}
              :what-we-do [{:title "DevOps"
                            :summary ["The EPX Labs team implements DevOps as a philosophy."
                                      "We work with you to establish business priorities."
