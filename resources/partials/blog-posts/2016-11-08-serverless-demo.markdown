@@ -1,4 +1,4 @@
-# The Serverless Framework: A Demo
+# The Serverless Framework: Getting Setup
 ##### By Alex Martin
 
 Today, I'm going to walk you through a great demo to help you understand the basic setup of a serverless project using the serverless framework. Special thanks to [this repo](https://github.com/serverless/serverless)  for being such a great resource.
