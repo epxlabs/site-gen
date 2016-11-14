@@ -26,6 +26,7 @@ Now let's get to the demo!
     * **event.json** - Contains the test data with which to trigger functions.
     * **serverless.yml** - Defines your project's functions and the events that trigger them. This is also where resources such as AWS DynamoDB tables and S3 buckets can be defined.
 5. Add an HTTP endpoint to your **serverless.yml** file like such:
+
 ```clojure
 functions:
     hello:
@@ -35,11 +36,14 @@ functions:
                 path: hello
                 method: get
 ```
+
 6. Create an AWS account if you don't already have one.
 7. Go to the IAM page. Click on Users and then Create New Users.
+![image-1]~*serverless-demo-1.png*~ 
 8. Enter a name in the first field to remind you that this user is the framework (something like "serverless-demo"), and click Create.
 9. Copy and store the API key and secret somewhere.
-10. Look for Managed Policies in the permissions tab and click Attach Policy.
+10. In the users tab, click on your user. Then look for Managed Policies and click Attach Policy.
+![image-2]~*serverless-demo-2.png*~ 
 11. In the next screen, search for AdministratorAccess and click Attach.
 12. Run `aws configure` in your terminal to configure your AWS credentials.
 13. Finally, run `serverless deploy`!
