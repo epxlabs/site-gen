@@ -9,7 +9,13 @@
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [{:title "The Serverless Framework: A Demo"
+(def config {:blogs [
+                     {:title "Magento: fast setup in AWS"
+                      :date "November 15, 2016"
+                      :author "Alex Shlyonov"
+                      :file-path "resources/partials/blog-posts/2016-11-15-fast-setup-magento-in-aws.markdown"
+                      :display-image "mag_aws.png"}
+                     {:title "The Serverless Framework: A Demo"
                       :date "November 08, 2016"
                       :author "Alex Martin"
                       :file-path "resources/partials/blog-posts/2016-11-08-serverless-demo.markdown"
