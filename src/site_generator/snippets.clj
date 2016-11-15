@@ -10,7 +10,7 @@
 
 ;; Config to be moved to DB
 (def config {:blogs [
-                     {:title "Magento: fast setup in AWS"
+                     {:title "Magento: quickly set-up autoscaling Magento on AWS with a Prodution and Dev environment"
                       :date "November 15, 2016"
                       :author "Alex Shlyonov"
                       :file-path "resources/partials/blog-posts/2016-11-15-fast-setup-magento-in-aws.markdown"
