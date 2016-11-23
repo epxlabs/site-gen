@@ -106,7 +106,7 @@
                       :background-image "/img/landing.jpg"
                       :btn-href "#learn-more"
                       :top-label "Are you ready for"
-                      :main-label "What's Next?"}
+                      :main-label "THE FUTURE?"}
              :what-we-do [{:title "DevOps"
                            :summary ["The EPX Labs team implements DevOps as a philosophy."
                                      "We work with you to establish business priorities."
