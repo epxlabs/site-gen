@@ -10,6 +10,11 @@
 
 ;; Config to be moved to DB
 (def config {:blogs [
+                      {:title "AWS announces the Serverless Application Model (AWS SAM)"
+                      :date "November 28, 2016"
+                      :author "EPX Labs"
+                      :file-path "resources/partials/blog-posts/2016-11-28-aws-serverless-application-model.markdown"
+                      :display-image "aws_logo.jpeg"}
                      {:title "Magento: quickly set-up autoscaling Magento on AWS with a Prodution and Dev environment"
                       :date "November 15, 2016"
                       :author "Alex Shlyonov"
