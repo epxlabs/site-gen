@@ -15,13 +15,10 @@ It's likely a safe bet to start using the new model and tools if you and your or
 
 Some questions and comments:
 
-- The Serverless Framework (albeit important and boasts an awesome community) might not be the end-all be-all for AWS Serverless Architectures. The "inter-cloud" narrative around the Serverless Framework might start becoming the more convincing business use-case argument as that feature rolls out to GA.
+- How advanced will the CLI operations become? Will the Serverless Framework keep pushing forward with inter-cloud and layer on top of the new SAM specification?
 
-- Will AWS foster and promote community contributions to the development of the SAM (Serverless Application Model)?
+- Will AWS foster and promote community contributions to the development of the SAM (Serverless Application Model) and accompanying serverless architecture tools?
 
-- JSON --> YAML? How are your yaml chops as of late?
-
-- Will Serverless.com slow down active development of AWS features + functionality and leverage AWS SAM moving forward? Will this expose dev cycles and effort around building out inter-cloud capabilites?
 
 
 
