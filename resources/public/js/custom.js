@@ -65,8 +65,11 @@ var clickEvents = function(){
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
+    if (window.location.pathname.match(/\/blog\/.+/)) {
+      //CONDITION ONLY LOADS DISQUS ON BLOGPOST PAGES
     var d = document, s = d.createElement('script');
     s.src = '//www-epxlabs-com.disqus.com/embed.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
+  }
   })();
