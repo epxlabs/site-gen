@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>EPX Labs, Inc.</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="EPX Labs, Inc." />
+    <meta name="author" content="EPX Labs, Inc." />
+    <meta name="google-site-verification" content="Rs32ezHC25vADQquLA_bBGGylM54r7kuHg2DmMJ8hhg" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/1cefb549bc4e/epx-favicon.png" type="image/x-icon" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css" />
+    <!-- CSS Bundle -->
+    <link rel="stylesheet" type="text/css" href="/bundles/d23dee499b3c/app.css" />
+    <!-- Head Libs -->
+    <script src="/vendor/modernizr/modernizr.min.js"></script>
+  </head>
+  <body class="one-page" data-target="#header" data-spy="scroll" data-offset="100">
+    <div class="body">
+      <!-- Fill content here -->
+      <div role="main" class="main" id="home"><html><body><div id="intro">
+  <header id="header" class="header-narrow" data-plugin-options="{&quot;stickyEnabled&quot;: true, &quot;stickyEnableOnBoxed&quot;: true, &quot;stickyEnableOnMobile&quot;: true, &quot;stickyStartAtElement&quot;: &quot;#header&quot;, &quot;stickySetTop&quot;: &quot;0&quot;, &quot;stickyChangeLogo&quot;: false}">
+    <div class="header-body">
+      <div class="header-container container">
+        <div class="header-row">
+          <div class="header-column">
+            <div class="header-logo">
+              <a href="/" id="header-logo">
+                <img alt="EPX Labs" width="205" height="50" data-sticky-width="164" data-sticky-height="40" data-sticky-top="7" src="/img/logos/62b1cdcca819/epx_logo.svg" />
+              </a>
+            </div>
+          </div>
+          <div class="header-column">
+            <div class="header-row">
+              <div class="header-nav header-nav-top-line">
+                <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                  <i class="fa fa-bars"></i>
+                </button>
+                <ul class="header-social-icons social-icons hidden-xs">
+                  <li class="social-icons-github"><a target="_blank" href="https://github.com/epxlabs/" title="GitHub"><i class="fa fa-github"></i></a></li><li class="social-icons-linkedin"><a target="_blank" href="https://www.linkedin.com/company/epx-labs/" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li><li class="social-icons-twitter"><a target="_blank" href="https://twitter.com/epxlabs" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+                <div class="header-nav-main header-nav-main-square header-nav-main-effect-3 header-nav-main-sub-effect-1 collapse">
+                  <nav>
+                    <ul class="nav nav-pills" id="mainNav">
+                      <li id="devops">
+                        <a data-hash="data-hash" data-hash-offset="70" href="devops" class="nav-links">Devops</a>
+                      </li><li id="serverless">
+                        <a data-hash="data-hash" data-hash-offset="70" href="serverless" class="nav-links">Serverless</a>
+                      </li><li id="nodejs">
+                        <a data-hash="data-hash" data-hash-offset="70" href="nodejs" class="nav-links">nodejs</a>
+                      </li><li id="clojure">
+                        <a data-hash="data-hash" data-hash-offset="70" href="clojure" class="nav-links">Clojure</a>
+                      </li><li id="who-we-are">
+                        <a data-hash="data-hash" data-hash-offset="70" href="who-we-are" class="nav-links">Who We Are</a>
+                      </li><li id="blog" class="dropdown active">
+                        <a data-hash="data-hash" data-hash-offset="70" href="blog" class="nav-links">Blog</a>
+                      </li><li id="join-us!">
+                        <a data-hash="data-hash" data-hash-offset="70" href="careers" class="nav-links">Join Us!</a>
+                      </li><li id="contact-us">
+                        <a data-hash="data-hash" data-hash-offset="70" href="#contact" class="nav-links">Contact Us</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+<!-- END HEADER -->
+</body></html><html><body><div class="row"><div class="blog-post">
+  <h2></h2>
+  <div class="col-md-8 col-md-offset-2"><div class="post-body"><h1>Zsh: colorize man pages</h1><p>Recently we explored how to introduce many beautiful bright colors to your zsh install, let's check our man pages.</p><p>If you didn't add "colored-man-pages" to the list of plugins in ~/.zshrc you will see the the following first image, if you have added than you will see the second. But how do we get third?</p>
+<table>
+  <tr>
+    <td>
+      <img style="display:block;" width="100%" src="https://s3.amazonaws.com/blog-images.epxlabs.com/8/colored-man-pages-off.png" />
+    </td>
+    <td>
+      <img style="display:block;" width="100%" src="https://s3.amazonaws.com/blog-images.epxlabs.com/8/colored-man-pages.png" />
+    </td>
+    <td>
+      <img style="display:block;" width="100%" src="https://s3.amazonaws.com/blog-images.epxlabs.com/8/colored-man-pages-custom.png" />
+    </td>
+  </tr>
+</table><p>Let's talk a little about how plugins work inside oh-my-zsh.</p><p>There are 2 directories in $ZSH:</p>
+<ul>
+  <li>plugins - for all things which came with your vanilla oh-my-zsh install</li>
+  <li>custom/plugins - you should use this directory when want to override anything from the default setup</li>
+</ul><p>So, to set up our own color scheme we can start by copying default plugins to our directory:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="nv">cd</span> <span class="o">~</span><span class="nv">/.oh-my-zsh/custom/plugins/</span>
+<span class="nv">cp</span> <span class="nv">-r</span> <span class="nv">../../plugins/colored-man-pages</span> <span class="nv">.</span>
+</pre></div>
+</pre><p>And update it a little, as follows:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="k">if </span><span class="p">[[</span> <span class="s">"$OSTYPE"</span> <span class="nb">= </span><span class="nv">solaris*</span> <span class="p">]]</span>
+<span class="nv">then</span>
+    <span class="k">if </span><span class="p">[[</span> <span class="nv">!</span> <span class="nv">-x</span> <span class="s">"$HOME/bin/nroff"</span> <span class="p">]]</span>
+    <span class="nv">then</span>
+        <span class="nv">mkdir</span> <span class="nv">-p</span> <span class="s">"$HOME/bin"</span>
+        <span class="nv">cat</span> <span class="nb">&gt; </span><span class="s">"$HOME/bin/nroff"</span> <span class="nv">&lt;&lt;EOF</span>
+<span class="o">#</span><span class="nv">!/bin/sh</span>
+<span class="k">if </span><span class="p">[</span> <span class="nv">-n</span> <span class="s">"\$_NROFF_U"</span> <span class="nv">-a</span> <span class="s">"\$1,\$2,\$3"</span> <span class="nb">= </span><span class="s">"-u0,-Tlp,-man"</span> <span class="p">]</span><span class="c1">; then</span>
+    <span class="nv">shift</span>
+    <span class="nv">exec</span> <span class="nv">/usr/bin/nroff</span> <span class="nv">-u</span><span class="sc">\$</span><span class="nv">_NROFF_U</span> <span class="s">"\$@"</span>
+<span class="nv">fi</span>
+<span class="o">#</span><span class="nv">--</span> <span class="nv">Some</span> <span class="nv">other</span> <span class="nv">invocation</span> <span class="nv">of</span> <span class="nv">nroff</span>
+<span class="nv">exec</span> <span class="nv">/usr/bin/nroff</span> <span class="s">"\$@"</span>
+<span class="nv">EOF</span>
+        <span class="nv">chmod</span> <span class="nv">+x</span> <span class="s">"$HOME/bin/nroff"</span>
+    <span class="nv">fi</span>
+<span class="nv">fi</span>
+
+<span class="nv">man</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">env</span> <span class="err">\</span>
+        <span class="nv">LESS_TERMCAP_mb=$</span><span class="p">(</span><span class="nf">printf</span> <span class="o">'</span><span class="sc">\e</span><span class="p">[</span><span class="mi">01</span><span class="c1">;31m') \ # enter blinking mode - red</span>
+        <span class="nv">LESS_TERMCAP_md=$</span><span class="p">(</span><span class="nf">printf</span> <span class="o">'</span><span class="sc">\e</span><span class="p">[</span><span class="mi">01</span><span class="c1">;35m') \ # enter double-bright mode - bold, magenta</span>
+        <span class="nv">LESS_TERMCAP_me=$</span><span class="p">(</span><span class="nf">printf</span> <span class="o">'</span><span class="sc">\e</span><span class="p">[</span><span class="mi">0</span><span class="nv">m</span><span class="o">'</span><span class="p">)</span> <span class="sc">\ </span>    <span class="o">#</span> <span class="nv">turn</span> <span class="nv">off</span> <span class="nv">all</span> <span class="nv">appearance</span> <span class="nv">modes</span> <span class="p">(</span><span class="nf">mb</span>, <span class="nv">md</span>, <span class="nv">so</span>, <span class="nv">us</span><span class="p">)</span>
+        <span class="nv">LESS_TERMCAP_se=$</span><span class="p">(</span><span class="nf">printf</span> <span class="o">'</span><span class="sc">\e</span><span class="p">[</span><span class="mi">0</span><span class="nv">m</span><span class="o">'</span><span class="p">)</span> <span class="sc">\ </span>    <span class="o">#</span> <span class="nv">leave</span> <span class="nv">standout</span> <span class="nv">mode</span>
+        <span class="nv">LESS_TERMCAP_so=$</span><span class="p">(</span><span class="nf">printf</span> <span class="o">'</span><span class="sc">\e</span><span class="p">[</span><span class="mi">01</span><span class="c1">;33m') \ # enter standout mode - yellow</span>
+        <span class="nv">LESS_TERMCAP_ue=$</span><span class="p">(</span><span class="nf">printf</span> <span class="o">'</span><span class="sc">\e</span><span class="p">[</span><span class="mi">0</span><span class="nv">m</span><span class="o">'</span><span class="p">)</span> <span class="sc">\ </span>    <span class="o">#</span> <span class="nv">leave</span> <span class="nv">underline</span> <span class="nv">mode</span>
+        <span class="nv">LESS_TERMCAP_us=$</span><span class="p">(</span><span class="nf">printf</span> <span class="o">'</span><span class="sc">\e</span><span class="p">[</span><span class="mi">04</span><span class="c1">;36m') \ # enter underline mode - cyan</span>
+        <span class="nv">PAGER=</span><span class="s">"${commands[less]:-$PAGER}"</span> <span class="err">\</span>
+        <span class="nv">_NROFF_U=1</span> <span class="err">\</span>
+        <span class="nv">PATH=</span><span class="s">"$HOME/bin:$PATH"</span> <span class="err">\</span>
+            <span class="nv">man</span> <span class="s">"$@"</span>
+<span class="p">}</span>
+</pre></div>
+</pre><p><br /></p><h2>ANSI color sequences</h2><p>The color sequences are composed of sequences of numbers separated by semicolons.</p><p>The most common codes are:</p>
+<table>
+  <tr><td width="10%"> Code </td><td width="30%"> Note </td>
+    <td rowspan="20"><img style="display:block;" width="100%" src="https://s3.amazonaws.com/blog-images.epxlabs.com/8/colors.png" /></td></tr>
+  <tr><td> 0    </td><td> to restore default color         </td></tr>
+  <tr><td> 1    </td><td> for brighter colors	           </td></tr>
+  <tr><td> 4    </td><td> for underlined text              </td></tr>
+  <tr><td> 5    </td><td> for flashing text                </td></tr>
+  <tr><td> 30   </td><td> for black foreground	           </td></tr>
+  <tr><td> 31   </td><td> for red foreground	           </td></tr>
+  <tr><td> 32   </td><td> for green foreground	           </td></tr>
+  <tr><td> 33   </td><td> for yellow (or brown) foreground </td></tr>
+  <tr><td> 34   </td><td> for blue foreground	           </td></tr>
+  <tr><td> 35   </td><td> for purple foreground	           </td></tr>
+  <tr><td> 36   </td><td> for cyan foreground	           </td></tr>
+  <tr><td> 37   </td><td> for white (or gray) foreground   </td></tr>
+  <tr><td> 40   </td><td> for black background             </td></tr>
+  <tr><td> 41   </td><td> for red background               </td></tr>
+  <tr><td> 42   </td><td> for green background             </td></tr>
+  <tr><td> 43   </td><td> for yellow (or brown) background </td></tr>
+  <tr><td> 44   </td><td> for blue background              </td></tr>
+  <tr><td> 45   </td><td> for purple background            </td></tr>
+  <tr><td> 46   </td><td> for cyan background              </td></tr>
+  <tr><td> 47   </td><td> for white (or gray) background   </td></tr>
+</table><p><br /></p><p><strong>Run this in your terminal:</strong></p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="o">#</span><span class="nv">!/bin/sh</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[00;30m 00;30m \033[00m \033[02;30m 02;30m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[00;31m 00;31m \033[00m \033[02;31m 02;31m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[00;32m 00;32m \033[00m \033[02;32m 02;32m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[00;33m 00;33m \033[00m \033[02;33m 02;33m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[00;34m 00;34m \033[00m \033[02;34m 02;34m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[00;35m 00;35m \033[00m \033[02;35m 02;35m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[00;36m 00;36m \033[00m \033[02;36m 02;36m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[00;37m 00;37m \033[00m \033[02;37m 02;37m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[01;30m 01;30m \033[00m \033[01;40m 01;40m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[01;31m 01;31m \033[00m \033[01;41m 01;41m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[01;32m 01;32m \033[00m \033[01;42m 01;42m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[01;33m 01;33m \033[00m \033[01;43m 01;43m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[01;34m 01;34m \033[00m \033[01;44m 01;44m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[01;35m 01;35m \033[00m \033[01;45m 01;45m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[01;36m 01;36m \033[00m \033[01;46m 01;46m \033[00m"</span>
+<span class="nv">echo</span> <span class="nv">-e</span> <span class="s">"\033[01;37m 01;37m \033[00m \033[01;47m 01;47m \033[00m"</span>
+</pre></div>
+</pre><div id="disqus_thread"></div></div></div>
+</div></div>
+</body></html><section id="contact" class="section section-no-border mb-none bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="alert alert-success hidden" id="contactSuccess">
+          <strong>Success!</strong> We have received your message.
+        </div>
+        <div class="alert alert-danger hidden" id="contactError">
+          <strong>Oops!</strong> An error occured and your message could not be sent. Please email us at <strong>hello@epxlabs.com</strong> or call us at <strong>+1 (646)-768-0123</strong>
+        </div>
+        <h2 class="mb-sm mt-sm"><strong>Contact</strong> Us</h2>
+        <form id="contactForm" action="" method="POST">
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-6">
+                <label>Your name</label>
+                <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" required="required" />
+              </div>
+              <div class="col-md-6">
+                <label>Your email address</label>
+                <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" required="required" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-12">
+                <label>Message</label>
+                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="6" class="form-control" name="message" id="message" required="required"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input type="submit" value="Submit" class="btn btn-primary btn-lg mb-xlg" data-loading-text="Loading..." />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h4 class="heading-primary mt-lg">Get in <strong>Touch</strong></h4>
+        <p id="get-in-touch">We are always available to help solve your business problems, meet others in the serverless space, and discuss what we're passionate about. You can get in touch with us here :-)</p>
+        <hr />
+        <ul id="contact-info" class="list list-icons list-icons-style-3 mt-xlg">
+          <li><i class="fa fa-phone"></i> <strong>Phone:</strong> 646.768.0123</li>
+          <li><i class="fa fa-envelope"></i> <strong>Email:</strong><a href="mailto:hello@epxlabs.com"> hello@epxlabs.com</a></li>
+        </ul>
+        <hr />
+        <h4 class="heading-primary">Follow <strong>Us</strong></h4>
+        <ul class="social-icons">
+          <li class="social-icons-github"><a target="_blank" href="https://github.com/epxlabs/" title="GitHub"><i class="fa fa-github"></i></a></li><li class="social-icons-linkedin"><a target="_blank" href="https://www.linkedin.com/company/epx-labs/" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li><li class="social-icons-twitter"><a target="_blank" href="https://twitter.com/epxlabs" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- END CONTACT US -->
+</section><footer id="footer" class="color color-secondary">
+  <div class="footer-copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3 col-md-2 col-md-offset-5">
+          <a href="index.html" class="logo">
+            <img alt="EPX Labs" class="img-responsive" src="/img/logos/62b1cdcca819/epx_logo.svg" />
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 text-center col-md-offset-4" id="copyright">
+          <p>© Copyright 2017 EPX Labs, Inc. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer></div>
+    </div>
+    <!-- JS Bundle -->
+    <script src="/bundles/e5a487604c0d/app.js"></script>
+    <script id="dsq-count-scr" src="//www-epxlabs-com.disqus.com/count.js" async="async"></script>
+    <!-- Google Analytics Script -->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85354348-2', 'auto');
+  ga('send', 'pageview');</script>
+  </body>
+
+</html>
