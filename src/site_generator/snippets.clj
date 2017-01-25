@@ -92,13 +92,13 @@
                       "11" "Nov"
                       "12" "Dec"}
              :nav-links {
-                         "/devops" "Devops"
-                         "/serverless" "Serverless"
-                         "/nodejs" "nodejs"
-                         "/clojure" "Clojure"
-                         "/who-we-are" "Who We Are"
-                         "/blog" "Blog"
-                         "/careers" "Join Us!"
+                         "devops" "Devops"
+                         "serverless" "Serverless"
+                         "nodejs" "nodejs"
+                         "clojure" "Clojure"
+                         "who-we-are" "Who We Are"
+                         "blog" "Blog"
+                         "careers" "Join Us!"
                          "#contact" "Contact Us"}
              :phone "646.768.0123"
              :social-icons {:github {:title "GitHub"
@@ -171,7 +171,7 @@
    [:li html/first-of-type]] (html/clone-for [[href content] (:nav-links config)]
                                              [:li] (html/set-attr :id (string/replace (string/lower-case content) #" " "-"))
                                              [:li :a] (html/set-attr :href href)
-
+                                             [:li :a] (html/set-attr :class "nav-links")
                                              [:li :a] (html/content content))
   [:ul#mainNav
    [(keyword (str "li#" page-id))]] (html/add-class "dropdown" "active"))
