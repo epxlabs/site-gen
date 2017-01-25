@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>EPX Labs, Inc.</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="EPX Labs, Inc." />
+    <meta name="author" content="EPX Labs, Inc." />
+    <meta name="google-site-verification" content="Rs32ezHC25vADQquLA_bBGGylM54r7kuHg2DmMJ8hhg" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/1cefb549bc4e/epx-favicon.png" type="image/x-icon" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css" />
+    <!-- CSS Bundle -->
+    <link rel="stylesheet" type="text/css" href="/bundles/d23dee499b3c/app.css" />
+    <!-- Head Libs -->
+    <script src="/vendor/modernizr/modernizr.min.js"></script>
+  </head>
+  <body class="one-page" data-target="#header" data-spy="scroll" data-offset="100">
+    <div class="body">
+      <!-- Fill content here -->
+      <div role="main" class="main" id="home"><html><body><div id="intro">
+  <header id="header" class="header-narrow" data-plugin-options="{&quot;stickyEnabled&quot;: true, &quot;stickyEnableOnBoxed&quot;: true, &quot;stickyEnableOnMobile&quot;: true, &quot;stickyStartAtElement&quot;: &quot;#header&quot;, &quot;stickySetTop&quot;: &quot;0&quot;, &quot;stickyChangeLogo&quot;: false}">
+    <div class="header-body">
+      <div class="header-container container">
+        <div class="header-row">
+          <div class="header-column">
+            <div class="header-logo">
+              <a href="/" id="header-logo">
+                <img alt="EPX Labs" width="205" height="50" data-sticky-width="164" data-sticky-height="40" data-sticky-top="7" src="/img/logos/62b1cdcca819/epx_logo.svg" />
+              </a>
+            </div>
+          </div>
+          <div class="header-column">
+            <div class="header-row">
+              <div class="header-nav header-nav-top-line">
+                <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                  <i class="fa fa-bars"></i>
+                </button>
+                <ul class="header-social-icons social-icons hidden-xs">
+                  <li class="social-icons-github"><a target="_blank" href="https://github.com/epxlabs/" title="GitHub"><i class="fa fa-github"></i></a></li><li class="social-icons-linkedin"><a target="_blank" href="https://www.linkedin.com/company/epx-labs/" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li><li class="social-icons-twitter"><a target="_blank" href="https://twitter.com/epxlabs" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+                <div class="header-nav-main header-nav-main-square header-nav-main-effect-3 header-nav-main-sub-effect-1 collapse">
+                  <nav>
+                    <ul class="nav nav-pills" id="mainNav">
+                      <li id="devops">
+                        <a data-hash="data-hash" data-hash-offset="70" href="devops" class="nav-links">Devops</a>
+                      </li><li id="serverless">
+                        <a data-hash="data-hash" data-hash-offset="70" href="serverless" class="nav-links">Serverless</a>
+                      </li><li id="nodejs">
+                        <a data-hash="data-hash" data-hash-offset="70" href="nodejs" class="nav-links">nodejs</a>
+                      </li><li id="clojure">
+                        <a data-hash="data-hash" data-hash-offset="70" href="clojure" class="nav-links">Clojure</a>
+                      </li><li id="who-we-are">
+                        <a data-hash="data-hash" data-hash-offset="70" href="who-we-are" class="nav-links">Who We Are</a>
+                      </li><li id="blog" class="dropdown active">
+                        <a data-hash="data-hash" data-hash-offset="70" href="blog" class="nav-links">Blog</a>
+                      </li><li id="join-us!">
+                        <a data-hash="data-hash" data-hash-offset="70" href="careers" class="nav-links">Join Us!</a>
+                      </li><li id="contact-us">
+                        <a data-hash="data-hash" data-hash-offset="70" href="#contact" class="nav-links">Contact Us</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+<!-- END HEADER -->
+</body></html><html><body><div class="row"><div class="blog-post">
+  <h2></h2>
+  <div class="col-md-8 col-md-offset-2"><div class="post-body"><h1>ECK stack - simplify your ELK stack with AWS services</h1><p>In line with a central tenant of the #serverless movement we have decided to simplify a common AWS EC2 based log analysis solution with <a href="https://aws.amazon.com/">AWS services</a> that require less management and configuration overhead.</p><p>This solution is ideal for well structured log formats. The system, however, is easily extensible for out-of-scope log formats.</p><p>The traditional <a href="https://www.elastic.co/webinars/introduction-elk-stack">ELK stack</a> is a great log aggregation and log search tool which has gained wide-spread credibility and usage.</p><p>The ECK stack minimizes our requirements around server management and configuration by replacing components of the ELK stack with the following AWS services:</p>
+<ul>
+  <li><a href="https://www.elastic.co/products/elasticsearch">Elastic's Elasticseach</a> is replaced by <a href="https://aws.amazon.com/elasticsearch-service/">AWS Elasticsearch Service</a>.</li>
+  <li><a href="https://www.elastic.co/products/logstash">Elastic's Logstash</a> is simplified and replaced in part by <a href="https://aws.amazon.com/cloudwatch/">AWS CloudWatch</a>.</li>
+  <li><a href="https://www.elastic.co/products/kibana">Elastic's Kibana</a> is nice. We kept this.</li>
+</ul><p>So, let's build our log collector:</p>
+<hr /><h2>The goals of our ECK stack are:</h2>
+<ol>
+  <li>Collect Nginx logs from a large number of EC2 instances.</li>
+  <li>Maintain the logs for 7 days, then dispose of them.</li>
+  <li>Be able to monitor real-time activity for the following parameters:
+  <ul>
+    <li>top 10 active client IP's (in this case end-users of the system)</li>
+    <li>top 10 active domains for the multi-tenant application running on the EC2 instances</li>
+    <li>the total number of active application connections</li>
+    <li>the number of errors in Nginx logs</li>
+  </ul></li>
+  <li>The system should be extensible to accept other log formats at a later date.</li>
+  <li>ECK users must be able to gain authenticated access without a permanent ip-address or access to the AWS console.
+  <ul>
+    <li>provided ElasticSearch service policies require a static IP or AWS console access. Not all of our end-users for this project meet these requirements. Therefore, we created a work-around with an HTTP Proxy using basic authentication to grant these required users access.</li>
+  </ul></li>
+</ol>
+<hr /><h2>System Architecture</h2>
+<hr /><p><img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/cek_transparent.png" /></p><p>So, above we have a very "standard" application with a few frontend servers and databases located in different availability zones; the elb hides the frontend servers.</p>
+<hr /><h2>Collect Data</h2>
+<hr /><p>We will use the <em><a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/QuickStartEC2Instance.html">awslogs</a></em> utility to collect data from hosts. You must install and create a configuration file for <em>awslogs</em>. </p><h4>Policy for CloudWath Log Groups</h4><p>The <em>awslogs</em> utility requires permission to write to CloudWatch Logs Groups. Here we will create that policy and add it to an IAM role assigned to the hosts. </p><p>If your infrastructure (for whatever reasons) <strong>does not use roles</strong>: </p>
+<ul>
+  <li>create a user for <em>awslogs</em></li>
+  <li>apply this policy to that user,</li>
+  <li>add the user data to <code>/var/awslogs/etc/aws.conf</code> after you have set-up the <em>awslogs</em> utility.</li>
+</ul><p>Else, here is the role policy:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">{</span>
+  <span class="nt">"Version"</span><span class="p">:</span> <span class="s2">"2012-10-17"</span><span class="p">,</span>
+  <span class="nt">"Statement"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">"Effect"</span><span class="p">:</span> <span class="s2">"Allow"</span><span class="p">,</span>
+      <span class="nt">"Action"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">"logs:CreateLogGroup"</span><span class="p">,</span>
+        <span class="s2">"logs:CreateLogStream"</span><span class="p">,</span>
+        <span class="s2">"logs:PutLogEvents"</span><span class="p">,</span>
+        <span class="s2">"logs:DescribeLogStreams"</span>
+    <span class="p">],</span>
+      <span class="nt">"Resource"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">"arn:aws:logs:*:*:*"</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</pre><h4>Setup awslogs</h4>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="nv">curl</span> <span class="nv">https</span><span class="ss">://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py</span> <span class="nv">-O</span>
+<span class="nv">sudo</span> <span class="nv">python</span> <span class="nv">./awslogs-agent-setup.py</span> <span class="nv">--region</span> <span class="nv">us-west-2</span>
+</pre></div>
+</pre><p>You need to add data about the format that you plan to send to CloudWatch into the <em>awslogs</em> configuration. Our data roughly appeared like so:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">[</span><span class="nv">Nginx-&lt;virtual_host&gt;-Access-Log</span><span class="p">]</span>
+<span class="nv">datetime_format</span> <span class="nb">= </span><span class="nv">%d/%b/%Y</span><span class="ss">:%H:%M:%S</span> <span class="nv">%z</span>
+<span class="nv">file</span> <span class="nb">= </span><span class="nv">/var/log/nginx/&lt;virtual_host&gt;_access.log</span>
+<span class="nv">buffer_duration</span> <span class="nb">= </span><span class="mi">5000</span>
+<span class="nv">log_stream_name</span> <span class="nb">= </span><span class="p">{</span><span class="nv">instance_id</span><span class="p">}</span>
+<span class="nv">initial_position</span> <span class="nb">= </span><span class="nv">start_of_file</span>
+<span class="nv">log_group_name</span> <span class="nb">= </span><span class="nv">nginx_&lt;virtual_host&gt;_access</span>
+ 
+<span class="p">[</span><span class="nv">Nginx-&lt;virtual_host&gt;-Error-Log</span><span class="p">]</span>
+<span class="nv">datetime_format</span> <span class="nb">= </span><span class="nv">%Y/%m/%d</span> <span class="nv">%H</span><span class="ss">:%M:%S</span>
+<span class="nv">file</span> <span class="nb">= </span><span class="nv">/var/log/nginx/&lt;virtual_host&gt;_error.log</span>
+<span class="nv">buffer_duration</span> <span class="nb">= </span><span class="mi">5000</span>
+<span class="nv">log_stream_name</span> <span class="nb">= </span><span class="p">{</span><span class="nv">instance_id</span><span class="p">}</span>
+<span class="nv">initial_position</span> <span class="nb">= </span><span class="nv">start_of_file</span>
+<span class="nv">log_group_name</span> <span class="nb">= </span><span class="nv">nginx_&lt;virtual_host&gt;_error</span>
+</pre></div>
+</pre><h4>Change Nginx log format</h4><p>Since we use the ELB as the entry point for our infrastructure we will change the nginx log format to be able to see the actual client ip address in <code>/etc/nginx/nginx.conf</code></p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="nv">...</span>
+<span class="nv">http</span> <span class="p">{</span>
+<span class="nv">...</span>
+  <span class="nv">log_format</span> <span class="nv">specialLog</span> <span class="ss">'$http_x_forwarded_for</span> <span class="nv">$remote_addr</span> <span class="nv">$remote_user</span> <span class="p">[</span><span class="nv">$time_local</span><span class="p">]</span> <span class="s">"$http_host"</span> <span class="s">"$request"</span> <span class="nv">$status</span> <span class="nv">$body_bytes_sent</span> <span class="s">"$http_referer"</span> <span class="s">"$http_user_agent"</span> <span class="nv">$request_time</span>, <span class="nv">$upstream_response_time</span><span class="o">'</span><span class="c1">;</span>
+<span class="nv">...</span>
+<span class="p">}</span>
+</pre></div>
+</pre><p>To use this log format you need to set in your virtual host as follows:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="nv">...</span>
+<span class="nv">access_log</span>            <span class="nv">/var/log/nginx/&lt;virtual_host&gt;.log</span> <span class="nv">specialLog</span><span class="c1">;</span>
+<span class="nv">...</span>
+</pre></div>
+</pre><p>You can read more about HTTP Headers and ELB <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/x-forwarded-headers.html">here</a></p><h4>Result</h4><p>In our case <code>&lt;virtual_host&gt;</code> was named <em>combined</em>, so we have:</p><p><img style="display:block;" width="400px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/combined.png" /></p><p>We may check which Nginx logs we have inside this CloudWatch Logs group:</p><p><img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/cloudwatch_loggroup.png" /></p>
+<hr /><h2>Load data to ElasticSearch</h2>
+<hr /><h4>Authentication in Kibana</h4><p>We are going to skip ahead a bit to prevent re-work later. ElasticSearch service has policy restrictions. For our requirements and goals listed above the simple and quick solution is to set up a little HTTP proxy with authentication to access Kibana.</p><p>You may provision an EC2 instance in your AWS environment for the proxy set-up. In our case we selected Ubuntu.</p><p>Next, <code>apt-get</code> nginx and set the nginx config for basic authentication.</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="nv">aptitude</span> <span class="nv">update</span>
+<span class="nv">apt-get</span> <span class="nv">install</span> <span class="nv">nginx</span>
+ 
+<span class="nv">cat</span> <span class="nv">&lt;&lt;EOF</span> <span class="nb">&gt; </span><span class="nv">/etc/nginx/sites-available/elasticsearch</span>
+<span class="nv">server</span> <span class="p">{</span>
+    <span class="nv">listen</span> <span class="mi">80</span><span class="c1">;</span>
+    <span class="nv">location</span> <span class="nb">/ </span><span class="p">{</span>
+        <span class="nv">proxy_set_header</span>           <span class="nv">X-Forwarded-For</span> <span class="nv">$remote_addr</span><span class="c1">;</span>
+        <span class="nv">proxy_set_header</span>           <span class="nv">Host</span> <span class="nv">$http_host</span><span class="c1">;</span>
+        <span class="nv">proxy_pass</span>                 <span class="nv">https</span><span class="ss">://&lt;elasticsearch_endpoint&gt;</span><span class="c1">;</span>
+        <span class="nv">auth_basic</span>                 <span class="s">"Restricted"</span><span class="c1">;</span>
+        <span class="nv">auth_basic_user_file</span>       <span class="nv">/etc/nginx/conf.d/kibana.htpasswd</span><span class="c1">;</span>
+        <span class="nv">proxy_pass_request_headers</span> <span class="nv">off</span><span class="c1">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nv">EOF</span>
+<span class="nv">sudo</span> <span class="nv">ln</span> <span class="nv">-s</span> <span class="nv">/etc/nginx/sites-available/elasticsearch</span> <span class="nv">/etc/nginx/sites-enabled/elasticsearch</span>
+ 
+<span class="nv">htpasswd</span> <span class="nv">-c</span> <span class="nv">/etc/nginx/conf.d/kibana.htpasswd</span> <span class="nv">&lt;user_name&gt;</span>
+ 
+<span class="nv">service</span> <span class="nv">nginx</span> <span class="nv">restart</span>
+</pre></div>
+</pre><h4>Setup ElasticSearch</h4><p>For simplicity we will setup ElasticSearch service with default settings.</p><p>Using the <a href="https://aws.amazon.com/cli/">AWS CLI</a> in your terminal (check out our post on <a href="http://www.epxlabs.com/blog/2016-08-27-zsh-in-the-pursuit-of-efficiency/">ZSH</a> for a better terminal experience):</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="nv">aws</span> <span class="nv">es</span> <span class="nv">create-elasticsearch-domain</span> <span class="nv">--domain-name</span> <span class="nv">logcollector</span>
+</pre></div>
+</pre><p>Now that we've provisioned Elasticsearch we need to set a policy to access it. We will allow access exclusively from our HTTP proxy (setup in previous steps).</p><p>Again, using CLI commands:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="nv">aws</span> <span class="nv">es</span> <span class="nv">update-elasticsearch-domain-config</span> <span class="nv">--endpoint</span> <span class="nv">https</span><span class="ss">://es.us-west-2.amazonaws.com</span> <span class="nv">--domain-name</span> <span class="nv">logcollector</span> <span class="nv">--access-policies</span> <span class="o">'</span><span class="p">{</span><span class="s">"Version"</span><span class="err">:</span> <span class="s">"2012-10-17"</span>, <span class="s">"Statement"</span><span class="err">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s">"Sid"</span><span class="err">:</span> <span class="s">""</span>, <span class="s">"Effect"</span><span class="err">:</span> <span class="s">"Allow"</span>, <span class="s">"Principal"</span><span class="err">:</span> <span class="p">{</span> <span class="s">"AWS"</span><span class="err">:</span> <span class="s">"*"</span> <span class="p">}</span>, <span class="s">"Action"</span><span class="err">:</span> <span class="s">"es:*"</span>, <span class="s">"Resource"</span><span class="err">:</span> <span class="s">"arn:aws:es:us-west-2:&lt;your_account&gt;:domain/logcollector/*"</span>, <span class="s">"Condition"</span><span class="err">:</span> <span class="p">{</span> <span class="s">"IpAddress"</span><span class="err">:</span> <span class="p">{</span> <span class="s">"aws:SourceIp"</span><span class="err">:</span> <span class="s">"&lt;proxy_ip_address&gt;"</span> <span class="p">}}}]}</span><span class="o">'</span>
+</pre></div>
+</pre>
+<hr /><h4>Role to upload data from CloudWatch to ElasticSearch</h4><p>Next we need to create a role to grant permission for CloudWatch to push logs to Elasticsearch (there is a wizard to create this subscription, it's not the best, but it works for simplicity):</p>
+<ul>
+  <li>Choose some awesome name, eg. <strong>CloudWatchLogsToElasticSearch</strong>:  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/es_role_1.png" /></li>
+</ul>
+<hr />
+<ul>
+  <li>Select Role type <strong>AWS Lambda</strong>:  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/es_role_2.png" /></li>
+</ul>
+<hr />
+<ul>
+  <li>For now we can grant full access because we do not plan to create multiple domains:  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/es_role_3.png" /></li>
+</ul>
+<hr />
+<ul>
+  <li>Review your work:  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/es_role_4.png" /></li>
+</ul>
+<hr />
+<ul>
+  <li>Attach this policy to the Role:</li>
+</ul>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">{</span>  <span class="s">"Version"</span><span class="err">:</span> <span class="s">"2012-10-17"</span>,
+  <span class="s">"Statement"</span><span class="err">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">"Action"</span><span class="err">:</span> <span class="p">[</span>
+      <span class="s">"es:*"</span>
+    <span class="p">]</span>,
+    <span class="s">"Effect"</span><span class="err">:</span> <span class="s">"Allow"</span>,
+    <span class="s">"Resource"</span><span class="err">:</span> <span class="s">"*"</span>
+  <span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</pre>
+<hr /><h4>Subscribe your CloudWatch Logs Group to ElasticSearch</h4>
+<ul>
+  <li>Create your stream from CloudWatch to ElasticSearch  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/subscription_1.png" /></li>
+</ul>
+<hr />
+<ul>
+  <li>Choose ElasticSearch cluster (also here you need to choose the Lambda role from the previous step):  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/subscription_2.png" /></li>
+</ul>
+<hr />
+<ul>
+  <li>Configure your Log Format and Filters:  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/subscription_3.png" /></li>
+</ul>
+<hr />
+<ul>
+  <li>Review your work:  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/subscription_4.png" /></li>
+</ul>
+<hr />
+<ul>
+  <li>You should now be able to see your subscription:  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/subscription_5.png" /></li>
+</ul>
+<hr />
+<ul>
+  <li>If you see new indices inside ElasticSearch then you've succeeded and it's time to play with Kibana:  <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/indeces.png" /></li>
+</ul>
+<hr /><h2>Kibana</h2><p>An example dashboard: <img style="display:block;" width="600px" src="https://s3.amazonaws.com/blog-images.epxlabs.com/eck/kibana.png" /></p>
+<hr /><h2>A little Bonus feature!</h2><p>In our setup we elected to use a small ElasticSearch cluster to save money month over month. </p><p>Therefore, we'll need to clean the Log storage on a recurring basis.</p><p>In the example below we collect ~3 to 3.5 Gb per day, therefore, we decide to clean Logs older than 10 days. </p><p>The small script below can be placed on our HTTP proxy instance. After all, it's the only host which has access to ElasticSearch.</p><p>Therefore in <code>/usr/local/bin/clean_es.py</code>:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="err">!</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">date_N_days_ago</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+<span class="n">indices_to_remove</span> <span class="o">=</span> <span class="s">"http://&lt;elasticsearch_endpoint&gt;/cwl-"</span> \
+                    <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">date_N_days_ago</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">date_N_days_ago</span><span class="o">.</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">date_N_days_ago</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+<span class="c">#print indices_to_remove</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s">'curl'</span><span class="p">,</span> <span class="s">'-XDELETE'</span><span class="p">,</span> <span class="n">indices_to_remove</span><span class="p">])</span>
+</pre></div>
+</pre><p>Add this to your cron:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="mi">0</span> <span class="mi">0</span> <span class="nb">* * * </span><span class="nv">/usr/local/bin/clean_es.py</span>
+</pre></div>
+</pre><div id="disqus_thread"></div></div></div>
+</div></div>
+</body></html><section id="contact" class="section section-no-border mb-none bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="alert alert-success hidden" id="contactSuccess">
+          <strong>Success!</strong> We have received your message.
+        </div>
+        <div class="alert alert-danger hidden" id="contactError">
+          <strong>Oops!</strong> An error occured and your message could not be sent. Please email us at <strong>hello@epxlabs.com</strong> or call us at <strong>+1 (646)-768-0123</strong>
+        </div>
+        <h2 class="mb-sm mt-sm"><strong>Contact</strong> Us</h2>
+        <form id="contactForm" action="" method="POST">
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-6">
+                <label>Your name</label>
+                <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" required="required" />
+              </div>
+              <div class="col-md-6">
+                <label>Your email address</label>
+                <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" required="required" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-12">
+                <label>Message</label>
+                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="6" class="form-control" name="message" id="message" required="required"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input type="submit" value="Submit" class="btn btn-primary btn-lg mb-xlg" data-loading-text="Loading..." />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h4 class="heading-primary mt-lg">Get in <strong>Touch</strong></h4>
+        <p id="get-in-touch">We are always available to help solve your business problems, meet others in the serverless space, and discuss what we're passionate about. You can get in touch with us here :-)</p>
+        <hr />
+        <ul id="contact-info" class="list list-icons list-icons-style-3 mt-xlg">
+          <li><i class="fa fa-phone"></i> <strong>Phone:</strong> 646.768.0123</li>
+          <li><i class="fa fa-envelope"></i> <strong>Email:</strong><a href="mailto:hello@epxlabs.com"> hello@epxlabs.com</a></li>
+        </ul>
+        <hr />
+        <h4 class="heading-primary">Follow <strong>Us</strong></h4>
+        <ul class="social-icons">
+          <li class="social-icons-github"><a target="_blank" href="https://github.com/epxlabs/" title="GitHub"><i class="fa fa-github"></i></a></li><li class="social-icons-linkedin"><a target="_blank" href="https://www.linkedin.com/company/epx-labs/" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li><li class="social-icons-twitter"><a target="_blank" href="https://twitter.com/epxlabs" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- END CONTACT US -->
+</section><footer id="footer" class="color color-secondary">
+  <div class="footer-copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3 col-md-2 col-md-offset-5">
+          <a href="index.html" class="logo">
+            <img alt="EPX Labs" class="img-responsive" src="/img/logos/62b1cdcca819/epx_logo.svg" />
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 text-center col-md-offset-4" id="copyright">
+          <p>© Copyright 2017 EPX Labs, Inc. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer></div>
+    </div>
+    <!-- JS Bundle -->
+    <script src="/bundles/e5a487604c0d/app.js"></script>
+    <script id="dsq-count-scr" src="//www-epxlabs-com.disqus.com/count.js" async="async"></script>
+    <!-- Google Analytics Script -->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85354348-2', 'auto');
+  ga('send', 'pageview');</script>
+  </body>
+
+</html>

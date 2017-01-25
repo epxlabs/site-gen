@@ -1,0 +1,62 @@
+/* Add here all your CSS customizations */
+
+/* Lambda icon for Functional in the What We Do section */
+.fa-alpha-l:before {
+    font-size: 39px;
+    content: '\03bb';
+    color: #42ade2;
+}
+
+p.multi-line {
+    color: #777777 !important;
+    margin: 0 0 10px;
+}
+
+section#identity {
+    padding: 50px 0 0 0;
+}
+
+@media (max-width: 767px) {
+    /* Responsive Horizontally Stacked Grid Left Align */
+    .resp-hor-left { text-align: center; }
+    /* Responsive Horizontally Stacked Grid Right Align */
+    .resp-hor-right { text-align: center; }
+}
+
+@media (min-width: 768px) {
+    /* Responsive Horizontally Stacked Grid Left Align */
+    .resp-hor-left { text-align: left; }
+    /* Responsive Horizontally Stacked Grid Right Align */
+    .resp-hor-right { text-align: right; }
+}
+
+section#contact {
+    background: #ffffff;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: transparent;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+.blog-post .codehilite { background-color: #49483e }
+
+.blog-post .hll { background-color: #49483e }
+
+div.article {
+    padding: 10px;
+}
+
+.resize{
+    width:540px; /* you can use % */
+    height: auto;
+}
+
+.author{
+    position:relative;
+    bottom:25px;
+}

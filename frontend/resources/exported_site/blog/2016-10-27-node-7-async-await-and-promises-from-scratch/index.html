@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>EPX Labs, Inc.</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="EPX Labs, Inc." />
+    <meta name="author" content="EPX Labs, Inc." />
+    <meta name="google-site-verification" content="Rs32ezHC25vADQquLA_bBGGylM54r7kuHg2DmMJ8hhg" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/1cefb549bc4e/epx-favicon.png" type="image/x-icon" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css" />
+    <!-- CSS Bundle -->
+    <link rel="stylesheet" type="text/css" href="/bundles/d23dee499b3c/app.css" />
+    <!-- Head Libs -->
+    <script src="/vendor/modernizr/modernizr.min.js"></script>
+  </head>
+  <body class="one-page" data-target="#header" data-spy="scroll" data-offset="100">
+    <div class="body">
+      <!-- Fill content here -->
+      <div role="main" class="main" id="home"><html><body><div id="intro">
+  <header id="header" class="header-narrow" data-plugin-options="{&quot;stickyEnabled&quot;: true, &quot;stickyEnableOnBoxed&quot;: true, &quot;stickyEnableOnMobile&quot;: true, &quot;stickyStartAtElement&quot;: &quot;#header&quot;, &quot;stickySetTop&quot;: &quot;0&quot;, &quot;stickyChangeLogo&quot;: false}">
+    <div class="header-body">
+      <div class="header-container container">
+        <div class="header-row">
+          <div class="header-column">
+            <div class="header-logo">
+              <a href="/" id="header-logo">
+                <img alt="EPX Labs" width="205" height="50" data-sticky-width="164" data-sticky-height="40" data-sticky-top="7" src="/img/logos/62b1cdcca819/epx_logo.svg" />
+              </a>
+            </div>
+          </div>
+          <div class="header-column">
+            <div class="header-row">
+              <div class="header-nav header-nav-top-line">
+                <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                  <i class="fa fa-bars"></i>
+                </button>
+                <ul class="header-social-icons social-icons hidden-xs">
+                  <li class="social-icons-github"><a target="_blank" href="https://github.com/epxlabs/" title="GitHub"><i class="fa fa-github"></i></a></li><li class="social-icons-linkedin"><a target="_blank" href="https://www.linkedin.com/company/epx-labs/" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li><li class="social-icons-twitter"><a target="_blank" href="https://twitter.com/epxlabs" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+                <div class="header-nav-main header-nav-main-square header-nav-main-effect-3 header-nav-main-sub-effect-1 collapse">
+                  <nav>
+                    <ul class="nav nav-pills" id="mainNav">
+                      <li id="devops">
+                        <a data-hash="data-hash" data-hash-offset="70" href="devops" class="nav-links">Devops</a>
+                      </li><li id="serverless">
+                        <a data-hash="data-hash" data-hash-offset="70" href="serverless" class="nav-links">Serverless</a>
+                      </li><li id="nodejs">
+                        <a data-hash="data-hash" data-hash-offset="70" href="nodejs" class="nav-links">nodejs</a>
+                      </li><li id="clojure">
+                        <a data-hash="data-hash" data-hash-offset="70" href="clojure" class="nav-links">Clojure</a>
+                      </li><li id="who-we-are">
+                        <a data-hash="data-hash" data-hash-offset="70" href="who-we-are" class="nav-links">Who We Are</a>
+                      </li><li id="blog" class="dropdown active">
+                        <a data-hash="data-hash" data-hash-offset="70" href="blog" class="nav-links">Blog</a>
+                      </li><li id="join-us!">
+                        <a data-hash="data-hash" data-hash-offset="70" href="careers" class="nav-links">Join Us!</a>
+                      </li><li id="contact-us">
+                        <a data-hash="data-hash" data-hash-offset="70" href="#contact" class="nav-links">Contact Us</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+<!-- END HEADER -->
+</body></html><html><body><div class="row"><div class="blog-post">
+  <h2></h2>
+  <div class="col-md-8 col-md-offset-2"><div class="post-body"><h1>Node 7 async/await and promises from scratch</h1><p>Node 7 has been released and, with it, support for async/await. <a href="http://node.green">The support is behind the --harmony flag</a>, so to run this example we'll use :</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="nx">node</span> <span class="o">--</span><span class="nx">harmony</span> <span class="nx">index</span>
+</pre></div>
+</pre><p>Async/await and promises allow you to write clean asynchronous code with minimal effort. There are potential pitfalls but, ultimately, using promises and async/await for managing concurrency leads to terse, readable code.</p><p>Let's begin by showing how vanilla node callbacks can be transformed to be promise and async/await friendly.</p><p>We'll construct a promise from the <a href="https://www.npmjs.com/package/request"><code>request</code></a> NPM library. Let's write a function that takes a URL, downloads a web page, and returns the body (or error) in a promise.</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'request'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">requestAsync</span> <span class="o">=</span> <span class="nx">url</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">request</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">error</span> <span class="o">&amp;&amp;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">resolve</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+</pre><p>Promises are constructed from a function that takes a <code>resolve</code> and <code>reject</code> parameter. The only stipulation is that the function must <em>eventually</em> call resolve or reject.</p><p>Let's try calling this function. By awaiting it, we'll unwrap the value of the body from the promise.</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">(</span><span class="nx">async</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">requestAsync</span><span class="p">(</span><span class="s2">"http://epxlabs.com"</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Page length of EPX Labs"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<span class="p">}());</span>
+</pre></div>
+</pre><p>And that's it! The value proposition of async/await might not yet be clear. We'll cover more of that in subsequent posts when we go over things like promisification, exception handling, performance gotchas, and running multiple promises concurrently.</p><div id="disqus_thread"></div></div></div>
+</div></div>
+</body></html><section id="contact" class="section section-no-border mb-none bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="alert alert-success hidden" id="contactSuccess">
+          <strong>Success!</strong> We have received your message.
+        </div>
+        <div class="alert alert-danger hidden" id="contactError">
+          <strong>Oops!</strong> An error occured and your message could not be sent. Please email us at <strong>hello@epxlabs.com</strong> or call us at <strong>+1 (646)-768-0123</strong>
+        </div>
+        <h2 class="mb-sm mt-sm"><strong>Contact</strong> Us</h2>
+        <form id="contactForm" action="" method="POST">
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-6">
+                <label>Your name</label>
+                <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" required="required" />
+              </div>
+              <div class="col-md-6">
+                <label>Your email address</label>
+                <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" required="required" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-12">
+                <label>Message</label>
+                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="6" class="form-control" name="message" id="message" required="required"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input type="submit" value="Submit" class="btn btn-primary btn-lg mb-xlg" data-loading-text="Loading..." />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h4 class="heading-primary mt-lg">Get in <strong>Touch</strong></h4>
+        <p id="get-in-touch">We are always available to help solve your business problems, meet others in the serverless space, and discuss what we're passionate about. You can get in touch with us here :-)</p>
+        <hr />
+        <ul id="contact-info" class="list list-icons list-icons-style-3 mt-xlg">
+          <li><i class="fa fa-phone"></i> <strong>Phone:</strong> 646.768.0123</li>
+          <li><i class="fa fa-envelope"></i> <strong>Email:</strong><a href="mailto:hello@epxlabs.com"> hello@epxlabs.com</a></li>
+        </ul>
+        <hr />
+        <h4 class="heading-primary">Follow <strong>Us</strong></h4>
+        <ul class="social-icons">
+          <li class="social-icons-github"><a target="_blank" href="https://github.com/epxlabs/" title="GitHub"><i class="fa fa-github"></i></a></li><li class="social-icons-linkedin"><a target="_blank" href="https://www.linkedin.com/company/epx-labs/" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li><li class="social-icons-twitter"><a target="_blank" href="https://twitter.com/epxlabs" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- END CONTACT US -->
+</section><footer id="footer" class="color color-secondary">
+  <div class="footer-copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3 col-md-2 col-md-offset-5">
+          <a href="index.html" class="logo">
+            <img alt="EPX Labs" class="img-responsive" src="/img/logos/62b1cdcca819/epx_logo.svg" />
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 text-center col-md-offset-4" id="copyright">
+          <p>© Copyright 2017 EPX Labs, Inc. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer></div>
+    </div>
+    <!-- JS Bundle -->
+    <script src="/bundles/e5a487604c0d/app.js"></script>
+    <script id="dsq-count-scr" src="//www-epxlabs-com.disqus.com/count.js" async="async"></script>
+    <!-- Google Analytics Script -->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85354348-2', 'auto');
+  ga('send', 'pageview');</script>
+  </body>
+
+</html>

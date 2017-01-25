@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>EPX Labs, Inc.</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="EPX Labs, Inc." />
+    <meta name="author" content="EPX Labs, Inc." />
+    <meta name="google-site-verification" content="Rs32ezHC25vADQquLA_bBGGylM54r7kuHg2DmMJ8hhg" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/1cefb549bc4e/epx-favicon.png" type="image/x-icon" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css" />
+    <!-- CSS Bundle -->
+    <link rel="stylesheet" type="text/css" href="/bundles/d23dee499b3c/app.css" />
+    <!-- Head Libs -->
+    <script src="/vendor/modernizr/modernizr.min.js"></script>
+  </head>
+  <body class="one-page" data-target="#header" data-spy="scroll" data-offset="100">
+    <div class="body">
+      <!-- Fill content here -->
+      <div role="main" class="main" id="home"><html><body><div id="intro">
+  <header id="header" class="header-narrow" data-plugin-options="{&quot;stickyEnabled&quot;: true, &quot;stickyEnableOnBoxed&quot;: true, &quot;stickyEnableOnMobile&quot;: true, &quot;stickyStartAtElement&quot;: &quot;#header&quot;, &quot;stickySetTop&quot;: &quot;0&quot;, &quot;stickyChangeLogo&quot;: false}">
+    <div class="header-body">
+      <div class="header-container container">
+        <div class="header-row">
+          <div class="header-column">
+            <div class="header-logo">
+              <a href="/" id="header-logo">
+                <img alt="EPX Labs" width="205" height="50" data-sticky-width="164" data-sticky-height="40" data-sticky-top="7" src="/img/logos/62b1cdcca819/epx_logo.svg" />
+              </a>
+            </div>
+          </div>
+          <div class="header-column">
+            <div class="header-row">
+              <div class="header-nav header-nav-top-line">
+                <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                  <i class="fa fa-bars"></i>
+                </button>
+                <ul class="header-social-icons social-icons hidden-xs">
+                  <li class="social-icons-github"><a target="_blank" href="https://github.com/epxlabs/" title="GitHub"><i class="fa fa-github"></i></a></li><li class="social-icons-linkedin"><a target="_blank" href="https://www.linkedin.com/company/epx-labs/" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li><li class="social-icons-twitter"><a target="_blank" href="https://twitter.com/epxlabs" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+                <div class="header-nav-main header-nav-main-square header-nav-main-effect-3 header-nav-main-sub-effect-1 collapse">
+                  <nav>
+                    <ul class="nav nav-pills" id="mainNav">
+                      <li id="devops">
+                        <a data-hash="data-hash" data-hash-offset="70" href="devops" class="nav-links">Devops</a>
+                      </li><li id="serverless">
+                        <a data-hash="data-hash" data-hash-offset="70" href="serverless" class="nav-links">Serverless</a>
+                      </li><li id="nodejs">
+                        <a data-hash="data-hash" data-hash-offset="70" href="nodejs" class="nav-links">nodejs</a>
+                      </li><li id="clojure">
+                        <a data-hash="data-hash" data-hash-offset="70" href="clojure" class="nav-links">Clojure</a>
+                      </li><li id="who-we-are">
+                        <a data-hash="data-hash" data-hash-offset="70" href="who-we-are" class="nav-links">Who We Are</a>
+                      </li><li id="blog" class="dropdown active">
+                        <a data-hash="data-hash" data-hash-offset="70" href="blog" class="nav-links">Blog</a>
+                      </li><li id="join-us!">
+                        <a data-hash="data-hash" data-hash-offset="70" href="careers" class="nav-links">Join Us!</a>
+                      </li><li id="contact-us">
+                        <a data-hash="data-hash" data-hash-offset="70" href="#contact" class="nav-links">Contact Us</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+<!-- END HEADER -->
+</body></html><html><body><div class="row"><div class="blog-post">
+  <h2></h2>
+  <div class="col-md-8 col-md-offset-2"><div class="post-body"><h1>Getting Started with <a href="https://github.com/prachetasp/stripe-clojure">stripe-clojure</a></h1><h2>Introduction</h2><p>Stripe is a leading provider of payment and subscription management solutions for businesses around the world. The most notable feature of Stripe is their nearly immaculate implementation of a REST API. Developers can simply access the API or build applications that leverage the API to automate away business pains such as recurring customer billing (subscriptions) or manipulating payment information.</p><p><a href="https://github.com/prachetasp/stripe-clojure">stripe-clojure</a> is a Clojure library which is designed to implement the Stripe API in a functional manner. The library handles API calls to Stripe which allows developers to interact with the API in a clean and simple to use functional environment. This article will cover the basics of the <a href="https://github.com/prachetasp/stripe-clojure">stripe-clojure</a> library along with a few examples to get help you get started accepting Stripe payments. The tutorial will be levarage emacs-live with a cider REPL (EPX Labs will soon be open sourcing our emacs-live + add-ons development environment affectionately named the "labkit").</p><p><a href="https://github.com/prachetasp/stripe-clojure">stripe-clojure</a> was developed with a focus on slim dependencies. This makes <a href="https://github.com/prachetasp/stripe-clojure">stripe-clojure</a> ideal for use on <em>Serverless</em>, AWS Lambda, IBM OpenWhisk, etc. systems.</p><p><em>Let's dive in..</em></p><h2>Stripe API Basics</h2>
+<hr /><h3>The Customer object</h3><p>The "Customer object" is the primitive of every transaction that occurs through Stripe. Customer "objects" contain all of the information relevant to a customer and are required for charges and subscriptions. The <a href="https://github.com/prachetasp/stripe-clojure">stripe-clojure</a> library uses a functional implementation of the customer object. Namely, an edn map:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">{</span><span class="ss">:default_source</span> <span class="s">"card_198YCVJ3Zx6FNnHuyeItfoJu"</span>,
+ <span class="ss">:description</span> <span class="nv">nil</span>,
+ <span class="ss">:email</span> <span class="s">"stripe-test-man@test.com"</span>,
+ <span class="ss">:delinquent</span> <span class="nv">false</span>,
+ <span class="ss">:account_balance</span> <span class="mi">0</span>,
+ <span class="ss">:sources</span>
+ <span class="p">{</span><span class="ss">:object</span> <span class="s">"list"</span>,
+  <span class="ss">:data</span>
+  <span class="p">[{</span><span class="ss">:address_line1_check</span> <span class="nv">nil</span>,
+    <span class="ss">:address_state</span> <span class="nv">nil</span>,
+    <span class="ss">:dynamic_last4</span> <span class="nv">nil</span>,
+    <span class="ss">:address_zip_check</span> <span class="nv">nil</span>,
+    <span class="ss">:tokenization_method</span> <span class="nv">nil</span>,
+    <span class="ss">:exp_year</span> <span class="mi">2017</span>,
+    <span class="ss">:name</span> <span class="nv">nil</span>,
+    <span class="ss">:cvc_check</span> <span class="s">"pass"</span>,
+    <span class="ss">:last4</span> <span class="s">"4242"</span>,
+    <span class="ss">:brand</span> <span class="s">"Visa"</span>,
+    <span class="ss">:customer</span> <span class="s">"cus_9RQwyEK0fHnSkO"</span>,
+    <span class="ss">:address_country</span> <span class="nv">nil</span>,
+    <span class="ss">:funding</span> <span class="s">"credit"</span>,
+    <span class="ss">:address_line2</span> <span class="nv">nil</span>,
+    <span class="ss">:id</span> <span class="s">"card_198YCVJ3Zx6FNnHuyeItfoJu"</span>,
+    <span class="ss">:address_zip</span> <span class="nv">nil</span>,
+    <span class="ss">:address_line1</span> <span class="nv">nil</span>,
+    <span class="ss">:exp_month</span> <span class="mi">12</span>,
+    <span class="ss">:country</span> <span class="s">"US"</span>,
+    <span class="ss">:metadata</span> <span class="p">{}</span>,
+    <span class="ss">:object</span> <span class="s">"card"</span>,
+    <span class="ss">:fingerprint</span> <span class="s">"mRNahc5gc8EgfkI5"</span>,
+    <span class="ss">:address_city</span> <span class="nv">nil</span><span class="p">}]</span>,
+  <span class="ss">:has_more</span> <span class="nv">false</span>,
+  <span class="ss">:total_count</span> <span class="mi">1</span>,
+  <span class="ss">:url</span> <span class="s">"/v1/customers/cus_9RQwyEK0fHnSkO/sources"</span><span class="p">}</span>,
+ <span class="ss">:created</span> <span class="mi">1477414020</span>,
+ <span class="ss">:subscriptions</span>
+ <span class="p">{</span><span class="ss">:object</span> <span class="s">"list"</span>,
+  <span class="ss">:data</span>
+  <span class="p">[{</span><span class="ss">:canceled_at</span> <span class="nv">nil</span>,
+    <span class="ss">:application_fee_percent</span> <span class="nv">nil</span>,
+    <span class="ss">:start</span> <span class="mi">1477453490</span>,
+    <span class="ss">:created</span> <span class="mi">1477453490</span>,
+    <span class="ss">:current_period_end</span> <span class="mi">1480131890</span>,
+    <span class="ss">:trial_end</span> <span class="nv">nil</span>,
+    <span class="ss">:customer</span> <span class="s">"cus_9RQwyEK0fHnSkO"</span>,
+    <span class="ss">:ended_at</span> <span class="nv">nil</span>,
+    <span class="ss">:status</span> <span class="s">"active"</span>,
+    <span class="ss">:id</span> <span class="s">"sub_9RbY6wnlhYeBdZ"</span>,
+    <span class="ss">:cancel_at_period_end</span> <span class="nv">false</span>,
+    <span class="ss">:livemode</span> <span class="nv">false</span>,
+    <span class="ss">:quantity</span> <span class="mi">1</span>,
+    <span class="ss">:trial_start</span> <span class="nv">nil</span>,
+    <span class="ss">:discount</span> <span class="nv">nil</span>,
+    <span class="ss">:plan</span>
+    <span class="p">{</span><span class="ss">:amount</span> <span class="mi">999</span>,
+     <span class="ss">:name</span> <span class="s">"stripe-clojure"</span>,
+     <span class="ss">:created</span> <span class="mi">1477453200</span>,
+     <span class="ss">:currency</span> <span class="s">"usd"</span>,
+     <span class="ss">:interval_count</span> <span class="mi">1</span>,
+     <span class="ss">:id</span> <span class="s">"stripe-clojure"</span>,
+     <span class="ss">:trial_period_days</span> <span class="nv">nil</span>,
+     <span class="ss">:interval</span> <span class="s">"month"</span>,
+     <span class="ss">:livemode</span> <span class="nv">false</span>,
+     <span class="ss">:metadata</span> <span class="p">{}</span>,
+     <span class="ss">:object</span> <span class="s">"plan"</span>,
+     <span class="ss">:statement_descriptor</span> <span class="nv">nil</span><span class="p">}</span>,
+    <span class="ss">:current_period_start</span> <span class="mi">1477453490</span>,
+    <span class="ss">:metadata</span> <span class="p">{}</span>,
+    <span class="ss">:object</span> <span class="s">"subscription"</span>,
+    <span class="ss">:tax_percent</span> <span class="nv">nil</span><span class="p">}]</span>,
+  <span class="ss">:has_more</span> <span class="nv">false</span>,
+  <span class="ss">:total_count</span> <span class="mi">1</span>,
+  <span class="ss">:url</span> <span class="s">"/v1/customers/cus_9RQwyEK0fHnSkO/subscriptions"</span><span class="p">}</span>,
+ <span class="ss">:currency</span> <span class="s">"usd"</span>,
+ <span class="ss">:id</span> <span class="s">"cus_9RQwyEK0fHnSkO"</span>,
+ <span class="ss">:livemode</span> <span class="nv">false</span>,
+ <span class="ss">:shipping</span> <span class="nv">nil</span>,
+ <span class="ss">:discount</span> <span class="nv">nil</span>,
+ <span class="ss">:metadata</span> <span class="p">{}</span>,
+ <span class="ss">:object</span> <span class="s">"customer"</span><span class="p">}</span>
+</pre></div>
+</pre>
+<hr /><h3>Subscriptions</h3><p>Subscriptions are used to bill customers a set amount every month. Subscriptions are optional. A customer may have multiple concurrent subscriptions. Here is the subscription block from the a customer object map:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"> <span class="ss">:subscriptions</span>
+ <span class="p">{</span><span class="ss">:object</span> <span class="s">"list"</span>,
+  <span class="ss">:data</span>
+  <span class="p">[{</span><span class="ss">:canceled_at</span> <span class="nv">nil</span>,
+    <span class="ss">:application_fee_percent</span> <span class="nv">nil</span>,
+    <span class="ss">:start</span> <span class="mi">1477453490</span>,
+    <span class="ss">:created</span> <span class="mi">1477453490</span>,
+    <span class="ss">:current_period_end</span> <span class="mi">1480131890</span>,
+    <span class="ss">:trial_end</span> <span class="nv">nil</span>,
+    <span class="ss">:customer</span> <span class="s">"cus_9RQwyEK0fHnSkO"</span>,
+    <span class="ss">:ended_at</span> <span class="nv">nil</span>,
+    <span class="ss">:status</span> <span class="s">"active"</span>,
+    <span class="ss">:id</span> <span class="s">"sub_9RbY6wnlhYeBdZ"</span>,
+    <span class="ss">:cancel_at_period_end</span> <span class="nv">false</span>,
+    <span class="ss">:livemode</span> <span class="nv">false</span>,
+    <span class="ss">:quantity</span> <span class="mi">1</span>,
+    <span class="ss">:trial_start</span> <span class="nv">nil</span>,
+    <span class="ss">:discount</span> <span class="nv">nil</span>,
+    <span class="ss">:plan</span>
+    <span class="p">{</span><span class="ss">:amount</span> <span class="mi">999</span>,
+     <span class="ss">:name</span> <span class="s">"stripe-clojure"</span>,
+     <span class="ss">:created</span> <span class="mi">1477453200</span>,
+     <span class="ss">:currency</span> <span class="s">"usd"</span>,
+     <span class="ss">:interval_count</span> <span class="mi">1</span>,
+     <span class="ss">:id</span> <span class="s">"stripe-clojure"</span>,
+     <span class="ss">:trial_period_days</span> <span class="nv">nil</span>,
+     <span class="ss">:interval</span> <span class="s">"month"</span>,
+     <span class="ss">:livemode</span> <span class="nv">false</span>,
+     <span class="ss">:metadata</span> <span class="p">{}</span>,
+     <span class="ss">:object</span> <span class="s">"plan"</span>,
+     <span class="ss">:statement_descriptor</span> <span class="nv">nil</span><span class="p">}</span>,
+    <span class="ss">:current_period_start</span> <span class="mi">1477453490</span>,
+    <span class="ss">:metadata</span> <span class="p">{}</span>,
+    <span class="ss">:object</span> <span class="s">"subscription"</span>,
+    <span class="ss">:tax_percent</span> <span class="nv">nil</span><span class="p">}]</span>,
+  <span class="ss">:has_more</span> <span class="nv">false</span>,
+  <span class="ss">:total_count</span> <span class="mi">1</span>,
+  <span class="ss">:url</span> <span class="s">"/v1/customers/cus_9RQwyEK0fHnSkO/subscriptions"</span><span class="p">}</span>
+</pre></div>
+</pre>
+<hr /><h3>Plans</h3><p>Plans are the implementation of your business logic. You set up plans to let Stripe know exactly how, when, why, who, what you want to bill.</p>
+<hr /><h3>Sources</h3><p>Customer payment information is stored securely by Stripe as a source. When creating a source for a customer it is not necessary to hold any payment details thereby removing PCI compliance concerns. You must communicate with Stripe using tokenized payment details so sensitive information nevertraverses your infrastructure.</p><p>Here is an example of a credit card source (remember, sources can be either credit cards or bank accounts):</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"> <span class="ss">:sources</span>
+ <span class="p">{</span><span class="ss">:object</span> <span class="s">"list"</span>,
+  <span class="ss">:data</span>
+  <span class="p">[{</span><span class="ss">:address_line1_check</span> <span class="nv">nil</span>,
+    <span class="ss">:address_state</span> <span class="nv">nil</span>,
+    <span class="ss">:dynamic_last4</span> <span class="nv">nil</span>,
+    <span class="ss">:address_zip_check</span> <span class="nv">nil</span>,
+    <span class="ss">:tokenization_method</span> <span class="nv">nil</span>,
+    <span class="ss">:exp_year</span> <span class="mi">2017</span>,
+    <span class="ss">:name</span> <span class="nv">nil</span>,
+    <span class="ss">:cvc_check</span> <span class="s">"pass"</span>,
+    <span class="ss">:last4</span> <span class="s">"4242"</span>,
+    <span class="ss">:brand</span> <span class="s">"Visa"</span>,
+    <span class="ss">:customer</span> <span class="s">"cus_9RQwyEK0fHnSkO"</span>,
+    <span class="ss">:address_country</span> <span class="nv">nil</span>,
+    <span class="ss">:funding</span> <span class="s">"credit"</span>,
+    <span class="ss">:address_line2</span> <span class="nv">nil</span>,
+    <span class="ss">:id</span> <span class="s">"card_198YCVJ3Zx6FNnHuyeItfoJu"</span>,
+    <span class="ss">:address_zip</span> <span class="nv">nil</span>,
+    <span class="ss">:address_line1</span> <span class="nv">nil</span>,
+    <span class="ss">:exp_month</span> <span class="mi">12</span>,
+    <span class="ss">:country</span> <span class="s">"US"</span>,
+    <span class="ss">:metadata</span> <span class="p">{}</span>,
+    <span class="ss">:object</span> <span class="s">"card"</span>,
+    <span class="ss">:fingerprint</span> <span class="s">"mRNahc5gc8EgfkI5"</span>,
+    <span class="ss">:address_city</span> <span class="nv">nil</span><span class="p">}]</span>,
+  <span class="ss">:has_more</span> <span class="nv">false</span>,
+  <span class="ss">:total_count</span> <span class="mi">1</span>,
+  <span class="ss">:url</span> <span class="s">"/v1/customers/cus_9RQwyEK0fHnSkO/sources"</span><span class="p">}</span>
+</pre></div>
+</pre>
+<hr /><h2>Getting started with the library</h2><p>Today we will show the basic process of creating a test customer using the <a href="https://github.com/prachetasp/stripe-clojure">stripe-clojure</a> library. We will also run through the process of creating a subscription and processing payments. When testing the library it is important to use the Test API key so that no real payments are processed. </p>
+<hr /><h3>Preparing to communicate with the Stripe API</h3><p>In order to make changes to your Stripe account using the API you must have permission. Stripe has different keys that entitle different permissions. Your API keys can be found on the Stripe dashboard under account settings. For this example we will be using the "private test key".</p><p>The API key can be added simply by calling the <code>set-tokens!</code> function with a map of your secret test key as the parameter.</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">(</span><span class="nf">set-tokens!</span> <span class="p">{</span><span class="ss">:private</span> <span class="s">"sk_test_xxxxxxxxxxxxxxxx"</span><span class="p">})</span>
+</pre></div>
+</pre>
+<hr /><h3>Adding a customer to Stripe</h3><p>The <a href="https://github.com/prachetasp/stripe-clojure">stripe-clojure</a> library makes it simple to add a customer to Stripe. Customers can be created with many different types of data however we will be initializing our test customer with only an email. The customer is created using a POST request which can be sent via the <code>create</code> function. The <code>create</code> function is a generic HTTP POST request that can be used to create anything from customers to subscriptions and plans. The <code>create</code> function accepts a map with a resource (<code>:customers</code>, <code>:subscriptions</code>, etc.) and a map of parameters related to that resource. In this case (creating a customer) our request will look like:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">(</span><span class="nf">create</span> <span class="p">{</span><span class="ss">:customers</span> <span class="p">{</span><span class="ss">:email</span> <span class="s">"stripe-test-man@test.com"</span><span class="p">}})</span>
+</pre></div>
+</pre><p>If the previous step was done correctly, Stripe should return a customer map:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">{</span><span class="ss">:default_source</span> <span class="nv">nil</span>,
+ <span class="ss">:description</span> <span class="nv">nil</span>,
+ <span class="ss">:email</span> <span class="s">"stripe-test-man@test.com"</span>,
+ <span class="ss">:delinquent</span> <span class="nv">false</span>,
+ <span class="ss">:account_balance</span> <span class="mi">0</span>,
+ <span class="ss">:sources</span>
+ <span class="p">{</span><span class="ss">:object</span> <span class="s">"list"</span>,
+  <span class="ss">:data</span> <span class="p">[]</span>,
+  <span class="ss">:has_more</span> <span class="nv">false</span>,
+  <span class="ss">:total_count</span> <span class="mi">0</span>,
+  <span class="ss">:url</span> <span class="s">"/v1/customers/cus_9RQwyEK0fHnSkO/sources"</span><span class="p">}</span>,
+ <span class="ss">:created</span> <span class="mi">1477414020</span>,
+ <span class="ss">:subscriptions</span>
+ <span class="p">{</span><span class="ss">:object</span> <span class="s">"list"</span>,
+  <span class="ss">:data</span> <span class="p">[]</span>,
+  <span class="ss">:has_more</span> <span class="nv">false</span>,
+  <span class="ss">:total_count</span> <span class="mi">0</span>,
+  <span class="ss">:url</span> <span class="s">"/v1/customers/cus_9RQwyEK0fHnSkO/subscriptions"</span><span class="p">}</span>,
+ <span class="ss">:currency</span> <span class="nv">nil</span>,
+ <span class="ss">:id</span> <span class="s">"cus_9RQwyEK0fHnSkO"</span>,
+ <span class="ss">:livemode</span> <span class="nv">false</span>,
+ <span class="ss">:shipping</span> <span class="nv">nil</span>,
+ <span class="ss">:discount</span> <span class="nv">nil</span>,
+ <span class="ss">:metadata</span> <span class="p">{}</span>,
+ <span class="ss">:object</span> <span class="s">"customer"</span><span class="p">}</span>
+</pre></div>
+</pre><p>*note: The parameter map may contain any fields that stripe allows for that given resource, for example for a list of fields available on the customer resource <a href="https://stripe.com/docs/api">click here</a></p>
+<hr /><h3>Adding a default payment source</h3><p>Payment sources should be added using a tokenized form of the payment details. In this example we will create a test token using Stripe's token generator. A token simply represents a single source (credit cards or bank accounts) and can only be associated with one customer. In order to add the token to the customer we use the same create function we used previously. In this case the route will be the same however we will include an additional key value pair, <code>:source</code>. We also need to include the Stripe customer ID of the customer we want to add the source to. </p><p>Create function:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">(</span><span class="nf">create</span> <span class="p">{</span><span class="ss">:customers</span> <span class="p">{</span><span class="ss">:customer_id</span> <span class="s">"cus_9RQwyEK0fHnSkO"</span> <span class="ss">:source</span> <span class="s">"tok_198YCVJ3Zx6FNnHuZAMlkkX6"</span><span class="p">}})</span>
+</pre></div>
+</pre>
+<hr /><h3>Adding a Plan</h3><p>A plan is required for subscription billing. You may create a plan for your customers using the <code>create</code> function. Let's make some plans (id's need to be unique across all plans):</p><p><em>Gold Plan</em></p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">(</span><span class="nf">create</span> <span class="p">{</span><span class="ss">:plans</span> <span class="p">{</span><span class="ss">:id</span> <span class="s">"gold"</span> <span class="ss">:amount</span> <span class="mi">9999</span> <span class="ss">:currency</span> <span class="s">"usd"</span> <span class="ss">:interval</span> <span class="s">"month"</span> <span class="ss">:name</span> <span class="s">"Gold Plan"</span><span class="p">}})</span>
+</pre></div>
+</pre><p><em>Pink Plan</em></p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">(</span><span class="nf">create</span> <span class="p">{</span><span class="ss">:plans</span> <span class="p">{</span><span class="ss">:id</span> <span class="s">"pink"</span> <span class="ss">:amount</span> <span class="mi">15999</span> <span class="ss">:currency</span> <span class="s">"usd"</span> <span class="ss">:interval</span> <span class="s">"month"</span> <span class="ss">:name</span> <span class="s">"Pink Plan"</span><span class="p">}})</span>
+</pre></div>
+</pre><p><em>stripe-clojure</em></p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">(</span><span class="nf">create</span> <span class="p">{</span><span class="ss">:plans</span> <span class="p">{</span><span class="ss">:id</span> <span class="s">"stripe-clojure"</span> <span class="ss">:amount</span> <span class="mi">999</span> <span class="ss">:currency</span> <span class="s">"usd"</span> <span class="ss">:interval</span> <span class="s">"month"</span> <span class="ss">:name</span> <span class="s">"Stripe Clojure"</span><span class="p">}})</span>
+</pre></div>
+</pre>
+<hr /><h3>Starting a Subscription</h3><p>The previous three steps are necessary to begin charging a customer on a monthly basis. For our purposes we are trying to subscribe a customer to a plan named "stripe-clojure" that charges $9.99 and bills monthly. Let's create a customer and assign them to the stripe-clojure plan:</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">(</span><span class="nf">create</span> <span class="p">{</span><span class="ss">:customers</span> <span class="p">{</span><span class="ss">:customer_id</span> <span class="s">"cus_9RQwyEK0fHnSkO"</span> <span class="ss">:plan</span> <span class="s">"stripe-clojure"</span><span class="p">}})</span>
+</pre></div>
+</pre><p>This returns a success response with the updated customer object to show that the request worked.</p>
+<pre class="codehilite"><div class="hll"><pre class="codehilite"><span class="p">{</span><span class="ss">:default_source</span> <span class="s">"card_198YCVJ3Zx6FNnHuyeItfoJu"</span>,
+ <span class="ss">:description</span> <span class="nv">nil</span>,
+ <span class="ss">:email</span> <span class="s">"stripe-test-man@test.com"</span>,
+ <span class="ss">:delinquent</span> <span class="nv">false</span>,
+ <span class="ss">:account_balance</span> <span class="mi">0</span>,
+ <span class="ss">:sources</span>
+ <span class="p">{</span><span class="ss">:object</span> <span class="s">"list"</span>,
+  <span class="ss">:data</span>
+  <span class="p">[{</span><span class="ss">:address_line1_check</span> <span class="nv">nil</span>,
+    <span class="ss">:address_state</span> <span class="nv">nil</span>,
+    <span class="ss">:dynamic_last4</span> <span class="nv">nil</span>,
+    <span class="ss">:address_zip_check</span> <span class="nv">nil</span>,
+    <span class="ss">:tokenization_method</span> <span class="nv">nil</span>,
+    <span class="ss">:exp_year</span> <span class="mi">2017</span>,
+    <span class="ss">:name</span> <span class="nv">nil</span>,
+    <span class="ss">:cvc_check</span> <span class="s">"pass"</span>,
+    <span class="ss">:last4</span> <span class="s">"4242"</span>,
+    <span class="ss">:brand</span> <span class="s">"Visa"</span>,
+    <span class="ss">:customer</span> <span class="s">"cus_9RQwyEK0fHnSkO"</span>,
+    <span class="ss">:address_country</span> <span class="nv">nil</span>,
+    <span class="ss">:funding</span> <span class="s">"credit"</span>,
+    <span class="ss">:address_line2</span> <span class="nv">nil</span>,
+    <span class="ss">:id</span> <span class="s">"card_198YCVJ3Zx6FNnHuyeItfoJu"</span>,
+    <span class="ss">:address_zip</span> <span class="nv">nil</span>,
+    <span class="ss">:address_line1</span> <span class="nv">nil</span>,
+    <span class="ss">:exp_month</span> <span class="mi">12</span>,
+    <span class="ss">:country</span> <span class="s">"US"</span>,
+    <span class="ss">:metadata</span> <span class="p">{}</span>,
+    <span class="ss">:object</span> <span class="s">"card"</span>,
+    <span class="ss">:fingerprint</span> <span class="s">"mRNahc5gc8EgfkI5"</span>,
+    <span class="ss">:address_city</span> <span class="nv">nil</span><span class="p">}]</span>,
+  <span class="ss">:has_more</span> <span class="nv">false</span>,
+  <span class="ss">:total_count</span> <span class="mi">1</span>,
+  <span class="ss">:url</span> <span class="s">"/v1/customers/cus_9RQwyEK0fHnSkO/sources"</span><span class="p">}</span>,
+ <span class="ss">:created</span> <span class="mi">1477414020</span>,
+ <span class="ss">:subscriptions</span>
+ <span class="p">{</span><span class="ss">:object</span> <span class="s">"list"</span>,
+  <span class="ss">:data</span>
+  <span class="p">[{</span><span class="ss">:canceled_at</span> <span class="nv">nil</span>,
+    <span class="ss">:application_fee_percent</span> <span class="nv">nil</span>,
+    <span class="ss">:start</span> <span class="mi">1477453490</span>,
+    <span class="ss">:created</span> <span class="mi">1477453490</span>,
+    <span class="ss">:current_period_end</span> <span class="mi">1480131890</span>,
+    <span class="ss">:trial_end</span> <span class="nv">nil</span>,
+    <span class="ss">:customer</span> <span class="s">"cus_9RQwyEK0fHnSkO"</span>,
+    <span class="ss">:ended_at</span> <span class="nv">nil</span>,
+    <span class="ss">:status</span> <span class="s">"active"</span>,
+    <span class="ss">:id</span> <span class="s">"sub_9RbY6wnlhYeBdZ"</span>,
+    <span class="ss">:cancel_at_period_end</span> <span class="nv">false</span>,
+    <span class="ss">:livemode</span> <span class="nv">false</span>,
+    <span class="ss">:quantity</span> <span class="mi">1</span>,
+    <span class="ss">:trial_start</span> <span class="nv">nil</span>,
+    <span class="ss">:discount</span> <span class="nv">nil</span>,
+    <span class="ss">:plan</span>
+    <span class="p">{</span><span class="ss">:amount</span> <span class="mi">999</span>,
+     <span class="ss">:name</span> <span class="s">"stripe-clojure"</span>,
+     <span class="ss">:created</span> <span class="mi">1477453200</span>,
+     <span class="ss">:currency</span> <span class="s">"usd"</span>,
+     <span class="ss">:interval_count</span> <span class="mi">1</span>,
+     <span class="ss">:id</span> <span class="s">"stripe-clojure"</span>,
+     <span class="ss">:trial_period_days</span> <span class="nv">nil</span>,
+     <span class="ss">:interval</span> <span class="s">"month"</span>,
+     <span class="ss">:livemode</span> <span class="nv">false</span>,
+     <span class="ss">:metadata</span> <span class="p">{}</span>,
+     <span class="ss">:object</span> <span class="s">"plan"</span>,
+     <span class="ss">:statement_descriptor</span> <span class="nv">nil</span><span class="p">}</span>,
+    <span class="ss">:current_period_start</span> <span class="mi">1477453490</span>,
+    <span class="ss">:metadata</span> <span class="p">{}</span>,
+    <span class="ss">:object</span> <span class="s">"subscription"</span>,
+    <span class="ss">:tax_percent</span> <span class="nv">nil</span><span class="p">}]</span>,
+  <span class="ss">:has_more</span> <span class="nv">false</span>,
+  <span class="ss">:total_count</span> <span class="mi">1</span>,
+  <span class="ss">:url</span> <span class="s">"/v1/customers/cus_9RQwyEK0fHnSkO/subscriptions"</span><span class="p">}</span>,
+ <span class="ss">:currency</span> <span class="s">"usd"</span>,
+ <span class="ss">:id</span> <span class="s">"cus_9RQwyEK0fHnSkO"</span>,
+ <span class="ss">:livemode</span> <span class="nv">false</span>,
+ <span class="ss">:shipping</span> <span class="nv">nil</span>,
+ <span class="ss">:discount</span> <span class="nv">nil</span>,
+ <span class="ss">:metadata</span> <span class="p">{}</span>,
+ <span class="ss">:object</span> <span class="s">"customer"</span><span class="p">}</span>
+</pre></div>
+</pre>
+<hr /><h3>Taking it a step further</h3><p>The <a href="https://github.com/prachetasp/stripe-clojure">stripe-clojure</a> library lays the foundation for a Stripe disruption in a functional environment. It contains all of the tools needed to build complex payment and customer management systems and is a great fit for building a serverless solution to payment processing. If you would like to know more about going Serverless contact EPX Labs to find out how you could improve application reliability while cutting costs. #webscale!</p>
+<hr /><div id="disqus_thread"></div></div></div>
+</div></div>
+</body></html><section id="contact" class="section section-no-border mb-none bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="alert alert-success hidden" id="contactSuccess">
+          <strong>Success!</strong> We have received your message.
+        </div>
+        <div class="alert alert-danger hidden" id="contactError">
+          <strong>Oops!</strong> An error occured and your message could not be sent. Please email us at <strong>hello@epxlabs.com</strong> or call us at <strong>+1 (646)-768-0123</strong>
+        </div>
+        <h2 class="mb-sm mt-sm"><strong>Contact</strong> Us</h2>
+        <form id="contactForm" action="" method="POST">
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-6">
+                <label>Your name</label>
+                <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" required="required" />
+              </div>
+              <div class="col-md-6">
+                <label>Your email address</label>
+                <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" required="required" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-12">
+                <label>Message</label>
+                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="6" class="form-control" name="message" id="message" required="required"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input type="submit" value="Submit" class="btn btn-primary btn-lg mb-xlg" data-loading-text="Loading..." />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h4 class="heading-primary mt-lg">Get in <strong>Touch</strong></h4>
+        <p id="get-in-touch">We are always available to help solve your business problems, meet others in the serverless space, and discuss what we're passionate about. You can get in touch with us here :-)</p>
+        <hr />
+        <ul id="contact-info" class="list list-icons list-icons-style-3 mt-xlg">
+          <li><i class="fa fa-phone"></i> <strong>Phone:</strong> 646.768.0123</li>
+          <li><i class="fa fa-envelope"></i> <strong>Email:</strong><a href="mailto:hello@epxlabs.com"> hello@epxlabs.com</a></li>
+        </ul>
+        <hr />
+        <h4 class="heading-primary">Follow <strong>Us</strong></h4>
+        <ul class="social-icons">
+          <li class="social-icons-github"><a target="_blank" href="https://github.com/epxlabs/" title="GitHub"><i class="fa fa-github"></i></a></li><li class="social-icons-linkedin"><a target="_blank" href="https://www.linkedin.com/company/epx-labs/" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li><li class="social-icons-twitter"><a target="_blank" href="https://twitter.com/epxlabs" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- END CONTACT US -->
+</section><footer id="footer" class="color color-secondary">
+  <div class="footer-copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3 col-md-2 col-md-offset-5">
+          <a href="index.html" class="logo">
+            <img alt="EPX Labs" class="img-responsive" src="/img/logos/62b1cdcca819/epx_logo.svg" />
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 text-center col-md-offset-4" id="copyright">
+          <p>© Copyright 2017 EPX Labs, Inc. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer></div>
+    </div>
+    <!-- JS Bundle -->
+    <script src="/bundles/e5a487604c0d/app.js"></script>
+    <script id="dsq-count-scr" src="//www-epxlabs-com.disqus.com/count.js" async="async"></script>
+    <!-- Google Analytics Script -->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85354348-2', 'auto');
+  ga('send', 'pageview');</script>
+  </body>
+
+</html>

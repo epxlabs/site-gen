@@ -12,6 +12,7 @@ You must generate a `src/site_generator/env.clj` file and insert your AWS creden
 (def cred {:access-key "YOUR AWS ACCESS KEY", :secret-key "YOUR AWS SECRET KEY"})
 ```
 Then in your terminal, run:
+`cd frontend`
 ` bin/set_env.sh [STAGE]` (Either dev, staging, or production)
 `lein ring server-headless`
 
@@ -30,7 +31,7 @@ Both snippets and templates require an HTML file on the classpath that they can 
 Selectors are like CSS selectors and allow you to specify the part of the HTML that you want to transform. Transformations are the functions to transform the HTML selected by the selectors.
 
 
-A selector is a vector of predicates. For a logical AND within a selector put the predicates to be AND'ed into a subvector. 
+A selector is a vector of predicates. For a logical AND within a selector put the predicates to be AND'ed into a subvector.
 
 So [:p (attr? :lang)] is going to match any elements with a lang attribute inside a :p element. On the other hand, [[:p (attr? :lang)]] is going to match any p with a lang attribute.
 
