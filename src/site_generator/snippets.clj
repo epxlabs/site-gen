@@ -9,7 +9,11 @@
   (:import java.time.Year))
 
 ;; Config to be moved to DB
-(def config {:blogs [
+(def config {:blogs [ {:title "An Introduction to Vue.Js Routing"
+                       :date "February 2, 2017"
+                       :author "Alex Martin"
+                       :file-path "resources/partials/blog-posts/2017-02-02-intro-to-vuejs-routing.markdown"
+                       :display-image "vuejs.png"}
                       {:title "AWS announces the Serverless Application Model (AWS SAM)"
                       :date "November 28, 2016"
                       :author "EPX Labs"
