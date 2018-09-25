@@ -1,5 +1,5 @@
 (ns site-generator.snippets
-  (:require [aws.sdk.s3 :as s3]
+  (:require [amazonica.aws.s3 :as s3]
             [clojure.string :as string]
             [clygments.core :as clyg]
             [me.raynes.cegdown :as md]

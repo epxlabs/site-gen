@@ -2,7 +2,7 @@
   :description "Generates epxlabs.com"
   :url "https://github.com/epxlabs/site-generator"
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [clj-aws-s3 "0.3.10" :exclusions [joda-time]]
+                 [amazonica "0.3.132"]
                  [clygments "0.1.1"]
                  [enlive "1.1.6"]
                  [me.raynes/cegdown "0.1.1"]
