@@ -103,3 +103,7 @@ NOTE: Both file names in the blog and in the display-image key in the map should
 ## License
 
 Copyright © 2016 EPX Labs, Inc.
+
+But now Ebahsini says: WTF License -- Have Fun!
+
+
